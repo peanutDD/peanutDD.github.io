@@ -1,0 +1,805 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="http/https,retrofit2,OkHttp3,Socket,HttpClientHttp,URLConnection,Volley,Crosswalk," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬                    ▓▓▓▒▒▒░░░ Like,Comment,Subscribe ░░░▒▒▒▓▓▓                          ▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬   下列均转载自作者刘望舒 ，非常感谢！  Andro">
+<meta name="keywords" content="http&#x2F;https,retrofit2,OkHttp3,Socket,HttpClientHttp,URLConnection,Volley,Crosswalk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络篇相关知识">
+<meta property="og:url" content="http://yoursite.com/2016/09/13/网络篇相关知识/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬                    ▓▓▓▒▒▒░░░ Like,Comment,Subscribe ░░░▒▒▒▓▓▓                          ▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬   下列均转载自作者刘望舒 ，非常感谢！  Andro">
+<meta property="og:updated_time" content="2017-05-26T09:25:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络篇相关知识">
+<meta name="twitter:description" content="▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬                    ▓▓▓▒▒▒░░░ Like,Comment,Subscribe ░░░▒▒▒▓▓▓                          ▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬   下列均转载自作者刘望舒 ，非常感谢！  Andro">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/13/网络篇相关知识/"/>
+
+
+
+
+
+  <title>网络篇相关知识 | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/13/网络篇相关知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网络篇相关知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-13T21:38:19+08:00">
+                2016-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HttpClientHttp、URLConnection、OkHttp以及http/" itemprop="url" rel="index">
+                    <span itemprop="name">HttpClientHttp、URLConnection、OkHttp以及http</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><font color="#FF7256"><br>                          ▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬<br>                    ▓▓▓▒▒▒░░░ Like,Comment,Subscribe ░░░▒▒▒▓▓▓<br>                          ▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬</font></p>
+<p><font></font></p>
+<blockquote>
+<p>下列均转载自作者刘望舒 ，非常感谢！</p>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/1ae1170b9a9a" target="_blank" rel="external">Android网络编程（一）HTTP协议原理</a></p>
+<p><a href="http://www.jianshu.com/p/af5ed498f2e2" target="_blank" rel="external">Android网络编程（二）HttpClient与HttpURLConnection</a></p>
+<p><a href="http://www.jianshu.com/p/797306fac9e8" target="_blank" rel="external">Android网络编程（三）Volley用法全解析</a></p>
+<p><a href="http://www.jianshu.com/p/e475f4479fb2" target="_blank" rel="external">Android网络编程（四）从源码解析Volley</a></p>
+<p><a href="http://www.jianshu.com/p/f7ca8877cf9b" target="_blank" rel="external">Android网络编程（五）OkHttp2.x用法全解析</a></p>
+<p><a href="http://www.jianshu.com/p/e15f90632692" target="_blank" rel="external">Android网络编程（六）OkHttp3用法全解析</a></p>
+<p><a href="http://www.jianshu.com/p/1ec39a05708f" target="_blank" rel="external">Android网络编程（七）源码解析OkHttp前篇（请求网络）</a></p>
+<p><a href="http://www.jianshu.com/p/35476796dd54#" target="_blank" rel="external">Android网络编程（八）源码解析OkHttp中篇（复用连接池）</a></p>
+<p><a href="http://www.jianshu.com/p/c3837e928864" target="_blank" rel="external">Android网络编程（九）Retrofit2前篇（基本使用）</a></p>
+<hr>
+<blockquote>
+<p>下列均转载自作者BlackSwift  ，非常感谢！</p>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/aad5aacd79bf" target="_blank" rel="external">OkHttp3源码分析[综述]</a></p>
+<p><a href="http://www.jianshu.com/p/92a61357164b" target="_blank" rel="external">OkHttp3源码分析[复用连接池]</a></p>
+<p><a href="http://www.jianshu.com/p/9cebbbd0eeab" target="_blank" rel="external">OkHttp3源码分析[缓存策略]</a></p>
+<p><a href="http://www.jianshu.com/p/23b8aa490a6b" target="_blank" rel="external">OkHttp3源码分析[DiskLruCache]</a></p>
+<p><a href="http://www.jianshu.com/p/6637369d02e7" target="_blank" rel="external">OkHttp3源码分析[任务队列]</a></p>
+<hr>
+<blockquote>
+<p>下列均转载自简书作者烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫  ，非常感谢！</p>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/a44407f48321" target="_blank" rel="external">HttpClient-4.5总结（1）</a></p>
+<p><a href="http://www.jianshu.com/p/bd7bea8eb487" target="_blank" rel="external">HttpClient-4.5总结（2）</a></p>
+<p><a href="http://www.jianshu.com/p/f38a62efaa96" target="_blank" rel="external">HttpClient-4.5总结（3）</a></p>
+<p><a href="http://www.jianshu.com/p/92a5d41cefc4" target="_blank" rel="external">HttpClient-4.5总结（4）</a></p>
+<hr>
+<blockquote>
+<p>下列均转载自作者银狐公子  ，非常感谢！</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/maoxiao1229/article/details/22886337" target="_blank" rel="external">基于android的Socket通信</a></p>
+<hr>
+<p><a href="http://www.cnblogs.com/devinzhang/archive/2012/01/08/2316453.html" target="_blank" rel="external">android之HttpURLConnection</a></p>
+<p><a href="http://www.jianshu.com/p/a79f1f49371b" target="_blank" rel="external">对HttpURLConnection的简单封装</a></p>
+<p><a href="http://www.jianshu.com/p/9d8784e81421" target="_blank" rel="external">Android HttpURLConnection及HttpClient对比</a></p>
+<p><a href="http://www.jianshu.com/p/960fa7509891" target="_blank" rel="external">Android网络之HttpUrlConnection和Socket关系解析</a></p>
+<p><a href="http://www.jianshu.com/p/8728e53a0d7e#" target="_blank" rel="external">Android网络之HttpUrlConnection和Socket关系图解</a></p>
+<p><a href="http://www.cnblogs.com/angeldevil/p/3729808.html" target="_blank" rel="external">快速Android开发系列网络篇之Android-Async-Http</a></p>
+<p><a href="http://www.jianshu.com/p/2910114bb78b" target="_blank" rel="external">Android网络开发之URLConnection和HttpURLConnection</a></p>
+<p><a href="http://blog.csdn.net/vpingchangxin/article/details/23375461" target="_blank" rel="external"> android http多请求异步封装对你绝对有用</a></p>
+<p><a href="http://www.jianshu.com/p/29b5d66079fa#" target="_blank" rel="external">Android个人总结之WebView的简单使用</a></p>
+<hr>
+<p><strong><font color="#FF7256">特别注意下列的网络请求：</font></strong></p>
+<blockquote>
+<p><a href="http://www.jianshu.com/p/3141d4e46240#" target="_blank" rel="external">Android网络请求心路历程</a><br><a href="http://www.jianshu.com/p/bd1a6fb7a44d#" target="_blank" rel="external">HttpRequest</a><br><a href="http://a.codekk.com/detail/Android/grumoon/Volley%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90" target="_blank" rel="external">Volley 源码解析</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0106/2275.html" target="_blank" rel="external">OkHttp使用教程</a><br><a href="http://duanyytop.github.io/2016/08/06/Retrofit%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Retrofit用法详解</a><br><a href="http://www.jianshu.com/p/a56c61da55dd" target="_blank" rel="external">Retrofit2源码分析（动态代理）</a><br><a href="http://www.jianshu.com/p/fb8d21978e38" target="_blank" rel="external">Retrofit分析-经典设计模式案例</a><br><a href="http://www.jianshu.com/p/45cb536be2f4" target="_blank" rel="external">Retrofit分析-漂亮的解耦套路</a><br><a href="http://www.jianshu.com/p/9803a6efb672" target="_blank" rel="external">OkHttp3应用（HTTP DNS的实现）</a><br><a href="http://www.jianshu.com/p/d6fdfac5e97d#" target="_blank" rel="external">Socket通信简介</a><br><a href="http://www.jianshu.com/p/32d48ca7d0e0" target="_blank" rel="external">Android Webview总结</a><br><a href="http://www.jianshu.com/p/3fcf8ba18d7f" target="_blank" rel="external">史上最全WebView使用，附送Html5Activity一份</a><br><a href="http://www.jianshu.com/p/d2f5ae6b4927#" target="_blank" rel="external">WebView你真的熟悉吗？看了才知道</a><br><a href="http://www.jianshu.com/p/c86581cb343e#" target="_blank" rel="external">Cordova+Crosswalk打包WebApp</a><br><a href="http://www.jianshu.com/p/d3ef9c62b6c8" target="_blank" rel="external">还在用Android自带的WebView组件？太Out了！</a><strong><font color="#FF7256">（Crosswalk）</font></strong><br><a href="http://www.jianshu.com/p/1fb294ec7e3b" target="_blank" rel="external">RxJava + Retrofit完成网络请求</a><br><a href="http://gank.io/post/56e80c2c677659311bed9841" target="_blank" rel="external">RxJava 与 Retrofit 结合的最佳实践</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0105/3831.html" target="_blank" rel="external">OkHttp的使用简介及封装，实现更简洁的调用</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0504/4208.html" target="_blank" rel="external">Retrofit2 完全解析 探索与okhttp之间的关系</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0519/4279.html" target="_blank" rel="external">Retrofit–使用Retrofit时怎样去设置OKHttp</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0518/4270.html" target="_blank" rel="external">你真的会用Retrofit2吗?Retrofit2完全教程</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0816/6543.html" target="_blank" rel="external">教你一分钟实现动态模糊效果</a><br><a href="http://www.tuicool.com/articles/vmMjua2" target="_blank" rel="external">Volley+OkHttp3+Gson（Jackson）开源库的封装过程</a></p>
+</blockquote>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http-https/" rel="tag"># http/https</a>
+          
+            <a href="/tags/retrofit2/" rel="tag"># retrofit2</a>
+          
+            <a href="/tags/OkHttp3/" rel="tag"># OkHttp3</a>
+          
+            <a href="/tags/Socket/" rel="tag"># Socket</a>
+          
+            <a href="/tags/HttpClientHttp/" rel="tag"># HttpClientHttp</a>
+          
+            <a href="/tags/URLConnection/" rel="tag"># URLConnection</a>
+          
+            <a href="/tags/Volley/" rel="tag"># Volley</a>
+          
+            <a href="/tags/Crosswalk/" rel="tag"># Crosswalk</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/13/自动化测试及抓包分析/" rel="next" title="自动化测试及抓包分析">
+                <i class="fa fa-chevron-left"></i> 自动化测试及抓包分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/26/笔记本网络共享打印机/" rel="prev" title="笔记本网络共享打印机">
+                笔记本网络共享打印机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-1.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

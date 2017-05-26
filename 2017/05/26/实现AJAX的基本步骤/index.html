@@ -1,0 +1,821 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AJAX," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="#####要完整实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:  创建XMLHttpRequest对象,也就是创建一个异步调用对象. 创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息. 设置响应HTTP请求状态变化的函数. 发送HTTP请求. 获取异步调用返回的数据. 使用JavaScript和DOM实现局部刷新.  1、创建XMLHttpRequest对象不同的">
+<meta name="keywords" content="AJAX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现AJAX的基本步骤">
+<meta property="og:url" content="http://yoursite.com/2017/05/26/实现AJAX的基本步骤/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="#####要完整实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:  创建XMLHttpRequest对象,也就是创建一个异步调用对象. 创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息. 设置响应HTTP请求状态变化的函数. 发送HTTP请求. 获取异步调用返回的数据. 使用JavaScript和DOM实现局部刷新.  1、创建XMLHttpRequest对象不同的">
+<meta property="og:updated_time" content="2017-05-26T10:28:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现AJAX的基本步骤">
+<meta name="twitter:description" content="#####要完整实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:  创建XMLHttpRequest对象,也就是创建一个异步调用对象. 创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息. 设置响应HTTP请求状态变化的函数. 发送HTTP请求. 获取异步调用返回的数据. 使用JavaScript和DOM实现局部刷新.  1、创建XMLHttpRequest对象不同的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/26/实现AJAX的基本步骤/"/>
+
+
+
+
+
+  <title>实现AJAX的基本步骤 | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/实现AJAX的基本步骤/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">实现AJAX的基本步骤</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T19:18:46+08:00">
+                2017-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AJAX/" itemprop="url" rel="index">
+                    <span itemprop="name">AJAX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#####<br>要完整实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:</p>
+<ol>
+<li>创建XMLHttpRequest对象,也就是创建一个异步调用对象.</li>
+<li>创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</li>
+<li>设置响应HTTP请求状态变化的函数.</li>
+<li>发送HTTP请求.</li>
+<li>获取异步调用返回的数据.</li>
+<li>使用JavaScript和DOM实现局部刷新.</li>
+</ol>
+<h6 id="1、创建XMLHttpRequest对象"><a href="#1、创建XMLHttpRequest对象" class="headerlink" title="1、创建XMLHttpRequest对象"></a>1、创建XMLHttpRequest对象</h6><p>不同的浏览器使用的异步调用对象也有所不同,在IE浏览器中异步调用使用的是<code>XMLHTTP</code>组件中的<code>XMLHttpRequest</code>对象,而在<code>Netscape、Firefox</code>浏览器中则直接使用<code>XMLHttpRequest</code>组件。因此,在不同浏览器中创建<code>XMLHttpRequest</code>对象的方式都有所不同.<br>在IE浏览器中创建<code>XMLHttpRequest</code>对象的方式如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var xmlHttpRequest = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</div></pre></td></tr></table></figure></p>
+<p>在<code>Netscape</code>浏览器中创建<code>XMLHttpRequest</code>对象的方式如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var xmlHttpRequest = new XMLHttpRequest();</div></pre></td></tr></table></figure></p>
+<p>由于无法确定用户使用的是什么浏览器,所以在创建<code>XMLHttpRequest</code>对象时,最好将以上两种方法都加上.如以下代码所示:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">     &lt;title&gt;创建XMLHttpRequest对象&lt;/title&gt;</div><div class="line"></div><div class="line">     &lt;script language = "javascript" type = "text/javascript"&gt;</div><div class="line"></div><div class="line">     var xmlHttpRequest;  //定义一个变量,用于存放XMLHttpRequest对象</div><div class="line"></div><div class="line">     function createXMLHttpRequest() &#123;   //创建XMLHttpRequest对象的方法</div><div class="line"></div><div class="line">	     if(window.ActiveXObject)&#123;  //判断是否是IE浏览器</div><div class="line"></div><div class="line">	         xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");  </div><div class="line">	         </div><div class="line">	        //创建IE浏览器中的XMLHttpRequest对象</div><div class="line"></div><div class="line">          &#125;else if(window.XMLHttpRequest)&#123;  </div><div class="line"></div><div class="line">				//判断是否是Netscape等其他支持XMLHttpRequest组件的浏览器</div><div class="line"></div><div class="line">				xmlHttpRequest = new XMLHttpRequest();  </div><div class="line">			</div><div class="line">				//创建其他浏览器上的XMLHttpRequest对象</div><div class="line"></div><div class="line">	            &#125;</div><div class="line"></div><div class="line">	      &#125;</div><div class="line">	 &#125;</div><div class="line">	 </div><div class="line">	 createXMLHttpRequst();   //调用创建对象的方法</div><div class="line"></div><div class="line">	 &lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;<span class="regexp">/html&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>&quot;if(window.ActiveXObject)&quot;</code>用来判断是否使用IE浏览器.其中<code>ActiveXOject</code>并不是<code>Windows</code>对象的标准属性,而是IE浏览器中专有的属性,可以用于判断浏览器是否支持ActiveX控件.通常只有IE浏览器或以IE浏览器为核心的浏览器才能支持Active控件.</p>
+<p><code>&quot;else if(window.XMLHttpRequest)&quot;</code>是为了防止一些浏览器既不支持ActiveX控件,也不支持XMLHttpRequest组件而进行的判断.其中<code>XMLHttpRequest</code>也不是<code>window</code>对象的标准属性,但可以用来判断浏览器是否支持<code>XMLHttpRequest</code>组件.</p>
+<p>如果浏览器既不支持<code>ActiveX</code>控件,也不支持<code>XMLHttpRequest</code>组件,那么就不会对<code>xmlHttpRequest</code>变量赋值.</p>
+<h6 id="2、创建HTTP请求"><a href="#2、创建HTTP请求" class="headerlink" title="2、创建HTTP请求"></a>2、创建HTTP请求</h6><p>创建了XMLHttpRequest对象之后,必须为XMLHttpRequest对象创建HTTP请求,用于说明XMLHttpRequest对象要从哪里获取数据.通常可以是网站中的数据,也可以是本地中其他文件中的数据.</p>
+<p>创建HTTP请求可以使用XMLHttpRequest对象的open()方法,其语法代码如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">XMLHttpRequest.open(method,URL,flag,name,password)</div></pre></td></tr></table></figure></p>
+<p>代码中的参数解释如下所示:</p>
+<p><code>method：</code>该参数用于指定HTTP的请求方法，一共有get、post、head、put、delete五种方法，常用的方法为get和post。</p>
+<p><code>URL：</code>该参数用于指定HTTP请求的URL地址，可以是绝对URL，也可以是相对URL。</p>
+<p><code>flag：</code>该参数为可选参数，参数值为布尔型。该参数用于指定是否使用异步方式。true表示异步方式、false表示同步方式，默认为true。</p>
+<p><code>name：</code>该参数为可选参数，用于输入用户名。如果服务器需要验证，则必须使用该参数。</p>
+<p><code>password：</code>该参数为可选参数，用于输入密码。如果服务器需要验证，则必须使用该参数。通常可以使用以下代码来访问一个网站文件的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlHttpRequest.open(&quot;get&quot;,&quot;http://www.aspxfans.com/BookSupport/JavaScript/ajax.htm&quot;,true);</div></pre></td></tr></table></figure></p>
+<p>或者使用以下代码来访问一个本地文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlHttpRequest.open(&quot;get&quot;,&quot;ajax.htm&quot;,true);</div></pre></td></tr></table></figure>
+<p>注意：如果HTML文件放在Web服务器上，在Netscape浏览器中的JavaScript安全机制不允许与本机之外的主机进行通信。也就是说，使用open()方法只能打开与HTML文件在同一个服务器上的文件。而在IE浏览器中则无此限制（虽然可以打开其他服务器上的文件，但也会有警告提示）。</p>
+<h6 id="3、设置响应HTTP请求状态变化的函数"><a href="#3、设置响应HTTP请求状态变化的函数" class="headerlink" title="3、设置响应HTTP请求状态变化的函数"></a>3、设置响应HTTP请求状态变化的函数</h6><p>创建完HTTP请求之后，应该就可以将HTTP请求发送给Web服务器了。然而，发送HTTP请求的目的是为了接收从服务器中返回的数据。从创建<code>XMLHttpRequest</code>对象开始，到发送数据、接收数据、<code>XMLHttpRequest</code>对象一共会经历以下5中状态。</p>
+<p>⑴未初始化状态。在创建完<code>XMLHttpRequest</code>对象时，该对象处于未初始化状态，此时<code>XMLHttpRequest</code>对象的<code>readyState</code>属性值为0。</p>
+<p>⑵初始化状态。在创建完<code>XMLHttpRequest</code>对象后使用<code>open()</code>方法创建了<code>HTTP</code>请求时，该对象处于初始化状态。此时<code>XMLHttpRequest</code>对象的<code>readyState</code>属性值为1。</p>
+<p>⑶发送数据状态。在初始化XMLHttpRequest对象后，使用send()方法发送数据时，该对象处于发送数据状态，此时XMLHttpRequest对象的readyState属性值为2。</p>
+<p>⑷接收数据状态。Web服务器接收完数据并进行处理完毕之后，向客户端传送返回的结果。此时，XMLHttpRequest对象处于接收数据状态，XMLHttpRequest对象的readyState属性值为3。</p>
+<p>⑸完成状态。XMLHttpRequest对象接收数据完毕后，进入完成状态，此时XMLHttpRequest对象的readyState属性值为4。此时接收完毕后的数据存入在客户端计算机的内存中，可以使用responseText属性或responseXml属性来获取数据。</p>
+<p>只有在XMLHttpRequest对象完成了以上5个步骤之后，才可以获取从服务器端返回的数据。因此，如果要获得从服务器端返回的数据，就必须要先判断XMLHttpRequest对象的状态。</p>
+<p>XMLHttpRequest对象可以响应readystatechange事件，该事件在XMLHttpRequest对象状态改变时（也就是readyState属性值改变时）激发。因此，可以通过该事件调用一个函数，并在该函数中判断XMLHttpRequest对象的readyState属性值。如果readyState属性值为4则使用responseText属性或responseXml属性来获取数据。具体代码如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">     //设置当XMLHttpRequest对象状态改变时调用的函数，注意函数名后面不要添加小括号</div><div class="line"></div><div class="line">     xmlHttpRequest.onreadystatechange = getData;</div><div class="line"></div><div class="line">     //定义函数</div><div class="line"></div><div class="line">     function getData()&#123;</div><div class="line"></div><div class="line">            //判断XMLHttpRequest对象的readyState属性值是否为4，如果为4表示异步调用完成</div><div class="line"></div><div class="line">            if(xmlHttpRequest.readyState == 4)&#123;</div><div class="line">               //设置获取数据的语句</div><div class="line">             &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6 id="4、设置获取服务器返回数据的语句"><a href="#4、设置获取服务器返回数据的语句" class="headerlink" title="4、设置获取服务器返回数据的语句"></a>4、设置获取服务器返回数据的语句</h6><p>如果XMLHttpRequest对象的readyState属性值等于4，表示异步调用过程完毕，就可以通过XMLHttpRequest对象的responseText属性或responseXml属性来获取数据。</p>
+<p>但是，异步调用过程完毕，并不代表异步调用成功了，如果要判断异步调用是否成功，还要判断XMLHttpRequest对象的status属性值，只有该属性值为200，才表示异步调用成功，因此，要获取服务器返回数据的语句，还必须要先判断XMLHttpRequest对象的status属性值是否等于200，如以下代码所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">    if(xmlHttpRequst.status == 200)&#123;</div><div class="line"></div><div class="line">       //使用以下语句将返回结果以字符串形式输出</div><div class="line"></div><div class="line">       document.write(xmlHttpRequest.responseText);</div><div class="line"></div><div class="line">       //或者使用以下语句将返回结果以XML形式输出</div><div class="line"></div><div class="line">       document.write(xmlHttpRequest.responseXML);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //注意：如果HTML文件不是在Web服务器上运行，而是在本地运行，则xmlHttpRequest.status的返回值为0。因此，如果该文件在本地运行，则应该加上xmlHttpRequest.status == 0的判断。</div><div class="line"></div><div class="line">    //通常将以上代码放在响应HTTP请求状态变化的函数体内，如以下代码所示：</div><div class="line"></div><div class="line">    //设置当XMLHttpRequest对象状态改变时调用的函数，注意函数名后面不要添加小括号</div><div class="line"></div><div class="line">    xmlHttpRequest.onreadystatechange = getData;</div><div class="line"></div><div class="line">    //定义函数</div><div class="line"></div><div class="line">    function getData()&#123;</div><div class="line"></div><div class="line">            //判断XMLHttpRequest对象的readyState属性值是否为4，如果为4表示异步调用完成</div><div class="line">if(xmlHttpRequest.readyState==4)&#123;</div><div class="line"></div><div class="line">            //设置获取数据的语句</div><div class="line"></div><div class="line">            if(xmlHttpRequest.status == 200 || xmlHttpRequest.status == 0)&#123;</div><div class="line"></div><div class="line">            //使用以下语句将返回结果以字符串形式输出</div><div class="line"></div><div class="line">            document.write(xmlHttpRequest.responseText);</div><div class="line"></div><div class="line">            //或者使用以下语句将返回结果以XML形式输出</div><div class="line"></div><div class="line">            docunment.write(xmlHttpRequest.responseXML);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h6 id="5、发送HTTP请求"><a href="#5、发送HTTP请求" class="headerlink" title="5、发送HTTP请求"></a>5、发送HTTP请求</h6><p>在经过以上几个步骤的设置之后，就可以将HTTP请求发送到Web服务器上去了。发送HTTP请求可以使用XMLHttpRequest对象的send()方法，其语法代码如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">XMLHttpRequest.send(data)</div></pre></td></tr></table></figure></p>
+<p>其中data是个可选参数，如果请求的数据不需要参数，即可以使用null来替代。data参数的格式与在URL中传递参数的格式类似，以下代码为一个send()方法中的data参数的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">name=myName&amp;value=myValue</div></pre></td></tr></table></figure></p>
+<p>只有在使用send()方法之后，XMLHttpRequest对象的readyState属性值才会开始改变，也才会激发readystatechange事件，并调用函数。</p>
+<h6 id="6、局部更新"><a href="#6、局部更新" class="headerlink" title="6、局部更新"></a>6、局部更新</h6><p> 在通过Ajax的异步调用获得服务器端数据之后，可以使用JavaScript或DOM来将网页中的数据进行局部更新。常用的局部更新的方式有以下3种：</p>
+<p>⑴表单对象的数据更新</p>
+<p>表单对象的数据更新，通常只要更改表单对象的value属性值，其语法代码如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FormObject.value = &quot;新数值&quot;</div></pre></td></tr></table></figure></p>
+<p>有关表单对象的数据更新的示例如以下代码所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">&lt;title&gt;局部更新&lt;/title&gt;</div><div class="line"></div><div class="line">&lt;script language = &quot;javascript&quot; type = &quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">	function changeData()&#123;</div><div class="line"></div><div class="line">		document.myForm.myText.value = &quot;更新后的数据&quot;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;form name = &quot;myForm&quot;&gt;</div><div class="line"></div><div class="line">	&lt;input type = &quot;text&quot; value = &quot;原数据&quot; name = &quot;myText&quot;&gt;</div><div class="line"></div><div class="line">	&lt;input type = &quot;button&quot; value = &quot;更新数据&quot; onclick = &quot;changeData()&quot;&gt;</div><div class="line"></div><div class="line">&lt;/form&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>⑵IE浏览器中标签间文本的更新</p>
+<p>在HTML代码中，除了表单元素之外，还有很多其他的元素，这些元素的开始标签与结束标签之间往往也会有一点文字（如以下代码所示），对这些文字的更新，也是局部更新的一部分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;文字&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;span&gt;文字&lt;/span&gt;</div><div class="line"></div><div class="line">&lt;div&gt;文字&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;label&gt;文字&lt;/label&gt;</div><div class="line"></div><div class="line">&lt;b&gt;文字&lt;/b&gt;</div><div class="line"></div><div class="line">&lt;i&gt;文字&lt;/i&gt;</div></pre></td></tr></table></figure></p>
+<p>在IE浏览器中，innerText或innerHTML属性可以用来更改标签间文本的内容。其中innerText属性用于更改开始标签与结束标签之间的纯文本内容，而innerHTML属性用于更改HTML内容。如以下代码所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">	&lt;title&gt;局部更新&lt;/title&gt;</div><div class="line"></div><div class="line">    &lt;script language = &quot;javascript&quot; type = &quot;text/javascript&quot;&gt;</div><div class="line">    </div><div class="line">    function changeData()&#123;</div><div class="line"></div><div class="line">	    myDiv.innerText = &quot;更新后的数据&quot;;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">	&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;div id = &quot;myDive&quot;&gt;原数据&lt;/div&gt;</div><div class="line"></div><div class="line">    &lt;input type = &quot;button&quot; value = &quot;更新数据&quot; onclick = &quot;changeData()&quot;&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>⑶DOM技术的局部刷新</p>
+<p>innerText和innerHTML两个属性都是IE浏览器中的属性，在Netscape浏览器中并不支持该属性。但无论是IE浏览器还是Netscape浏览器，都支持DOM。在DOM中，可以修改标签间的文本内容。</p>
+<p>在DOM中，将HTML文档中的每一对开始标签和结束标签都看成是一个节点。例如HTML文档中有一个标签如下所示，那么该标签在DOM中称之为一个“节点”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id = &quot;myDiv&quot;&gt;原数据&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>在DOM中使用getElementById()方法可以通过id属性值来查找该标签（或者说是节点），如以下语句所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var node = document.getElementById(&quot;myDiv&quot;);</div></pre></td></tr></table></figure></p>
+<p>注意：在一个HTML文档中，每个标签中的id属性值是不能重复的。因此，使用getElementById()方法获得的节点是唯一的。</p>
+<p>在DOM中，认为开始标签与结束标签之间的文本是该节点的子节点，而firstChild属性可以获得一个节点下的第1个子节点。如以下代码可以获得<div>节点下的第1个子节点，也就是<div>标签与</div>标签之间的文字节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node.firstChild</div></pre></td></tr></table></figure></div></p>
+<blockquote>
+<p><strong>注意，以上代码获得的是文字节点，而不是文字内容。如果要获得节点的文字内容，则要使用节点的nodeValue属性。通过设置nodeValue属性值，可以改变文字节点的文本内容。完整的代码如下所示：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">	&lt;title&gt;局部更新&lt;/title&gt;</div><div class="line"></div><div class="line">    &lt;script language = "javascript" type = "text/javascript"&gt;</div><div class="line"></div><div class="line">    function changeData()&#123;</div><div class="line"></div><div class="line">		//查找标签（节点）</div><div class="line"></div><div class="line">		var node = document.getElementById("myDiv");</div><div class="line"></div><div class="line">        //在DOM中标签中的文字被认为是标签中的子节点</div><div class="line"></div><div class="line">        //节点的firstChild属性为该节点下的第1个子节点</div><div class="line"></div><div class="line">        //nodeValue属性为节点的值，也就是标签中的文本值</div><div class="line"></div><div class="line">        node.firstChild.nodeValue = "更新后的数据";</div><div class="line"></div><div class="line">     &#125;</div><div class="line"></div><div class="line">	&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;<span class="regexp">/html&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>注意：目前主流的浏览器都支持DOM技术的局部刷新。</p>
+<h6 id="7、完整的AJAX实例"><a href="#7、完整的AJAX实例" class="headerlink" title="7、完整的AJAX实例"></a>7、完整的AJAX实例</h6><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;AJAX实例&lt;/title&gt;</div><div class="line">	&lt;script language="javascript" type="text/javascript"&gt;    </div><div class="line">                         </div><div class="line">    var xmlHttpRequest;  //定义一个变量用于存放XMLHttpRequest对象</div><div class="line">    </div><div class="line">    //定义一个用于创建XMLHttpRequest对象的函数</div><div class="line">    function createXMLHttpRequest()&#123;</div><div class="line">	    </div><div class="line">	    if(window.ActiveXObject)&#123;</div><div class="line">	        //IE浏览器的创建方式</div><div class="line">	        xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");</div><div class="line">        </div><div class="line">        &#125;else if(windew.XMLHttpRequest)&#123;</div><div class="line">	        //Netscape浏览器中的创建方式</div><div class="line">            xmlHttpRequest = new XMLHttpRequest();</div><div class="line">        &#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	//响应HTTP请求状态变化的函数</div><div class="line">    function httpStateChange()&#123;</div><div class="line">	    //判断异步调用是否完成</div><div class="line">    if(xmlHttpRequest.readyState == 4)&#123;</div><div class="line">		//判断异步调用是否成功,如果成功开始局部更新数据</div><div class="line">        if(xmlHttpRequest.status == 200||xmlHttpRequest.status == 0)&#123;</div><div class="line">	        //查找节点</div><div class="line">	        node = document.getElementById("myDIv");</div><div class="line"></div><div class="line">            //更新数据</div><div class="line">            node.firstChild.nodeValue = xmlHttpRequest .responseText;</div><div class="line">		&#125;else&#123;</div><div class="line">		</div><div class="line">		//如果异步调用未成功,弹出警告框,并显示出错信息</div><div class="line">		</div><div class="line">        alert("异步调用出错/n返回的HTTP状态码为:"+xmlHttpRequest.status + "/n返回的HTTP状态信息为:" + xmlHttpRequest.statusText);</div><div class="line">        </div><div class="line">		&#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">   </div><div class="line">   //异步调用服务器段数据</div><div class="line">  </div><div class="line">  function getData(name,value)&#123;               </div><div class="line">      //创建XMLHttpRequest对象</div><div class="line">	  createXMLHttpRequest();</div><div class="line">      if(xmlHttpRequest!=null)&#123;</div><div class="line">	      </div><div class="line">	      //创建HTTP请求</div><div class="line">	      xmlHttpRequest.open("get","ajax.text",true)</div><div class="line">														                                            </div><div class="line">          //设置HTTP请求状态变化的函数</div><div class="line">          xmlHttpRequest.onreadystatechange = httpStateChange;</div><div class="line">			                                       </div><div class="line">          //发送请求</div><div class="line">          xmlHttpRequest.send(null);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   &lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id="myDiv"&gt;原数据&lt;/div&gt;</div><div class="line">&lt;input type = "button" value = "更新数据" onclick = "getData()"&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AJAX/" rel="tag"># AJAX</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/26/笔记本网络共享打印机/" rel="next" title="笔记本网络共享打印机">
+                <i class="fa fa-chevron-left"></i> 笔记本网络共享打印机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/26/事件委托以及处理冒泡事件/" rel="prev" title="事件委托以及处理冒泡事件">
+                事件委托以及处理冒泡事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-1.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、创建XMLHttpRequest对象"><span class="nav-number">1.</span> <span class="nav-text">1、创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、创建HTTP请求"><span class="nav-number">2.</span> <span class="nav-text">2、创建HTTP请求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、设置响应HTTP请求状态变化的函数"><span class="nav-number">3.</span> <span class="nav-text">3、设置响应HTTP请求状态变化的函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、设置获取服务器返回数据的语句"><span class="nav-number">4.</span> <span class="nav-text">4、设置获取服务器返回数据的语句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、发送HTTP请求"><span class="nav-number">5.</span> <span class="nav-text">5、发送HTTP请求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6、局部更新"><span class="nav-number">6.</span> <span class="nav-text">6、局部更新</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7、完整的AJAX实例"><span class="nav-number">7.</span> <span class="nav-text">7、完整的AJAX实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

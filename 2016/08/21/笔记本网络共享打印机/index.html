@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="http/https,retrofit2,OkHttp3,Socket,TCP/IP,UDP," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="鱼人孑">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="笔记本网络共享打印机前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（">
+<meta name="keywords" content="http&#x2F;https,retrofit2,OkHttp3,Socket,TCP&#x2F;IP,UDP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络请求">
+<meta property="og:url" content="http://yoursite.com/2016/08/21/笔记本网络共享打印机/index.html">
 <meta property="og:site_name" content="鱼人孑">
-<meta property="og:description" content="天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！">
+<meta property="og:description" content="笔记本网络共享打印机前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（">
+<meta property="og:updated_time" content="2017-05-26T09:36:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="鱼人孑">
-<meta name="twitter:description" content="天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！">
+<meta name="twitter:title" content="网络请求">
+<meta name="twitter:description" content="笔记本网络共享打印机前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/21/笔记本网络共享打印机/"/>
 
 
 
 
 
-  <title>鱼人孑</title>
+  <title>网络请求 | 鱼人孑</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,9 +158,7 @@
   
   
 
-  <div class="container  
-   page-home 
- ">
+  <div class="container  page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,127 +251,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="peanut">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo-1-1.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="鱼人孑">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/26/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T11:35:16+08:00">
-                2017-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/26/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -397,9 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/21/笔记本网络共享打印机/" itemprop="url">网络请求</a></h1>
+          <h1 class="post-title" itemprop="name headline">网络请求</h1>
         
 
         <div class="post-meta">
@@ -468,57 +348,109 @@
       
 
       
+        <h4 id="笔记本网络共享打印机"><a href="#笔记本网络共享打印机" class="headerlink" title="笔记本网络共享打印机"></a>笔记本网络共享打印机</h4><p><strong>前提：</strong></p>
+<p><strong>1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入<code>gpedit.msc</code>调用），本地用户和组，必须升级成专业版;</strong></p>
+<p><strong>2. 有台式机和打印机连接时，打印机的IP就是台式机的IP.</strong></p>
+<p><strong>操作：</strong></p>
+<ol>
+<li>在控制面板 &gt; 用户账户 &gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填，</li>
+<li>win+R键调出run（运行），再输入 <code>\\192.168.0.111</code>（对应的打印机IP），获取对应的打印机权限机IP），获取对应的打印机权限</li>
+</ol>
+<blockquote>
+<p><strong>1. 默认情况下，Windows的本地安全设置要求进行网络访问的用户全部采用访客（guest）方式。同时，在Windows安全策略的用户权利指派中又禁止Guest用户通过网络访问系统。这样两条相互矛盾的安全策略导致了网内其他用户无法通过网络访问使用Windows的计算机。</strong></p>
+<p><strong>2. 更改网络访问模式打开组策略编辑器，依次选择“计算机配置→Windows设置→安全设置→本地策略→安全选项”，双击“网络访问：本地账号的共享和安全模式”策略，将默认设置“仅来宾?本地用户以来宾身份验证”，更改为“经典：本地用户以自己的身份验证”。</strong></p>
+<p><strong>3. 将安全选项中的使用空密码的本地账户只允许控制台登录 改为已禁用。原来在“安全选项”中有一个“账户：使用空白密码的本地账户只允许进行控制台登录”策略默认是启用的，根据Windows安全策略中拒绝优先的原则，密码为空的用户通过网络访问使用Windows的计算机时便会被禁止。我们只要将这个策略停用即可解决问题。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">步骤都是在被访问的计算机中操作，而遇到的问题都是在笔记本发现的</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"><a href="#下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用" class="headerlink" title="下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"></a><strong>下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用</strong></h5><p><strong>win10中，开启guest账户的步骤是：</strong></p>
+<ol>
+<li>右击win10左下角Windows的图标 &gt; 计算机管理 &gt; 计算机管理（本地）&gt; 系统工具 &gt; 本地用户和组 &gt; 用户 &gt; 双击Guest ；</li>
+<li>取消勾选：账户已禁用 &gt; 确定；</li>
+<li>即可启用guest账户,以便于别的win10中可以匿名访问共享文件夹。</li>
+</ol>
+<h5 id="下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型"><a href="#下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型" class="headerlink" title="下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型"></a><strong>下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型</strong></h5><ol>
+<li>按下“Win+R”组合键呼出运行，在框中输入“gpedit.msc”按下回车键打开“组策略编辑器”；</li>
+<li>在左侧树状菜单中依次展开“计算机配置”—“Windows设置”—“安全设置”—“本地策略”—“用户权限分配”；</li>
+<li>在右侧双击打开“从网络访问此计算机”，点击“添加用户或组”；</li>
+<li>在“选择用户或组”框内“输入对象名称来选择”下面输入“guest”，然后点击检查名称，然后点击确定，回到“从网络访问此计算机 属性”框中点击应用并确定；</li>
+<li>点“用户权限分配”，在右边的策略中找到“拒绝从网络访问这 台计算机”，把<code>guest</code>删除、保存即可。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-          笔记本网络共享打印机前提：
-1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版;
-2. 有台式机和打印机连接时，打印机的IP就是台式机的IP.
-操作：
 
-在控制面板 &gt; 用户账户 &gt; 凭据管理器中添加Win
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/21/笔记本网络共享打印机/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/http-https/" rel="tag"># http/https</a>
+          
+            <a href="/tags/retrofit2/" rel="tag"># retrofit2</a>
+          
+            <a href="/tags/OkHttp3/" rel="tag"># OkHttp3</a>
+          
+            <a href="/tags/Socket/" rel="tag"># Socket</a>
+          
+            <a href="/tags/TCP-IP/" rel="tag"># TCP/IP</a>
+          
+            <a href="/tags/UDP/" rel="tag"># UDP</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/26/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -526,6 +458,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -545,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/photo-1-1.jpeg"
@@ -642,6 +587,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笔记本网络共享打印机"><span class="nav-number">1.</span> <span class="nav-text">笔记本网络共享打印机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"><span class="nav-number">1.1.</span> <span class="nav-text">下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型"><span class="nav-number">1.2.</span> <span class="nav-text">下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -755,6 +716,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

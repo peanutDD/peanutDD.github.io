@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="笔记本网络共享打印机前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（">
+<meta name="description" content="前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（运行），再输入 \\">
 <meta name="keywords" content="http&#x2F;https,retrofit2,OkHttp3,Socket,TCP&#x2F;IP,UDP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络请求">
+<meta property="og:title" content="笔记本网络共享打印机">
 <meta property="og:url" content="http://yoursite.com/2016/08/21/笔记本网络共享打印机/index.html">
 <meta property="og:site_name" content="鱼人孑">
-<meta property="og:description" content="笔记本网络共享打印机前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（">
-<meta property="og:updated_time" content="2017-05-26T09:36:04.000Z">
+<meta property="og:description" content="前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（运行），再输入 \\">
+<meta property="og:updated_time" content="2017-05-26T09:39:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络请求">
-<meta name="twitter:description" content="笔记本网络共享打印机前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（">
+<meta name="twitter:title" content="笔记本网络共享打印机">
+<meta name="twitter:description" content="前提： 1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入gpedit.msc调用），本地用户和组，必须升级成专业版; 2. 有台式机和打印机连接时，打印机的IP就是台式机的IP. 操作：  在控制面板 &amp;gt; 用户账户 &amp;gt; 凭据管理器中添加Windows凭据，设置对应的打印机IP地址，用户名：guest，密码：不用填， win+R键调出run（运行），再输入 \\">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title>网络请求 | 鱼人孑</title>
+  <title>笔记本网络共享打印机 | 鱼人孑</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网络请求</h1>
+          <h1 class="post-title" itemprop="name headline">笔记本网络共享打印机</h1>
         
 
         <div class="post-meta">
@@ -348,7 +348,7 @@
       
 
       
-        <h4 id="笔记本网络共享打印机"><a href="#笔记本网络共享打印机" class="headerlink" title="笔记本网络共享打印机"></a>笔记本网络共享打印机</h4><p><strong>前提：</strong></p>
+        <p><strong>前提：</strong></p>
 <p><strong>1. win10家庭版没有本地安全策略（通过在win+R键调出run中输入<code>gpedit.msc</code>调用），本地用户和组，必须升级成专业版;</strong></p>
 <p><strong>2. 有台式机和打印机连接时，打印机的IP就是台式机的IP.</strong></p>
 <p><strong>操作：</strong></p>
@@ -359,8 +359,9 @@
 <blockquote>
 <p><strong>1. 默认情况下，Windows的本地安全设置要求进行网络访问的用户全部采用访客（guest）方式。同时，在Windows安全策略的用户权利指派中又禁止Guest用户通过网络访问系统。这样两条相互矛盾的安全策略导致了网内其他用户无法通过网络访问使用Windows的计算机。</strong></p>
 <p><strong>2. 更改网络访问模式打开组策略编辑器，依次选择“计算机配置→Windows设置→安全设置→本地策略→安全选项”，双击“网络访问：本地账号的共享和安全模式”策略，将默认设置“仅来宾?本地用户以来宾身份验证”，更改为“经典：本地用户以自己的身份验证”。</strong></p>
-<p><strong>3. 将安全选项中的使用空密码的本地账户只允许控制台登录 改为已禁用。原来在“安全选项”中有一个“账户：使用空白密码的本地账户只允许进行控制台登录”策略默认是启用的，根据Windows安全策略中拒绝优先的原则，密码为空的用户通过网络访问使用Windows的计算机时便会被禁止。我们只要将这个策略停用即可解决问题。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">步骤都是在被访问的计算机中操作，而遇到的问题都是在笔记本发现的</div></pre></td></tr></table></figure></p>
+<p><strong>3. 将安全选项中的使用空密码的本地账户只允许控制台登录 改为已禁用。原来在“安全选项”中有一个“账户：使用空白密码的本地账户只允许进行控制台登录”策略默认是启用的，根据Windows安全策略中拒绝优先的原则，密码为空的用户通过网络访问使用Windows的计算机时便会被禁止。我们只要将这个策略停用即可解决问题。</strong></p>
 </blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">步骤都是在被访问的计算机中操作，而遇到的问题都是在笔记本发现的</div></pre></td></tr></table></figure>
 <h5 id="下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"><a href="#下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用" class="headerlink" title="下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"></a><strong>下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用</strong></h5><p><strong>win10中，开启guest账户的步骤是：</strong></p>
 <ol>
 <li>右击win10左下角Windows的图标 &gt; 计算机管理 &gt; 计算机管理（本地）&gt; 系统工具 &gt; 本地用户和组 &gt; 用户 &gt; 双击Guest ；</li>
@@ -597,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笔记本网络共享打印机"><span class="nav-number">1.</span> <span class="nav-text">笔记本网络共享打印机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"><span class="nav-number">1.1.</span> <span class="nav-text">下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型"><span class="nav-number">1.2.</span> <span class="nav-text">下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用"><span class="nav-number">1.</span> <span class="nav-text">下面解决的是问题一：没有权限使用网络资源中的用户当前已被禁用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型"><span class="nav-number">2.</span> <span class="nav-text">下面解决的是问题二：没有权限使用网络资源中的未授予用户再次计算机上的请求登录类型</span></a></li></ol></div>
             
 
           </div>

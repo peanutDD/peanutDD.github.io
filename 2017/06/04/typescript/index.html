@@ -1,0 +1,795 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="typescript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="typescript#####类型批注 TypeScript 通过类型批注提供静态类型以在编译时启动类型检查。这是可选的，而且可以被忽略而使用 JavaScript 常规的动态类型。123function Add(left: number, right: number): number &amp;#123;	return left + right;&amp;#125; 对于基本类型的批注是number, bool">
+<meta name="keywords" content="typescript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typescript入门">
+<meta property="og:url" content="http://yoursite.com/2017/06/04/typescript/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="typescript#####类型批注 TypeScript 通过类型批注提供静态类型以在编译时启动类型检查。这是可选的，而且可以被忽略而使用 JavaScript 常规的动态类型。123function Add(left: number, right: number): number &amp;#123;	return left + right;&amp;#125; 对于基本类型的批注是number, bool">
+<meta property="og:updated_time" content="2017-06-04T15:39:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="typescript入门">
+<meta name="twitter:description" content="typescript#####类型批注 TypeScript 通过类型批注提供静态类型以在编译时启动类型检查。这是可选的，而且可以被忽略而使用 JavaScript 常规的动态类型。123function Add(left: number, right: number): number &amp;#123;	return left + right;&amp;#125; 对于基本类型的批注是number, bool">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/04/typescript/"/>
+
+
+
+
+
+  <title>typescript入门 | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/04/typescript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">typescript入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T23:37:51+08:00">
+                2017-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/typescript/" itemprop="url" rel="index">
+                    <span itemprop="name">typescript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="typescript"><a href="#typescript" class="headerlink" title="typescript"></a>typescript</h3><p>#####类型批注</p>
+<p>TypeScript 通过类型批注提供静态类型以在编译时启动类型检查。这是可选的，而且可以被忽略而使用 JavaScript 常规的动态类型。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Add</span>(<span class="params">left: <span class="built_in">number</span>, right: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> left + right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对于基本类型的批注是number, bool和string。而弱或动态类型的结构则是any类型。</p>
+<p>类型批注可以被导出到一个单独的声明文件以让使用类型的已被编译为JavaScript的TypeScript脚本的类型信息可用。批注可以为一个现有的JavaScript库声明，就像已经为Node.js和jQuery所做的那样。</p>
+<p>当类型没有给出时，TypeScript编译器利用类型推断以推断类型。如果由于缺乏声明，没有类型可以被推断出，那么它就会默认为是动态的any类型。</p>
+<p>#####接口</p>
+<p>我们通过一个接口来扩展以上实例，创建一个 interface.ts 文件，修改 index.html 的 js 文件为 interface.js。</p>
+<p>interface.js 文件代码如下:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> Shape &#123;</div><div class="line">    name: <span class="built_in">string</span>;</div><div class="line">    width: <span class="built_in">number</span>;</div><div class="line">    height: <span class="built_in">number</span>;</div><div class="line">    color?: <span class="built_in">string</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">shape : Shape</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> area = shape.width * shape.height;</div><div class="line">    <span class="keyword">return</span> <span class="string">"I'm "</span> + shape.name + <span class="string">" with area "</span> + area + <span class="string">" cm squared"</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log( area( &#123;name: <span class="string">"rectangle"</span>, width: <span class="number">30</span>, height: <span class="number">15</span>&#125; ) );</div><div class="line"><span class="built_in">console</span>.log( area( &#123;name: <span class="string">"square"</span>, width: <span class="number">30</span>, height: <span class="number">30</span>, color: <span class="string">"blue"</span>&#125; ) );</div></pre></td></tr></table></figure></p>
+<p>接口可以作为一个类型批注。</p>
+<p>编译以上代码 tsc interface.ts 不会出现错误，但是如果你在以上代码后面添加缺失 name 参数的语句则在编译时会报错：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log( area( &#123;<span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">15</span>&#125; ) );</div></pre></td></tr></table></figure></p>
+<h5 id="箭头函数表达式（lambda表达式）"><a href="#箭头函数表达式（lambda表达式）" class="headerlink" title="箭头函数表达式（lambda表达式）"></a>箭头函数表达式（lambda表达式）</h5><p>lambda表达式 <code>()=&gt;{something}</code>或<code>()=&gt;something</code>相当于js中的函数,它的好处是可以自动将函数中的this附加到上下文中。</p>
+<p>尝试执行以下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> shape = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"rectangle"</span>,</div><div class="line">    <span class="attr">popup</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'This inside popup(): '</span> + <span class="keyword">this</span>.name);</div><div class="line"> </div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'This inside setTimeout(): '</span> + <span class="keyword">this</span>.name);</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"I'm a "</span> + <span class="keyword">this</span>.name + <span class="string">"!"</span>);</div><div class="line">        &#125;, <span class="number">3000</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">shape.popup();</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>实例中的 <code>this.name</code>是一个空值.</p>
+</blockquote>
+<p>接下来我们使用 TypeScript 的箭头函数。把 <code>function()</code>替换为<code>() =&gt;</code>：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> shape = &#123;</div><div class="line">    name: <span class="string">"rectangle"</span>,</div><div class="line">    popup: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'This inside popup(): '</span> + <span class="keyword">this</span>.name);</div><div class="line"> </div><div class="line">        setTimeout( <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'This inside setTimeout(): '</span> + <span class="keyword">this</span>.name);</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"I'm a "</span> + <span class="keyword">this</span>.name + <span class="string">"!"</span>);</div><div class="line">        &#125;, <span class="number">3000</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">shape.popup();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实例中的<code>this.name</code>是一个空值</p>
+</blockquote>
+<p>在以上实例编译后端 js 文件中，我们可以看到一行 var _this = this;，_this 在 setTimeout() 的回调函数引用了 name 属性。</p>
+<p>#####类</p>
+<p>TypeScript支持集成了可选的类型批注支持的ECMAScript 6的类。</p>
+<p>接下来我们创建一个类文件 class.ts，代码如下：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Shape &#123;</div><div class="line"> </div><div class="line">    area: <span class="built_in">number</span>;</div><div class="line">    color: <span class="built_in">string</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">constructor</span> (<span class="params"> name: <span class="built_in">string</span>, width: <span class="built_in">number</span>, height: <span class="built_in">number</span> </span>) &#123;</div><div class="line">        <span class="keyword">this</span>.area = width * height;</div><div class="line">        <span class="keyword">this</span>.color = <span class="string">"pink"</span>;</div><div class="line">    &#125;;</div><div class="line"> </div><div class="line">    shoutout() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"I'm "</span> + <span class="keyword">this</span>.color + <span class="string">" "</span> + <span class="keyword">this</span>.name +  <span class="string">" with an area of "</span> + <span class="keyword">this</span>.area + <span class="string">" cm squared."</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> square = <span class="keyword">new</span> Shape(<span class="string">"square"</span>, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log( square.shoutout() );</div><div class="line"><span class="built_in">console</span>.log( <span class="string">'Area of Shape: '</span> + square.area );</div><div class="line"><span class="built_in">console</span>.log( <span class="string">'Name of Shape: '</span> + square.name );</div><div class="line"><span class="built_in">console</span>.log( <span class="string">'Color of Shape: '</span> + square.color );</div><div class="line"><span class="built_in">console</span>.log( <span class="string">'Width of Shape: '</span> + square.width );</div><div class="line"><span class="built_in">console</span>.log( <span class="string">'Height of Shape: '</span> + square.height );</div></pre></td></tr></table></figure></p>
+<p>以上 Shape 类中有两个属性 area 和 color，一个构造器 <code>(constructor())</code>, 一个方法是 <code>shoutout()</code>。</p>
+<p>构造器中参数(name, width 和 height) 的作用域是局部变量，所以编译以上文件，在浏览器输出错误结果如下所示：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span>.ts(<span class="number">12</span>,<span class="number">42</span>): The property <span class="string">'name'</span> does not exist on value of <span class="keyword">type</span> <span class="string">'Shape'</span></div><div class="line"><span class="keyword">class</span>.ts(<span class="number">20</span>,<span class="number">40</span>): The property <span class="string">'name'</span> does not exist on value of <span class="keyword">type</span> <span class="string">'Shape'</span></div><div class="line"><span class="keyword">class</span>.ts(<span class="number">22</span>,<span class="number">41</span>): The property <span class="string">'width'</span> does not exist on value of <span class="keyword">type</span> <span class="string">'Shape'</span></div><div class="line"><span class="keyword">class</span>.ts(<span class="number">23</span>,<span class="number">42</span>): The property <span class="string">'height'</span> does not exist on value of <span class="keyword">type</span> <span class="string">'Shape'</span></div></pre></td></tr></table></figure></p>
+<h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>最后，我们可以继承一个已存在的类并创建一个派生类，继承使用关键字 extends。</p>
+<p>接下来我们在 class.ts 文件末尾添加以下代码，如下所示：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Shape3D <span class="keyword">extends</span> Shape &#123;</div><div class="line"> </div><div class="line">    volume: <span class="built_in">number</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">constructor</span> (<span class="params"> <span class="keyword">public</span> name: <span class="built_in">string</span>, width: <span class="built_in">number</span>, height: <span class="built_in">number</span>, length: <span class="built_in">number</span> </span>) &#123;</div><div class="line">        <span class="keyword">super</span>( name, width, height );</div><div class="line">        <span class="keyword">this</span>.volume = length * <span class="keyword">this</span>.area;</div><div class="line">    &#125;;</div><div class="line"> </div><div class="line">    shoutout() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"I'm "</span> + <span class="keyword">this</span>.name +  <span class="string">" with a volume of "</span> + <span class="keyword">this</span>.volume + <span class="string">" cm cube."</span>;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    superShout() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.shoutout();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> cube = <span class="keyword">new</span> Shape3D(<span class="string">"cube"</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"><span class="built_in">console</span>.log( cube.shoutout() );</div><div class="line"><span class="built_in">console</span>.log( cube.superShout() );</div></pre></td></tr></table></figure></p>
+<p>派生类 Shape3D 说明：</p>
+<ol>
+<li>Shape3D 继承了 Shape 类, 也继承了 Shape 类的 color 属性。</li>
+<li>构造函数中，super 方法调用了基类 Shape 的构造函数 Shape，传递了参数 name, width, 和 height 值。 继承允许我们复用 Shape 类的代码，所以我们可以通过继承 area 属性来计算 this.volume。</li>
+<li>Shape3D 的 shoutout() 方法重写基类的实现。superShout() 方法通过使用 super 关键字直接返回了基类的 shoutout() 方法。</li>
+<li>其他的代码我们可以通过自己的需求来完成自己想要的功能。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/typescript/" rel="tag"># typescript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/vscode主题设置/" rel="next" title="vscode主题设置">
+                <i class="fa fa-chevron-left"></i> vscode主题设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-1.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript"><span class="nav-number">1.</span> <span class="nav-text">typescript</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#箭头函数表达式（lambda表达式）"><span class="nav-number">1.0.1.</span> <span class="nav-text">箭头函数表达式（lambda表达式）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#继承"><span class="nav-number">1.0.2.</span> <span class="nav-text">继承</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

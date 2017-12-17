@@ -1,0 +1,1561 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js代码片段,javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="30 seconds of code  Curated collection of useful Javascript snippets that you can understand in 30 seconds or less.   Use Ctrl + F or command + F to search for a snippet. Contributions welcome, please">
+<meta name="keywords" content="js代码片段,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="48个js代码片段">
+<meta property="og:url" content="http://yoursite.com/2017/11/29/js代码片段/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="30 seconds of code  Curated collection of useful Javascript snippets that you can understand in 30 seconds or less.   Use Ctrl + F or command + F to search for a snippet. Contributions welcome, please">
+<meta property="og:image" content="https://badges.gitter.im/gitterHQ/gitter.png">
+<meta property="og:updated_time" content="2017-12-17T14:36:58.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="48个js代码片段">
+<meta name="twitter:description" content="30 seconds of code  Curated collection of useful Javascript snippets that you can understand in 30 seconds or less.   Use Ctrl + F or command + F to search for a snippet. Contributions welcome, please">
+<meta name="twitter:image" content="https://badges.gitter.im/gitterHQ/gitter.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/29/js代码片段/"/>
+
+
+
+
+
+  <title>48个js代码片段 | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/js代码片段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">48个js代码片段</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T20:18:46+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js代码片段/" itemprop="url" rel="index">
+                    <span itemprop="name">js代码片段</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="30-seconds-of-code"><a href="#30-seconds-of-code" class="headerlink" title="30 seconds of code "></a>30 seconds of code <a href="https://gitter.im/30-seconds-of-code/Lobby" target="_blank" rel="external"><img src="https://badges.gitter.im/gitterHQ/gitter.png" alt="Gitter chat"></a></h1><blockquote>
+<p>Curated collection of useful Javascript snippets that you can understand in 30 seconds or less.</p>
+</blockquote>
+<ul>
+<li>Use <kbd>Ctrl</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> to search for a snippet.</li>
+<li>Contributions welcome, please read the <a href="CONTRIBUTING.md">contribution guide</a>.</li>
+<li>Snippets are written in ES6, use the <a href="https://babeljs.io/" target="_blank" rel="external">Babel transpiler</a> to ensure backwards-compatibility.</li>
+</ul>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><ul>
+<li><a href="#array-difference">Array difference</a></li>
+<li><a href="#array-intersection">Array intersection</a></li>
+<li><a href="#array-pull-mutates-array">Array pull (mutates array)</a></li>
+<li><a href="#array-remove">Array remove</a></li>
+<li><a href="#array-sample">Array sample</a></li>
+<li><a href="#array-symmetric-difference">Array symmetric difference</a></li>
+<li><a href="#array-union">Array union</a></li>
+<li><a href="#array-without">Array without</a></li>
+<li><a href="#array-zip">Array zip</a></li>
+<li><a href="#average-of-array-of-numbers">Average of array of numbers</a></li>
+<li><a href="#chunk-array">Chunk array</a></li>
+<li><a href="#compact">Compact</a></li>
+<li><a href="#count-occurrences-of-a-value-in-array">Count occurrences of a value in array</a></li>
+<li><a href="#deep-flatten-array">Deep flatten array</a></li>
+<li><a href="#drop-elements-in-array">Drop elements in array</a></li>
+<li><a href="#filter-out-non-unique-values-in-an-array">Filter out non unique values in an array</a></li>
+<li><a href="#flatten-array-up-to-depth">Flatten array up to depth</a></li>
+<li><a href="#flatten-array">Flatten array</a></li>
+<li><a href="#get-max-value-from-array">Get max value from array</a></li>
+<li><a href="#get-min-value-from-array">Get min value from array</a></li>
+<li><a href="#group-by">Group by</a></li>
+<li><a href="#head-of-list">Head of list</a></li>
+<li><a href="#initial-of-list">Initial of list</a></li>
+<li><a href="#initialize-array-with-range">Initialize array with range</a></li>
+<li><a href="#initialize-array-with-values">Initialize array with values</a></li>
+<li><a href="#last-of-list">Last of list</a></li>
+<li><a href="#median-of-array-of-numbers">Median of array of numbers</a></li>
+<li><a href="#nth-element-of-array">Nth element of array</a></li>
+<li><a href="#pick">Pick</a></li>
+<li><a href="#shuffle-array">Shuffle array</a></li>
+<li><a href="#similarity-between-arrays">Similarity between arrays</a></li>
+<li><a href="#sum-of-array-of-numbers">Sum of array of numbers</a></li>
+<li><a href="#tail-of-list">Tail of list</a></li>
+<li><a href="#take-every-nth-element">Take every nth element</a></li>
+<li><a href="#take-right">Take right</a></li>
+<li><a href="#take">Take</a></li>
+<li><a href="#unique-values-of-array">Unique values of array</a></li>
+</ul>
+<h3 id="Browser"><a href="#Browser" class="headerlink" title="Browser"></a>Browser</h3><ul>
+<li><a href="#bottom-visible">Bottom visible</a></li>
+<li><a href="#current-url">Current URL</a></li>
+<li><a href="#element-is-visible-in-viewport">Element is visible in viewport</a></li>
+<li><a href="#get-scroll-position">Get scroll position</a></li>
+<li><a href="#redirect-to-url">Redirect to URL</a></li>
+<li><a href="#scroll-to-top">Scroll to top</a></li>
+</ul>
+<h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><ul>
+<li><a href="#convert-to-english-date">Convert to english date</a></li>
+<li><a href="#get-days-difference-between-dates">Get days difference between dates</a></li>
+<li><a href="#json-to-date">JSON to date</a></li>
+</ul>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
+<li><a href="#chain-asynchronous-functions">Chain asynchronous functions</a></li>
+<li><a href="#compose-functions">Compose functions</a></li>
+<li><a href="#curry">Curry</a></li>
+<li><a href="#log-function-name">Log function name</a></li>
+<li><a href="#pipe-functions">Pipe functions</a></li>
+<li><a href="#promisify">Promisify</a></li>
+<li><a href="#run-promises-in-series">Run promises in series</a></li>
+<li><a href="#sleep">Sleep</a></li>
+</ul>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><ul>
+<li><a href="#collatz-algorithm">Collatz algorithm</a></li>
+<li><a href="#distance-between-two-points">Distance between two points</a></li>
+<li><a href="#divisible-by-number">Divisible by number</a></li>
+<li><a href="#even-or-odd-number">Even or odd number</a></li>
+<li><a href="#factorial">Factorial</a></li>
+<li><a href="#fibonacci-array-generator">Fibonacci array generator</a></li>
+<li><a href="#greatest-common-divisor-gcd">Greatest common divisor (GCD)</a></li>
+<li><a href="#hamming-distance">Hamming distance</a></li>
+<li><a href="#least-common-multiple-lcm">Least common multiple (LCM)</a></li>
+<li><a href="#percentile">Percentile</a></li>
+<li><a href="#powerset">Powerset</a></li>
+<li><a href="#random-integer-in-range">Random integer in range</a></li>
+<li><a href="#random-number-in-range">Random number in range</a></li>
+<li><a href="#round-number-to-n-digits">Round number to n digits</a></li>
+<li><a href="#standard-deviation">Standard deviation</a></li>
+</ul>
+<h3 id="Media"><a href="#Media" class="headerlink" title="Media"></a>Media</h3><ul>
+<li><a href="#speech-synthesis-experimental">Speech synthesis (experimental)</a></li>
+</ul>
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><ul>
+<li><a href="#read-file-as-array-of-lines">Read file as array of lines</a></li>
+<li><a href="#write-json-to-file">Write JSON to file</a></li>
+</ul>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><ul>
+<li><a href="#clean-json-object">Clean JSON object</a></li>
+<li><a href="#object-from-key-value-pairs">Object from key value pairs</a></li>
+<li><a href="#object-to-key-value-pairs">Object to key value pairs</a></li>
+<li><a href="#shallow-clone-object">Shallow clone object</a></li>
+</ul>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><ul>
+<li><a href="#anagrams-of-string-with-duplicates">Anagrams of string (with duplicates)</a></li>
+<li><a href="#capitalize-first-letter-of-every-word">Capitalize first letter of every word</a></li>
+<li><a href="#capitalize-first-letter">Capitalize first letter</a></li>
+<li><a href="#check-for-palindrome">Check for palindrome</a></li>
+<li><a href="#convert-string-from-camelcase">Convert string from camelcase</a></li>
+<li><a href="#convert-string-to-camelcase">Convert string to camelcase</a></li>
+<li><a href="#reverse-a-string">Reverse a string</a></li>
+<li><a href="#sort-characters-in-string-alphabetical">Sort characters in string (alphabetical)</a></li>
+<li><a href="#truncate-a-string">Truncate a string</a></li>
+</ul>
+<h3 id="Utility"><a href="#Utility" class="headerlink" title="Utility"></a>Utility</h3><ul>
+<li><a href="#3-digit-hexcode-to-6-digit-hexcode">3 digit hexcode to 6 digit hexcode</a></li>
+<li><a href="#escape-regular-expression">Escape regular expression</a></li>
+<li><a href="#get-native-type-of-value">Get native type of value</a></li>
+<li><a href="#hexcode-to-rgb">Hexcode to RGB</a></li>
+<li><a href="#is-array">Is array</a></li>
+<li><a href="#is-boolean">Is boolean</a></li>
+<li><a href="#is-function">Is function</a></li>
+<li><a href="#is-number">Is number</a></li>
+<li><a href="#is-string">Is string</a></li>
+<li><a href="#is-symbol">Is symbol</a></li>
+<li><a href="#measure-time-taken-by-function">Measure time taken by function</a></li>
+<li><a href="#number-to-array-of-digits">Number to array of digits</a></li>
+<li><a href="#ordinal-suffix-of-number">Ordinal suffix of number</a></li>
+<li><a href="#rgb-to-hexadecimal">RGB to hexadecimal</a></li>
+<li><a href="#url-parameters">URL parameters</a></li>
+<li><a href="#uuid-generator">UUID generator</a></li>
+<li><a href="#validate-email">Validate email</a></li>
+<li><a href="#validate-number">Validate number</a></li>
+</ul>
+<h2 id="Array-1"><a href="#Array-1" class="headerlink" title="Array"></a>Array</h2><h3 id="Array-difference"><a href="#Array-difference" class="headerlink" title="Array difference"></a>Array difference</h3><p>Create a <code>Set</code> from <code>b</code>, then use <code>Array.filter()</code> on <code>a</code> to only keep values not contained in <code>b</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> difference = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123; <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(b); <span class="keyword">return</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> !s.has(x)); &#125;;</div><div class="line"><span class="comment">// difference([1,2,3], [1,2,4]) -&gt; [3]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-intersection"><a href="#Array-intersection" class="headerlink" title="Array intersection"></a>Array intersection</h3><p>Create a <code>Set</code> from <code>b</code>, then use <code>Array.filter()</code> on <code>a</code> to only keep values contained in <code>b</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> intersection = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123; <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(b); <span class="keyword">return</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> s.has(x)); &#125;;</div><div class="line"><span class="comment">// intersection([1,2,3], [4,3,2]) -&gt; [2,3]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-pull-mutates-array"><a href="#Array-pull-mutates-array" class="headerlink" title="Array pull (mutates array)"></a>Array pull (mutates array)</h3><p>Use <code>Array.filter()</code> and <code>Array.includes()</code> to pull out the values that are not needed.<br>Use <code>Array.length = 0</code> to mutate the passed in array by resetting it’s length to zero and <code>Array.push()</code> to re-populate it with only the pulled values.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> pull = <span class="function">(<span class="params">arr, ...args</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> pulled = arr.filter(<span class="function">(<span class="params">v, i</span>) =&gt;</span> !args.includes(v));</div><div class="line">  arr.length = <span class="number">0</span>; pulled.forEach(<span class="function"><span class="params">v</span> =&gt;</span> arr.push(v));</div><div class="line">&#125;;</div><div class="line"><span class="comment">// let myArray = ['a', 'b', 'c', 'a', 'b', 'c'];</span></div><div class="line"><span class="comment">// pull(myArray, 'a', 'c');</span></div><div class="line"><span class="comment">// console.log(myArray) -&gt; [ 'b', 'b' ]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-remove"><a href="#Array-remove" class="headerlink" title="Array remove"></a>Array remove</h3><p>Use <code>Array.filter()</code> to find array elements that return truthy values and <code>Array.reduce()</code> to remove elements using <code>Array.splice()</code>.<br>The <code>func</code> is invoked with three arguments (<code>value, index, array</code>).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> remove = <span class="function">(<span class="params">arr, func</span>) =&gt;</span></div><div class="line">  <span class="built_in">Array</span>.isArray(arr) ? arr.filter(func).reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> &#123;</div><div class="line">    arr.splice(arr.indexOf(val), <span class="number">1</span>); <span class="keyword">return</span> acc.concat(val);</div><div class="line">    &#125;, [])</div><div class="line">  : [];</div><div class="line"><span class="comment">// remove([1, 2, 3, 4], n =&gt; n % 2 == 0) -&gt; [2, 4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-sample"><a href="#Array-sample" class="headerlink" title="Array sample"></a>Array sample</h3><p>Use <code>Math.random()</code> to generate a random number, multiply it with <code>length</code> and round it of to the nearest whole number using <code>Math.floor()</code>.<br>This method also works with strings.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> sample = <span class="function"><span class="params">arr</span> =&gt;</span> arr[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * arr.length)];</div><div class="line"><span class="comment">// sample([3, 7, 9, 11]) -&gt; 9</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-symmetric-difference"><a href="#Array-symmetric-difference" class="headerlink" title="Array symmetric difference"></a>Array symmetric difference</h3><p>Create a <code>Set</code> from each array, then use <code>Array.filter()</code> on each of them to only keep values not contained in the other.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> symmetricDifference = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> sA = <span class="keyword">new</span> <span class="built_in">Set</span>(a), sB = <span class="keyword">new</span> <span class="built_in">Set</span>(b);</div><div class="line">  <span class="keyword">return</span> [...a.filter(<span class="function"><span class="params">x</span> =&gt;</span> !sB.has(x)), ...b.filter(<span class="function"><span class="params">x</span> =&gt;</span> !sA.has(x))];</div><div class="line">&#125;</div><div class="line"><span class="comment">// symmetricDifference([1,2,3], [1,2,4]) -&gt; [3,4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-union"><a href="#Array-union" class="headerlink" title="Array union"></a>Array union</h3><p>Create a <code>Set</code> with all values of <code>a</code> and <code>b</code> and convert to an array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> union = <span class="function">(<span class="params">a, b</span>) =&gt;</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>([...a, ...b]));</div><div class="line"><span class="comment">// union([1,2,3], [4,3,2]) -&gt; [1,2,3,4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-without"><a href="#Array-without" class="headerlink" title="Array without"></a>Array without</h3><p>Use <code>Array.filter()</code> to create an array excluding(using <code>!Array.includes()</code>) all given values.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> without = <span class="function">(<span class="params">arr, ...args</span>) =&gt;</span> arr.filter(<span class="function"><span class="params">v</span> =&gt;</span> !args.includes(v));</div><div class="line"><span class="comment">// without([2, 1, 2, 3], 1, 2) -&gt; [3]</span></div><div class="line"><span class="comment">// without([2, 1, 2, 3, 4, 5, 5, 5, 3, 2, 7, 7], 3, 1, 5, 2) -&gt; [ 4, 7, 7 ]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Array-zip"><a href="#Array-zip" class="headerlink" title="Array zip"></a>Array zip</h3><p>Use <code>Math.max.apply()</code> to get the longest array in the arguments.<br>Creates an array with that length as return value and use <code>Array.from()</code> with a map-function to create an array of grouped elements.<br>If lengths of the argument-arrays vary, <code>undefined</code> is used where no value could be found.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> zip = <span class="function">(<span class="params">...arrays</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> maxLength = <span class="built_in">Math</span>.max(...arrays.map(<span class="function"><span class="params">x</span> =&gt;</span> x.length));</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: maxLength&#125;).map(<span class="function">(<span class="params">_, i</span>) =&gt;</span> &#123;</div><div class="line">   <span class="keyword">return</span> <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: arrays.length&#125;, (_, k) =&gt; arrays[k][i]);</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"><span class="comment">//zip(['a', 'b'], [1, 2], [true, false]); -&gt; [['a', 1, true], ['b', 2, false]]</span></div><div class="line"><span class="comment">//zip(['a'], [1, 2], [true, false]); -&gt; [['a', 1, true], [undefined, 2, false]]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Average-of-array-of-numbers"><a href="#Average-of-array-of-numbers" class="headerlink" title="Average of array of numbers"></a>Average of array of numbers</h3><p>Use <code>Array.reduce()</code> to add each value to an accumulator, initialized with a value of <code>0</code>, divide by the <code>length</code> of the array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> average = <span class="function"><span class="params">arr</span> =&gt;</span> arr.reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>) / arr.length;</div><div class="line"><span class="comment">// average([1,2,3]) -&gt; 2</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Chunk-array"><a href="#Chunk-array" class="headerlink" title="Chunk array"></a>Chunk array</h3><p>Use <code>Array.from()</code> to create a new array, that fits the number of chunks that will be produced.<br>Use <code>Array.slice()</code> to map each element of the new array to a chunk the length of <code>size</code>.<br>If the original array can’t be split evenly, the final chunk will contain the remaining elements.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> chunk = <span class="function">(<span class="params">arr, size</span>) =&gt;</span></div><div class="line">  <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: <span class="built_in">Math</span>.ceil(arr.length / size)&#125;, (v, i) =&gt; arr.slice(i * size, i * size + size));</div><div class="line"><span class="comment">// chunk([1,2,3,4,5], 2) -&gt; [[1,2],[3,4],[5]]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Compact"><a href="#Compact" class="headerlink" title="Compact"></a>Compact</h3><p>Use <code>Array.filter()</code> to filter out falsey values (<code>false</code>, <code>null</code>, <code>0</code>, <code>&quot;&quot;</code>, <code>undefined</code>, and <code>NaN</code>).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> compact = <span class="function">(<span class="params">arr</span>) =&gt;</span> arr.filter(<span class="built_in">Boolean</span>);</div><div class="line"><span class="comment">// compact([0, 1, false, 2, '', 3, 'a', 'e'*23, NaN, 's', 34]) -&gt; [ 1, 2, 3, 'a', 's', 34 ]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Count-occurrences-of-a-value-in-array"><a href="#Count-occurrences-of-a-value-in-array" class="headerlink" title="Count occurrences of a value in array"></a>Count occurrences of a value in array</h3><p>Use <code>Array.reduce()</code> to increment a counter each time you encounter the specific value inside the array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> countOccurrences = <span class="function">(<span class="params">arr, value</span>) =&gt;</span> arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> v === value ? a + <span class="number">1</span> : a + <span class="number">0</span>, <span class="number">0</span>);</div><div class="line"><span class="comment">// countOccurrences([1,1,2,1,2,3], 1) -&gt; 3</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Deep-flatten-array"><a href="#Deep-flatten-array" class="headerlink" title="Deep flatten array"></a>Deep flatten array</h3><p>Use recursion.<br>Use <code>Array.concat()</code> with an empty array (<code>[]</code>) and the spread operator (<code>...</code>) to flatten an array.<br>Recursively flatten each element that is an array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> deepFlatten = <span class="function"><span class="params">arr</span> =&gt;</span> [].concat(...arr.map(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">Array</span>.isArray(v) ? deepFlatten(v) : v));</div><div class="line"><span class="comment">// deepFlatten([1,[2],[[3],4],5]) -&gt; [1,2,3,4,5]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Drop-elements-in-array"><a href="#Drop-elements-in-array" class="headerlink" title="Drop elements in array"></a>Drop elements in array</h3><p>Loop through the array, using <code>Array.shift()</code> to drop the first element of the array until the returned value from the function is <code>true</code>.<br>Returns the remaining elements.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> dropElements = <span class="function">(<span class="params">arr, func</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">while</span> (arr.length &gt; <span class="number">0</span> &amp;&amp; !func(arr[<span class="number">0</span>])) arr.shift();</div><div class="line">  <span class="keyword">return</span> arr;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// dropElements([1, 2, 3, 4], n =&gt; n &gt;= 3) -&gt; [3,4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Filter-out-non-unique-values-in-an-array"><a href="#Filter-out-non-unique-values-in-an-array" class="headerlink" title="Filter out non-unique values in an array"></a>Filter out non-unique values in an array</h3><p>Use <code>Array.filter()</code> for an array containing only the unique values.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> filterNonUnique = <span class="function"><span class="params">arr</span> =&gt;</span> arr.filter(<span class="function"><span class="params">i</span> =&gt;</span> arr.indexOf(i) === arr.lastIndexOf(i));</div><div class="line"><span class="comment">// filterNonUnique([1,2,2,3,4,4,5]) -&gt; [1,3,5]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Flatten-array-up-to-depth"><a href="#Flatten-array-up-to-depth" class="headerlink" title="Flatten array up to depth"></a>Flatten array up to depth</h3><p>Use recursion, decrementing <code>depth</code> by 1 for each level of depth.<br>Use <code>Array.reduce()</code> and <code>Array.concat()</code> to merge elements or arrays.<br>Base case, for <code>depth</code> equal to <code>1</code> stops recursion.<br>Omit the second element, <code>depth</code> to flatten only to a depth of <code>1</code> (single flatten).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> flattenDepth = <span class="function">(<span class="params">arr, depth = <span class="number">1</span></span>) =&gt;</span></div><div class="line">  depth != <span class="number">1</span> ? arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> a.concat(<span class="built_in">Array</span>.isArray(v) ? flattenDepth(v, depth - <span class="number">1</span>) : v), [])</div><div class="line">  : arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> a.concat(v), []);</div><div class="line"><span class="comment">// flattenDepth([1,[2],[[[3],4],5]], 2) -&gt; [1,2,[3],4,5]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Flatten-array"><a href="#Flatten-array" class="headerlink" title="Flatten array"></a>Flatten array</h3><p>Use <code>Array.reduce()</code> to get all elements inside the array and <code>concat()</code> to flatten them.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> flatten = <span class="function"><span class="params">arr</span> =&gt;</span> arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> a.concat(v), []);</div><div class="line"><span class="comment">// flatten([1,[2],3,4]) -&gt; [1,2,3,4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Get-max-value-from-array"><a href="#Get-max-value-from-array" class="headerlink" title="Get max value from array"></a>Get max value from array</h3><p>Use <code>Math.max()</code> combined with the spread operator (<code>...</code>) to get the maximum value in the array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arrayMax = <span class="function"><span class="params">arr</span> =&gt;</span> <span class="built_in">Math</span>.max(...arr);</div><div class="line"><span class="comment">// arrayMax([10, 1, 5]) -&gt; 10</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Get-min-value-from-array"><a href="#Get-min-value-from-array" class="headerlink" title="Get min value from array"></a>Get min value from array</h3><p>Use <code>Math.min()</code> combined with the spread operator (<code>...</code>) to get the minimum value in the array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arrayMin = <span class="function"><span class="params">arr</span> =&gt;</span> <span class="built_in">Math</span>.min(...arr);</div><div class="line"><span class="comment">// arrayMin([10, 1, 5]) -&gt; 1</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Group-by"><a href="#Group-by" class="headerlink" title="Group by"></a>Group by</h3><p>Use <code>Array.map()</code> to map the values of an array to a function or property name.<br>Use <code>Array.reduce()</code> to create an object, where the keys are produced from the mapped results.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> groupBy = <span class="function">(<span class="params">arr, func</span>) =&gt;</span></div><div class="line">  arr.map(<span class="keyword">typeof</span> func === <span class="string">'function'</span> ? func : <span class="function"><span class="params">val</span> =&gt;</span> val[func])</div><div class="line">    .reduce(<span class="function">(<span class="params">acc, val, i</span>) =&gt;</span> &#123; acc[val] = (acc[val] || []).concat(arr[i]); <span class="keyword">return</span> acc; &#125;, &#123;&#125;);</div><div class="line"><span class="comment">// groupBy([6.1, 4.2, 6.3], Math.floor) -&gt; &#123;4: [4.2], 6: [6.1, 6.3]&#125;</span></div><div class="line"><span class="comment">// groupBy(['one', 'two', 'three'], 'length') -&gt; &#123;3: ['one', 'two'], 5: ['three']&#125;</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Head-of-list"><a href="#Head-of-list" class="headerlink" title="Head of list"></a>Head of list</h3><p>Use <code>arr[0]</code> to return the first element of the passed array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> head = <span class="function"><span class="params">arr</span> =&gt;</span> arr[<span class="number">0</span>];</div><div class="line"><span class="comment">// head([1,2,3]) -&gt; 1</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Initial-of-list"><a href="#Initial-of-list" class="headerlink" title="Initial of list"></a>Initial of list</h3><p>Use <code>arr.slice(0,-1)</code>to return all but the last element of the array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> initial = <span class="function"><span class="params">arr</span> =&gt;</span> arr.slice(<span class="number">0</span>, <span class="number">-1</span>);</div><div class="line"><span class="comment">// initial([1,2,3]) -&gt; [1,2]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Initialize-array-with-range"><a href="#Initialize-array-with-range" class="headerlink" title="Initialize array with range"></a>Initialize array with range</h3><p>Use <code>Array(end-start)</code> to create an array of the desired length, <code>Array.map()</code> to fill with the desired values in a range.<br>You can omit <code>start</code> to use a default value of <code>0</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> initializeArrayRange = <span class="function">(<span class="params">end, start = <span class="number">0</span></span>) =&gt;</span></div><div class="line">  <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: end - start &#125;).map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> i + start);</div><div class="line"><span class="comment">// initializeArrayRange(5) -&gt; [0,1,2,3,4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Initialize-array-with-values"><a href="#Initialize-array-with-values" class="headerlink" title="Initialize array with values"></a>Initialize array with values</h3><p>Use <code>Array(n)</code> to create an array of the desired length, <code>fill(v)</code> to fill it with the desired values.<br>You can omit <code>value</code> to use a default value of <code>0</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> initializeArray = <span class="function">(<span class="params">n, value = <span class="number">0</span></span>) =&gt;</span> <span class="built_in">Array</span>(n).fill(value);</div><div class="line"><span class="comment">// initializeArray(5, 2) -&gt; [2,2,2,2,2]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Last-of-list"><a href="#Last-of-list" class="headerlink" title="Last of list"></a>Last of list</h3><p>Use <code>arr.length - 1</code> to compute index of the last element of the given array and returning it.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> last = <span class="function"><span class="params">arr</span> =&gt;</span> arr[arr.length - <span class="number">1</span>];</div><div class="line"><span class="comment">// last([1,2,3]) -&gt; 3</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Median-of-array-of-numbers"><a href="#Median-of-array-of-numbers" class="headerlink" title="Median of array of numbers"></a>Median of array of numbers</h3><p>Find the middle of the array, use <code>Array.sort()</code> to sort the values.<br>Return the number at the midpoint if <code>length</code> is odd, otherwise the average of the two middle numbers.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> median = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> mid = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>), nums = arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</div><div class="line">  <span class="keyword">return</span> arr.length % <span class="number">2</span> !== <span class="number">0</span> ? nums[mid] : (nums[mid - <span class="number">1</span>] + nums[mid]) / <span class="number">2</span>;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// median([5,6,50,1,-5]) -&gt; 5</span></div><div class="line"><span class="comment">// median([0,10,-2,7]) -&gt; 3.5</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Nth-element-of-array"><a href="#Nth-element-of-array" class="headerlink" title="Nth element of array"></a>Nth element of array</h3><p>Use <code>Array.slice()</code> to get an array containing the nth element at the first place.<br>If the index is out of bounds, return <code>[]</code>.<br>Omit the second argument, <code>n</code>, to get the first element of the array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> nth = <span class="function">(<span class="params">arr, n=<span class="number">0</span></span>) =&gt;</span> (n&gt;<span class="number">0</span>? arr.slice(n,n+<span class="number">1</span>) : arr.slice(n))[<span class="number">0</span>];</div><div class="line"><span class="comment">// nth(['a','b','c'],1) -&gt; 'b'</span></div><div class="line"><span class="comment">// nth(['a','b','b']-2) -&gt; 'a'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Pick"><a href="#Pick" class="headerlink" title="Pick"></a>Pick</h3><p>Use <code>Array.reduce()</code> to convert the filtered/picked keys back to a object with the corresponding key:value pair if the key exist in the obj.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> pick = <span class="function">(<span class="params">obj, arr</span>) =&gt;</span></div><div class="line">  arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> (curr <span class="keyword">in</span> obj &amp;&amp; (acc[curr] = obj[curr]), acc), &#123;&#125;);</div><div class="line"><span class="comment">// pick(&#123; 'a': 1, 'b': '2', 'c': 3 &#125;, ['a', 'c']) -&gt; &#123; 'a': 1, 'c': 3 &#125;</span></div><div class="line"><span class="comment">// pick(object, ['a', 'c'])['a'] -&gt; 1</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Shuffle-array"><a href="#Shuffle-array" class="headerlink" title="Shuffle array"></a>Shuffle array</h3><p>Use <code>Array.sort()</code> to reorder elements, using <code>Math.random()</code> in the comparator.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> shuffle = <span class="function"><span class="params">arr</span> =&gt;</span> arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>);</div><div class="line"><span class="comment">// shuffle([1,2,3]) -&gt; [2,3,1]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Similarity-between-arrays"><a href="#Similarity-between-arrays" class="headerlink" title="Similarity between arrays"></a>Similarity between arrays</h3><p>Use <code>filter()</code> to remove values that are not part of <code>values</code>, determined using <code>includes()</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> similarity = <span class="function">(<span class="params">arr, values</span>) =&gt;</span> arr.filter(<span class="function"><span class="params">v</span> =&gt;</span> values.includes(v));</div><div class="line"><span class="comment">// similarity([1,2,3], [1,2,4]) -&gt; [1,2]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Sum-of-array-of-numbers"><a href="#Sum-of-array-of-numbers" class="headerlink" title="Sum of array of numbers"></a>Sum of array of numbers</h3><p>Use <code>Array.reduce()</code> to add each value to an accumulator, initialized with a value of <code>0</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> sum = <span class="function"><span class="params">arr</span> =&gt;</span> arr.reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>);</div><div class="line"><span class="comment">// sum([1,2,3,4]) -&gt; 10</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Tail-of-list"><a href="#Tail-of-list" class="headerlink" title="Tail of list"></a>Tail of list</h3><p>Return <code>arr.slice(1)</code> if the array’s <code>length</code> is more than <code>1</code>, otherwise return the whole array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> tail = <span class="function"><span class="params">arr</span> =&gt;</span> arr.length &gt; <span class="number">1</span> ? arr.slice(<span class="number">1</span>) : arr;</div><div class="line"><span class="comment">// tail([1,2,3]) -&gt; [2,3]</span></div><div class="line"><span class="comment">// tail([1]) -&gt; [1]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Take-every-nth-element"><a href="#Take-every-nth-element" class="headerlink" title="Take every nth element"></a>Take every nth element</h3><p>Use <code>Array.filter()</code> to create a new array that contains every nth element of a given array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> everynth = <span class="function">(<span class="params">arr, nth</span>) =&gt;</span> arr.filter(<span class="function">(<span class="params">e, i</span>) =&gt;</span> i % nth === <span class="number">0</span>);</div><div class="line"><span class="comment">// everynth([1,2,3,4,5,6], 2) -&gt; [ 1, 3, 5 ]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Take-right"><a href="#Take-right" class="headerlink" title="Take right"></a>Take right</h3><p>Use <code>Array.slice()</code> to create a slice of the array with <code>n</code> elements taken from the end.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> takeRight = <span class="function">(<span class="params">arr, n = <span class="number">1</span></span>) =&gt;</span> arr.slice(arr.length - n, arr.length);</div><div class="line"><span class="comment">// takeRight([1, 2, 3], 2) -&gt; [ 2, 3 ]</span></div><div class="line"><span class="comment">// takeRight([1, 2, 3]) -&gt; [3]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Take"><a href="#Take" class="headerlink" title="Take"></a>Take</h3><p>Use <code>Array.slice()</code> to create a slice of the array with <code>n</code> elements taken from the beginning.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> take = <span class="function">(<span class="params">arr, n = <span class="number">1</span></span>) =&gt;</span> arr.slice(<span class="number">0</span>, n);</div><div class="line"><span class="comment">// take([1, 2, 3], 5) -&gt; [1, 2, 3]</span></div><div class="line"><span class="comment">// take([1, 2, 3], 0) -&gt; []</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Unique-values-of-array"><a href="#Unique-values-of-array" class="headerlink" title="Unique values of array"></a>Unique values of array</h3><p>Use ES6 <code>Set</code> and the <code>...rest</code> operator to discard all duplicated values.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> unique = <span class="function"><span class="params">arr</span> =&gt;</span> [...new <span class="built_in">Set</span>(arr)];</div><div class="line"><span class="comment">// unique([1,2,2,3,4,4,5]) -&gt; [1,2,3,4,5]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Browser-1"><a href="#Browser-1" class="headerlink" title="Browser"></a>Browser</h2><h3 id="Bottom-visible"><a href="#Bottom-visible" class="headerlink" title="Bottom visible"></a>Bottom visible</h3><p>Use <code>scrollY</code>, <code>scrollHeight</code> and <code>clientHeight</code> to determine if the bottom of the page is visible.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> bottomVisible = <span class="function"><span class="params">()</span> =&gt;</span></div><div class="line">  <span class="built_in">document</span>.documentElement.clientHeight + <span class="built_in">window</span>.scrollY &gt;= <span class="built_in">document</span>.documentElement.scrollHeight || <span class="built_in">document</span>.documentElement.clientHeight;</div><div class="line"><span class="comment">// bottomVisible() -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Current-URL"><a href="#Current-URL" class="headerlink" title="Current URL"></a>Current URL</h3><p>Use <code>window.location.href</code> to get current URL.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> currentUrl = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">window</span>.location.href;</div><div class="line"><span class="comment">// currentUrl() -&gt; 'https://google.com'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Element-is-visible-in-viewport"><a href="#Element-is-visible-in-viewport" class="headerlink" title="Element is visible in viewport"></a>Element is visible in viewport</h3><p>Use <code>Element.getBoundingClientRect()</code> and the <code>window.inner(Width|Height)</code> values<br>to determine if a given element is visible in the viewport.<br>Omit the second argument to determine if the element is entirely visible, or specify <code>true</code> to determine if<br>it is partially visible.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> elementIsVisibleInViewport = <span class="function">(<span class="params">el, partiallyVisible = <span class="literal">false</span></span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> &#123; top, left, bottom, right &#125; = el.getBoundingClientRect();</div><div class="line">  <span class="keyword">return</span> partiallyVisible</div><div class="line">    ? ((top &gt; <span class="number">0</span> &amp;&amp; top &lt; innerHeight) || (bottom &gt; <span class="number">0</span> &amp;&amp; bottom &lt; innerHeight)) &amp;&amp;</div><div class="line">      ((left &gt; <span class="number">0</span> &amp;&amp; left &lt; innerWidth) || (right &gt; <span class="number">0</span> &amp;&amp; right &lt; innerWidth))</div><div class="line">    : top &gt;= <span class="number">0</span> &amp;&amp; left &gt;= <span class="number">0</span> &amp;&amp; bottom &lt;= innerHeight &amp;&amp; right &lt;= innerWidth;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// e.g. 100x100 viewport and a 10x10px element at position &#123;top: -1, left: 0, bottom: 9, right: 10&#125;</span></div><div class="line"><span class="comment">// elementIsVisibleInViewport(el) -&gt; false (not fully visible)</span></div><div class="line"><span class="comment">// elementIsVisibleInViewport(el, true) -&gt; true (partially visible)</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Get-scroll-position"><a href="#Get-scroll-position" class="headerlink" title="Get scroll position"></a>Get scroll position</h3><p>Use <code>pageXOffset</code> and <code>pageYOffset</code> if they are defined, otherwise <code>scrollLeft</code> and <code>scrollTop</code>.<br>You can omit <code>el</code> to use a default value of <code>window</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getScrollPos = <span class="function">(<span class="params">el = <span class="built_in">window</span></span>) =&gt;</span></div><div class="line">  (&#123;<span class="attr">x</span>: (el.pageXOffset !== <span class="literal">undefined</span>) ? el.pageXOffset : el.scrollLeft,</div><div class="line">    <span class="attr">y</span>: (el.pageYOffset !== <span class="literal">undefined</span>) ? el.pageYOffset : el.scrollTop&#125;);</div><div class="line"><span class="comment">// getScrollPos() -&gt; &#123;x: 0, y: 200&#125;</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Redirect-to-URL"><a href="#Redirect-to-URL" class="headerlink" title="Redirect to URL"></a>Redirect to URL</h3><p>Use <code>window.location.href</code> or <code>window.location.replace()</code> to redirect to <code>url</code>.<br>Pass a second argument to simulate a link click (<code>true</code> - default) or an HTTP redirect (<code>false</code>).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> redirect = <span class="function">(<span class="params">url, asLink = <span class="literal">true</span></span>) =&gt;</span></div><div class="line">  asLink ? <span class="built_in">window</span>.location.href = url : <span class="built_in">window</span>.location.replace(url);</div><div class="line"><span class="comment">// redirect('https://google.com')</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Scroll-to-top"><a href="#Scroll-to-top" class="headerlink" title="Scroll to top"></a>Scroll to top</h3><p>Get distance from top using <code>document.documentElement.scrollTop</code> or <code>document.body.scrollTop</code>.<br>Scroll by a fraction of the distance from top. Use <code>window.requestAnimationFrame()</code> to animate the scrolling.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> scrollToTop = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> c = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</div><div class="line">  <span class="keyword">if</span> (c &gt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="built_in">window</span>.requestAnimationFrame(scrollToTop);</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, c - c / <span class="number">8</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// scrollToTop()</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Date-1"><a href="#Date-1" class="headerlink" title="Date"></a>Date</h2><h3 id="Convert-to-English-date"><a href="#Convert-to-English-date" class="headerlink" title="Convert to English date"></a>Convert to English date</h3><p>Use <code>Date.toISOString()</code>, <code>split(&#39;T&#39;)</code> and <code>replace()</code> to convert a date from American format to English format.<br>Throws an error if the passed time cannot be converted to a date.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toEnglishDate  = <span class="function">(<span class="params">time</span>) =&gt;</span></div><div class="line">  &#123;<span class="keyword">try</span>&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(time).toISOString().split(<span class="string">'T'</span>)[<span class="number">0</span>].replace(<span class="regexp">/-/g</span>, <span class="string">'/'</span>)&#125;<span class="keyword">catch</span>(e)&#123;<span class="keyword">return</span>&#125;&#125;;</div><div class="line"><span class="comment">// toEnglishDate('09/21/2010') -&gt; '21/09/2010'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Get-days-difference-between-dates"><a href="#Get-days-difference-between-dates" class="headerlink" title="Get days difference between dates"></a>Get days difference between dates</h3><p>Calculate the difference (in days) between to <code>Date</code> objects.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getDaysDiffBetweenDates = <span class="function">(<span class="params">dateInitial, dateFinal</span>) =&gt;</span> (dateFinal - dateInitial) / (<span class="number">1000</span> * <span class="number">3600</span> * <span class="number">24</span>);</div><div class="line"><span class="comment">// getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")) -&gt; 9</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="JSON-to-date"><a href="#JSON-to-date" class="headerlink" title="JSON to date"></a>JSON to date</h3><p>Use <code>Date()</code>, to convert dates in JSON format to readable format (<code>dd/mm/yyyy</code>).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> jsonToDate = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">parseInt</span>(arr.toString().substr(<span class="number">6</span>)));</div><div class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123; dt.getDate() &#125;</span>/<span class="subst">$&#123; dt.getMonth() + <span class="number">1</span> &#125;</span>/<span class="subst">$&#123; dt.getFullYear() &#125;</span>`</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// jsonToDate(/Date(1489525200000)/) -&gt; "14/3/2017"</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Function-1"><a href="#Function-1" class="headerlink" title="Function"></a>Function</h2><h3 id="Chain-asynchronous-functions"><a href="#Chain-asynchronous-functions" class="headerlink" title="Chain asynchronous functions"></a>Chain asynchronous functions</h3><p>Loop through an array of functions containing asynchronous events, calling <code>next</code> when each asynchronous event has completed.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> chainAsync = <span class="function"><span class="params">fns</span> =&gt;</span> &#123; <span class="keyword">let</span> curr = <span class="number">0</span>; <span class="keyword">const</span> next = <span class="function"><span class="params">()</span> =&gt;</span> fns[curr++](next); next(); &#125;;</div><div class="line"><span class="comment">/*</span></div><div class="line">chainAsync([</div><div class="line">  next =&gt; &#123; console.log('0 seconds'); setTimeout(next, 1000); &#125;,</div><div class="line">  next =&gt; &#123; console.log('1 second');  setTimeout(next, 1000); &#125;,</div><div class="line">  next =&gt; &#123; console.log('2 seconds'); &#125;</div><div class="line">])</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Compose-functions"><a href="#Compose-functions" class="headerlink" title="Compose functions"></a>Compose functions</h3><p>Use <code>Array.reduce()</code> to perform right-to-left function composition.<br>The last (rightmost) function can accept one or more arguments; the remaining functions must be unary.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> compose = <span class="function">(<span class="params">...fns</span>) =&gt;</span> fns.reduce(<span class="function">(<span class="params">f, g</span>) =&gt;</span> (...args) =&gt; f(g(...args)));</div><div class="line"><span class="comment">/*</span></div><div class="line">const add5 = x =&gt; x + 5</div><div class="line">const multiply = (x, y) =&gt; x * y</div><div class="line">const multiplyAndAdd5 = compose(add5, multiply)</div><div class="line">multiplyAndAdd5(5, 2) -&gt; 15</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Curry"><a href="#Curry" class="headerlink" title="Curry"></a>Curry</h3><p>Use recursion.<br>If the number of provided arguments (<code>args</code>) is sufficient, call the passed function <code>f</code>.<br>Otherwise return a curried function <code>f</code> that expects the rest of the arguments.<br>If you want to curry a function that accepts a variable number of arguments (a variadic function, e.g. <code>Math.min()</code>), you can optionally pass the number of arguments to the second parameter <code>arity</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> curry = <span class="function">(<span class="params">fn, arity = fn.length, ...args</span>) =&gt;</span></div><div class="line">  arity &lt;= args.length</div><div class="line">    ? fn(...args)</div><div class="line">    : curry.bind(<span class="literal">null</span>, fn, arity, ...args);</div><div class="line"><span class="comment">// curry(Math.pow)(2)(10) -&gt; 1024</span></div><div class="line"><span class="comment">// curry(Math.min, 3)(10)(50)(2) -&gt; 2</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Log-function-name"><a href="#Log-function-name" class="headerlink" title="Log function name"></a>Log function name</h3><p>Use <code>console.debug()</code> and the <code>name</code> property of the passed method to log the method’s name to the <code>debug</code> channel of the console.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> functionName = <span class="function"><span class="params">fn</span> =&gt;</span> (<span class="built_in">console</span>.debug(fn.name), fn);</div><div class="line"><span class="comment">// functionName(Math.max) -&gt; max (logged in debug channel of console)</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Pipe-functions"><a href="#Pipe-functions" class="headerlink" title="Pipe functions"></a>Pipe functions</h3><p>Use <code>Array.reduce()</code> with the spread operator (<code>...</code>) to perform left-to-right function composition.<br>The first (leftmost) function can accept one or more arguments; the remaining functions must be unary.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> pipe = <span class="function">(<span class="params">...fns</span>) =&gt;</span> fns.reduce(<span class="function">(<span class="params">f, g</span>) =&gt;</span> (...args) =&gt; g(f(...args)));</div><div class="line"><span class="comment">/*</span></div><div class="line">const add5 = x =&gt; x + 5</div><div class="line">const multiply = (x, y) =&gt; x * y</div><div class="line">const multiplyAndAdd5 = pipe(multiply, add5)</div><div class="line">multiplyAndAdd5(5, 2) -&gt; 15</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Promisify"><a href="#Promisify" class="headerlink" title="Promisify"></a>Promisify</h3><p>Use currying to return a function returning a <code>Promise</code> that calls the original function.<br>Use the <code>...rest</code> operator to pass in all the parameters. </p>
+<p><em>In Node 8+, you can use <a href="https://nodejs.org/api/util.html#util_util_promisify_original" target="_blank" rel="external"><code>util.promisify</code></a></em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> promisify = <span class="function"><span class="params">func</span> =&gt;</span></div><div class="line">  (...args) =&gt;</div><div class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span></div><div class="line">      func(...args, (err, result) =&gt;</div><div class="line">        err ? reject(err) : resolve(result))</div><div class="line">    );</div><div class="line"><span class="comment">// const delay = promisify((d, cb) =&gt; setTimeout(cb, d))</span></div><div class="line"><span class="comment">// delay(2000).then(() =&gt; console.log('Hi!')) -&gt; Promise resolves after 2s</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Run-promises-in-series"><a href="#Run-promises-in-series" class="headerlink" title="Run promises in series"></a>Run promises in series</h3><p>Run an array of promises in series using <code>Array.reduce()</code> by creating a promise chain, where each promise returns the next promise when resolved.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> series = <span class="function"><span class="params">ps</span> =&gt;</span> ps.reduce(<span class="function">(<span class="params">p, next</span>) =&gt;</span> p.then(next), <span class="built_in">Promise</span>.resolve());</div><div class="line"><span class="comment">// const delay = (d) =&gt; new Promise(r =&gt; setTimeout(r, d))</span></div><div class="line"><span class="comment">// series([() =&gt; delay(1000), () =&gt; delay(2000)]) -&gt; executes each promise sequentially, taking a total of 3 seconds to complete</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Sleep"><a href="#Sleep" class="headerlink" title="Sleep"></a>Sleep</h3><p>Delay executing part of an <code>async</code> function, by putting it to sleep, returning a <code>Promise</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> sleep = <span class="function"><span class="params">ms</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, ms));</div><div class="line"><span class="comment">/*</span></div><div class="line">async function sleepyWork() &#123;</div><div class="line">  console.log('I\'m going to sleep for 1 second.');</div><div class="line">  await sleep(1000);</div><div class="line">  console.log('I woke up after 1 second.');</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Math-1"><a href="#Math-1" class="headerlink" title="Math"></a>Math</h2><h3 id="Collatz-algorithm"><a href="#Collatz-algorithm" class="headerlink" title="Collatz algorithm"></a>Collatz algorithm</h3><p>If <code>n</code> is even, return <code>n/2</code>. Otherwise  return <code>3n+1</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> collatz = <span class="function"><span class="params">n</span> =&gt;</span> (n % <span class="number">2</span> == <span class="number">0</span>) ? (n / <span class="number">2</span>) : (<span class="number">3</span> * n + <span class="number">1</span>);</div><div class="line"><span class="comment">// collatz(8) --&gt; 4</span></div><div class="line"><span class="comment">// collatz(5) --&gt; 16</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Distance-between-two-points"><a href="#Distance-between-two-points" class="headerlink" title="Distance between two points"></a>Distance between two points</h3><p>Use <code>Math.hypot()</code> to calculate the Euclidean distance between two points.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> distance = <span class="function">(<span class="params">x0, y0, x1, y1</span>) =&gt;</span> <span class="built_in">Math</span>.hypot(x1 - x0, y1 - y0);</div><div class="line"><span class="comment">// distance(1,1, 2,3) -&gt; 2.23606797749979</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Divisible-by-number"><a href="#Divisible-by-number" class="headerlink" title="Divisible by number"></a>Divisible by number</h3><p>Use the modulo operator (<code>%</code>) to check if the remainder is equal to <code>0</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isDivisible = <span class="function">(<span class="params">dividend, divisor</span>) =&gt;</span> dividend % divisor === <span class="number">0</span>;</div><div class="line"><span class="comment">// isDivisible(6,3) -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Even-or-odd-number"><a href="#Even-or-odd-number" class="headerlink" title="Even or odd number"></a>Even or odd number</h3><p>Checks whether a number is odd or even using the modulo (<code>%</code>) operator.<br>Returns <code>true</code> if the number is even, <code>false</code> if the number is odd.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isEven = <span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line"><span class="comment">// isEven(3) -&gt; false</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Factorial"><a href="#Factorial" class="headerlink" title="Factorial"></a>Factorial</h3><p>Use recursion.<br>If <code>n</code> is less than or equal to <code>1</code>, return <code>1</code>.<br>Otherwise, return the product of <code>n</code> and the factorial of <code>n - 1</code>.<br>Throws an exception if <code>n</code> is a negative number.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> factorial = <span class="function"><span class="params">n</span> =&gt;</span></div><div class="line">  n &lt; <span class="number">0</span> ? <span class="function">(<span class="params">(</span>) =&gt;</span> &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Negative numbers are not allowed!'</span>) &#125;)()</div><div class="line">  : n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * factorial(n - <span class="number">1</span>);</div><div class="line"><span class="comment">// factorial(6) -&gt; 720</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Fibonacci-array-generator"><a href="#Fibonacci-array-generator" class="headerlink" title="Fibonacci array generator"></a>Fibonacci array generator</h3><p>Create an empty array of the specific length, initializing the first two values (<code>0</code> and <code>1</code>).<br>Use <code>Array.reduce()</code> to add values into the array, using the sum of the last two values, except for the first two.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fibonacci = <span class="function"><span class="params">n</span> =&gt;</span></div><div class="line">  <span class="built_in">Array</span>(n).fill(<span class="number">0</span>).reduce(<span class="function">(<span class="params">acc, val, i</span>) =&gt;</span> acc.concat(i &gt; <span class="number">1</span> ? acc[i - <span class="number">1</span>] + acc[i - <span class="number">2</span>] : i), []);</div><div class="line"><span class="comment">// fibonacci(5) -&gt; [0,1,1,2,3]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Greatest-common-divisor-GCD"><a href="#Greatest-common-divisor-GCD" class="headerlink" title="Greatest common divisor (GCD)"></a>Greatest common divisor (GCD)</h3><p>Use recursion.<br>Base case is when <code>y</code> equals <code>0</code>. In this case, return <code>x</code>.<br>Otherwise, return the GCD of <code>y</code> and the remainder of the division <code>x/y</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gcd = <span class="function">(<span class="params">x, y</span>) =&gt;</span> !y ? x : gcd(y, x % y);</div><div class="line"><span class="comment">// gcd (8, 36) -&gt; 4</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Hamming-distance"><a href="#Hamming-distance" class="headerlink" title="Hamming distance"></a>Hamming distance</h3><p>Use XOR operator (<code>^</code>) to find the bit difference between the two numbers, convert to binary string using <code>toString(2)</code>.<br>Count and return the number of <code>1</code>s in the string, using <code>match(/1/g)</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hammingDistance = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span></div><div class="line">  ((num1 ^ num2).toString(<span class="number">2</span>).match(<span class="regexp">/1/g</span>) || <span class="string">''</span>).length;</div><div class="line"><span class="comment">// hammingDistance(2,3) -&gt; 1</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Least-common-multiple-LCM"><a href="#Least-common-multiple-LCM" class="headerlink" title="Least common multiple (LCM)"></a>Least common multiple (LCM)</h3><p>Use the greatest common divisor (GCD) formula and <code>Math.abs()</code> to determine the least common multiple.<br>The GCD formula uses recursion.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> lcm = <span class="function">(<span class="params">x,y</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> gcd = <span class="function">(<span class="params">x, y</span>) =&gt;</span> !y ? x : gcd(y, x % y);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.abs(x*y)/(gcd(x,y));</div><div class="line">&#125;;</div><div class="line"><span class="comment">// lcm(12,7) -&gt; 84</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Percentile"><a href="#Percentile" class="headerlink" title="Percentile"></a>Percentile</h3><p>Use <code>Array.reduce()</code> to calculate how many numbers are below the value and how many are the same value and<br>apply the percentile formula.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> percentile = <span class="function">(<span class="params">arr, val</span>) =&gt;</span> </div><div class="line">  <span class="number">100</span> * arr.reduce(<span class="function">(<span class="params">acc,v</span>) =&gt;</span> acc + (v &lt; val ? <span class="number">1</span> : <span class="number">0</span>) + (v === val ? <span class="number">0.5</span> : <span class="number">0</span>), <span class="number">0</span>) / arr.length;</div><div class="line"><span class="comment">// percentile([1,2,3,4,5,6,7,8,9,10], 6) -&gt; 55</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Powerset"><a href="#Powerset" class="headerlink" title="Powerset"></a>Powerset</h3><p>Use <code>Array.reduce()</code> combined with <code>Array.map()</code> to iterate over elements and combine into an array containing all combinations.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> powerset = <span class="function"><span class="params">arr</span> =&gt;</span></div><div class="line">  arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> a.concat(a.map(<span class="function"><span class="params">r</span> =&gt;</span> [v].concat(r))), [[]]);</div><div class="line"><span class="comment">// powerset([1,2]) -&gt; [[], [1], [2], [2,1]]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Random-integer-in-range"><a href="#Random-integer-in-range" class="headerlink" title="Random integer in range"></a>Random integer in range</h3><p>Use <code>Math.random()</code> to generate a random number and map it to the desired range, using <code>Math.floor()</code> to make it an integer.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> randomIntegerInRange = <span class="function">(<span class="params">min, max</span>) =&gt;</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;</div><div class="line"><span class="comment">// randomIntegerInRange(0, 5) -&gt; 2</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Random-number-in-range"><a href="#Random-number-in-range" class="headerlink" title="Random number in range"></a>Random number in range</h3><p>Use <code>Math.random()</code> to generate a random value, map it to the desired range using multiplication.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> randomInRange = <span class="function">(<span class="params">min, max</span>) =&gt;</span> <span class="built_in">Math</span>.random() * (max - min) + min;</div><div class="line"><span class="comment">// randomInRange(2,10) -&gt; 6.0211363285087005</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Round-number-to-n-digits"><a href="#Round-number-to-n-digits" class="headerlink" title="Round number to n digits"></a>Round number to n digits</h3><p>Use <code>Math.round()</code> and template literals to round the number to the specified number of digits.<br>Omit the second argument, <code>decimals</code> to round to an integer.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> round = <span class="function">(<span class="params">n, decimals=<span class="number">0</span></span>) =&gt;</span> <span class="built_in">Number</span>(<span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.round(<span class="string">`<span class="subst">$&#123;n&#125;</span>e<span class="subst">$&#123;decimals&#125;</span>`</span>)&#125;</span>e-<span class="subst">$&#123;decimals&#125;</span>`</span>);</div><div class="line"><span class="comment">// round(1.005, 2) -&gt; 1.01</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Standard-deviation"><a href="#Standard-deviation" class="headerlink" title="Standard deviation"></a>Standard deviation</h3><p>Use <code>Array.reduce()</code> to calculate the mean, variance and the sum of the variance of the values, the variance of the values, then<br>determine the standard deviation.<br>You can omit the second argument to get the sample standard deviation or set it to <code>true</code> to get the population standard deviation.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> standardDeviation = <span class="function">(<span class="params">arr, usePopulation = <span class="literal">false</span></span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> mean = arr.reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>) / arr.length;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(</div><div class="line">    arr.reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc.concat(<span class="built_in">Math</span>.pow(val - mean, <span class="number">2</span>)), [])</div><div class="line">       .reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>) / (arr.length - (usePopulation ? <span class="number">0</span> : <span class="number">1</span>))</div><div class="line">  );</div><div class="line">&#125;;</div><div class="line"><span class="comment">// standardDeviation([10,2,38,23,38,23,21]) -&gt; 13.284434142114991 (sample)</span></div><div class="line"><span class="comment">// standardDeviation([10,2,38,23,38,23,21], true) -&gt; 12.29899614287479 (population)</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Media-1"><a href="#Media-1" class="headerlink" title="Media"></a>Media</h2><h3 id="Speech-synthesis-experimental"><a href="#Speech-synthesis-experimental" class="headerlink" title="Speech synthesis (experimental)"></a>Speech synthesis (experimental)</h3><p>Use <code>SpeechSynthesisUtterance.voice</code> and <code>window.speechSynthesis.getVoices()</code> to convert a message to speech.<br>Use <code>window.speechSynthesis.speak()</code> to play the message.</p>
+<p>Learn more about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance" target="_blank" rel="external">SpeechSynthesisUtterance interface of the Web Speech API</a>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> speak = <span class="function"><span class="params">message</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> msg = <span class="keyword">new</span> SpeechSynthesisUtterance(message);</div><div class="line">  msg.voice = <span class="built_in">window</span>.speechSynthesis.getVoices()[<span class="number">0</span>];</div><div class="line">  <span class="built_in">window</span>.speechSynthesis.speak(msg);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// speak('Hello, World') -&gt; plays the message</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Node-1"><a href="#Node-1" class="headerlink" title="Node"></a>Node</h2><h3 id="Read-file-as-array-of-lines"><a href="#Read-file-as-array-of-lines" class="headerlink" title="Read file as array of lines"></a>Read file as array of lines</h3><p>Use <code>readFileSync</code> function in <code>fs</code> node package to create a <code>Buffer</code> from a file.<br>convert buffer to string using <code>toString(encoding)</code> function.<br>creating an array from contents of file by <code>split</code>ing file content line by line(each <code>\n</code>).</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">const</span> readFileToArray = <span class="function"><span class="params">filename</span> =&gt;</span> fs.readFileSync(filename).toString(<span class="string">'UTF8'</span>).split(<span class="string">'\n'</span>);</div><div class="line"><span class="comment">/*</span></div><div class="line">  contents of test.txt :</div><div class="line">    line1</div><div class="line">    line2</div><div class="line">    line3</div><div class="line">    ___________________________</div><div class="line">  let arr = readFileToArray('test.txt')</div><div class="line">  console.log(arr) // -&gt; ['line1', 'line2', 'line3']</div><div class="line"> */</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Write-JSON-to-file"><a href="#Write-JSON-to-file" class="headerlink" title="Write JSON to file"></a>Write JSON to file</h3><p>Use <code>fs.writeFile()</code>, template literals and <code>JSON.stringify()</code> to write a <code>json</code> object to a <code>.json</code> file.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">const</span> jsonToFile = <span class="function">(<span class="params">obj, filename</span>) =&gt;</span> fs.writeFile(<span class="string">`<span class="subst">$&#123;filename&#125;</span>.json`</span>, <span class="built_in">JSON</span>.stringify(obj, <span class="literal">null</span>, <span class="number">2</span>))</div><div class="line"><span class="comment">// jsonToFile(&#123;test: "is passed"&#125;, 'testJsonFile') -&gt; writes the object to 'testJsonFile.json'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Object-1"><a href="#Object-1" class="headerlink" title="Object"></a>Object</h2><h3 id="Clean-JSON-object"><a href="#Clean-JSON-object" class="headerlink" title="Clean JSON object"></a>Clean JSON object</h3><p>Use <code>Object.keys()</code> method to loop over given json object and deleting keys that are not <code>include</code>d in given array.<br>also if you give it a special key(<code>childIndicator</code>) it will search deeply inside it to apply function to inner objects too.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cleanObj = <span class="function">(<span class="params">obj, keysToKeep = [], childIndicator</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (key === childIndicator) &#123;</div><div class="line">      cleanObj(obj[key], keysToKeep, childIndicator);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!keysToKeep.includes(key)) &#123;</div><div class="line">      <span class="keyword">delete</span> obj[key];</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line">  testObj = &#123;a: 1, b: 2, children: &#123;a: 1, b: 2&#125;&#125;</div><div class="line">  cleanObj(testObj, ["a"],"children")</div><div class="line">  console.log(testObj)// &#123; a: 1, children : &#123; a: 1&#125;&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Object-from-key-value-pairs"><a href="#Object-from-key-value-pairs" class="headerlink" title="Object from key-value pairs"></a>Object from key-value pairs</h3><p>Use <code>Array.reduce()</code> to create and combine key-value pairs.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> objectFromPairs = <span class="function"><span class="params">arr</span> =&gt;</span> arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> (a[v[<span class="number">0</span>]] = v[<span class="number">1</span>], a), &#123;&#125;);</div><div class="line"><span class="comment">// objectFromPairs([['a',1],['b',2]]) -&gt; &#123;a: 1, b: 2&#125;</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Object-to-key-value-pairs"><a href="#Object-to-key-value-pairs" class="headerlink" title="Object to key-value pairs"></a>Object to key-value pairs</h3><p>Use <code>Object.keys()</code> and <code>Array.map()</code> to iterate over the object’s keys and produce an array with key-value pairs.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> objectToPairs = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="built_in">Object</span>.keys(obj).map(<span class="function"><span class="params">k</span> =&gt;</span> [k, obj[k]]);</div><div class="line"><span class="comment">// objectToPairs(&#123;a: 1, b: 2&#125;) -&gt; [['a',1],['b',2]])</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Shallow-clone-object"><a href="#Shallow-clone-object" class="headerlink" title="Shallow clone object"></a>Shallow clone object</h3><p>Use <code>Object.assign()</code> and an empty object (<code>{}</code>) to create a shallow clone of the original.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> shallowClone = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</div><div class="line"><span class="comment">/*</span></div><div class="line">const a = &#123; x: true, y: 1 &#125;;</div><div class="line">const b = shallowClone(a);</div><div class="line">a === b -&gt; false</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="String-1"><a href="#String-1" class="headerlink" title="String"></a>String</h2><h3 id="Anagrams-of-string-with-duplicates"><a href="#Anagrams-of-string-with-duplicates" class="headerlink" title="Anagrams of string (with duplicates)"></a>Anagrams of string (with duplicates)</h3><p>Use recursion.<br>For each letter in the given string, create all the partial anagrams for the rest of its letters.<br>Use <code>Array.map()</code> to combine the letter with each partial anagram, then <code>Array.reduce()</code> to combine all anagrams in one array.<br>Base cases are for string <code>length</code> equal to <code>2</code> or <code>1</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> anagrams = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (str.length &lt;= <span class="number">2</span>) <span class="keyword">return</span> str.length === <span class="number">2</span> ? [str, str[<span class="number">1</span>] + str[<span class="number">0</span>]] : [str];</div><div class="line">  <span class="keyword">return</span> str.split(<span class="string">''</span>).reduce(<span class="function">(<span class="params">acc, letter, i</span>) =&gt;</span></div><div class="line">    acc.concat(anagrams(str.slice(<span class="number">0</span>, i) + str.slice(i + <span class="number">1</span>)).map(<span class="function"><span class="params">val</span> =&gt;</span> letter + val)), []);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// anagrams('abc') -&gt; ['abc','acb','bac','bca','cab','cba']</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Capitalize-first-letter-of-every-word"><a href="#Capitalize-first-letter-of-every-word" class="headerlink" title="Capitalize first letter of every word"></a>Capitalize first letter of every word</h3><p>Use <code>replace()</code> to match the first character of each word and <code>toUpperCase()</code> to capitalize it.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> capitalizeEveryWord = <span class="function"><span class="params">str</span> =&gt;</span> str.replace(<span class="regexp">/\b[a-z]/g</span>, char =&gt; char.toUpperCase());</div><div class="line"><span class="comment">// capitalizeEveryWord('hello world!') -&gt; 'Hello World!'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Capitalize-first-letter"><a href="#Capitalize-first-letter" class="headerlink" title="Capitalize first letter"></a>Capitalize first letter</h3><p>Use destructuring and <code>toUpperCase()</code> to capitalize first letter, <code>...rest</code> to get array of characters after first letter and then <code>Array.join(&#39;&#39;)</code> to make it a string again.<br>Omit the <code>lowerRest</code> parameter to keep the rest of the string intact, or set it to <code>true</code> to convert to lower case.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> capitalize = <span class="function">(<span class="params">[first,...rest], lowerRest = <span class="literal">false</span></span>) =&gt;</span></div><div class="line">  first.toUpperCase() + (lowerRest ? rest.join(<span class="string">''</span>).toLowerCase() : rest.join(<span class="string">''</span>));</div><div class="line"><span class="comment">// capitalize('myName') -&gt; 'MyName'</span></div><div class="line"><span class="comment">// capitalize('myName', true) -&gt; 'Myname'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Check-for-palindrome"><a href="#Check-for-palindrome" class="headerlink" title="Check for palindrome"></a>Check for palindrome</h3><p>Convert string <code>toLowerCase()</code> and use <code>replace()</code> to remove non-alphanumeric characters from it.<br>Then, <code>split(&#39;&#39;)</code> into individual characters, <code>reverse()</code>, <code>join(&#39;&#39;)</code> and compare to the original, unreversed string, after converting it <code>tolowerCase()</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> palindrome = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> s = str.toLowerCase().replace(<span class="regexp">/[\W_]/g</span>,<span class="string">''</span>);</div><div class="line">  <span class="keyword">return</span> s === s.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// palindrome('taco cat') -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Convert-string-from-camelcase"><a href="#Convert-string-from-camelcase" class="headerlink" title="Convert string from camelcase"></a>Convert string from camelcase</h3><p>Use <code>replace()</code> to remove underscores, hyphens and spaces and convert words to camelcase.<br>Omit the scond argument to use a default separator of ‘_’.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fromCamelCase = <span class="function">(<span class="params">str, separator = <span class="string">'_'</span></span>) =&gt;</span> </div><div class="line">  str.replace(<span class="regexp">/([a-z\d])([A-Z])/g</span>, <span class="string">'$1'</span> + separator + <span class="string">'$2'</span>)</div><div class="line">    .replace(<span class="regexp">/([A-Z]+)([A-Z][a-z\d]+)/g</span>, <span class="string">'$1'</span> + separator + <span class="string">'$2'</span>).toLowerCase();</div><div class="line"><span class="comment">// fromCamelCase('someDatabaseFieldName', ' ') -&gt; 'some database field name'</span></div><div class="line"><span class="comment">// fromCamelCase('someLabelThatNeedsToBeCamelized', '-') -&gt; 'some-label-that-needs-to-be-camelized'</span></div><div class="line"><span class="comment">// fromCamelCase('someJavascriptProperty', '_') -&gt; 'some_javascript_property'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Convert-string-to-camelcase"><a href="#Convert-string-to-camelcase" class="headerlink" title="Convert string to camelcase"></a>Convert string to camelcase</h3><p>Use <code>replace()</code> to remove underscores, hyphens and spaces and convert words to camelcase.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toCamelCase = <span class="function"><span class="params">str</span> =&gt;</span> </div><div class="line">  str.replace(<span class="regexp">/^([A-Z])|[\s-_]+(\w)/g</span>, (match, p1, p2, offset) =&gt;  p2 ? p2.toUpperCase() : p1.toLowerCase());</div><div class="line"><span class="comment">// toCamelCase("some_database_field_name") -&gt; 'someDatabaseFieldName'</span></div><div class="line"><span class="comment">// toCamelCase("Some label that needs to be camelized") -&gt; 'someLabelThatNeedsToBeCamelized'</span></div><div class="line"><span class="comment">// toCamelCase("some-javascript-property") -&gt; 'someJavascriptProperty'</span></div><div class="line"><span class="comment">// toCamelCase("some-mixed_string with spaces_underscores-and-hyphens") -&gt; 'someMixedStringWithSpacesUnderscoresAndHyphens'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Reverse-a-string"><a href="#Reverse-a-string" class="headerlink" title="Reverse a string"></a>Reverse a string</h3><p>Use array destructuring and <code>Array.reverse()</code> to reverse the order of the characters in the string.<br>Combine characters to get a string using <code>join(&#39;&#39;)</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> reverseString = <span class="function"><span class="params">str</span> =&gt;</span> [...str].reverse().join(<span class="string">''</span>);</div><div class="line"><span class="comment">// reverseString('foobar') -&gt; 'raboof'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Sort-characters-in-string-alphabetical"><a href="#Sort-characters-in-string-alphabetical" class="headerlink" title="Sort characters in string (alphabetical)"></a>Sort characters in string (alphabetical)</h3><p>Split the string using <code>split(&#39;&#39;)</code>, <code>Array.sort()</code> utilizing <code>localeCompare()</code>, recombine using <code>join(&#39;&#39;)</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> sortCharactersInString = <span class="function"><span class="params">str</span> =&gt;</span></div><div class="line">  str.split(<span class="string">''</span>).sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.localeCompare(b)).join(<span class="string">''</span>);</div><div class="line"><span class="comment">// sortCharactersInString('cabbage') -&gt; 'aabbceg'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Truncate-a-String"><a href="#Truncate-a-String" class="headerlink" title="Truncate a String"></a>Truncate a String</h3><p>Determine if the string’s <code>length</code> is greater than <code>num</code>.<br>Return the string truncated to the desired length, with <code>...</code> appended to the end or the original string.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> truncate = <span class="function">(<span class="params">str, num</span>) =&gt;</span></div><div class="line">  str.length &gt; num ? str.slice(<span class="number">0</span>, num &gt; <span class="number">3</span> ? num - <span class="number">3</span> : num) + <span class="string">'...'</span> : str;</div><div class="line"><span class="comment">// truncate('boomerang', 7) -&gt; 'boom...'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Utility-1"><a href="#Utility-1" class="headerlink" title="Utility"></a>Utility</h2><h3 id="3-digit-hexcode-to-6-digit-hexcode"><a href="#3-digit-hexcode-to-6-digit-hexcode" class="headerlink" title="3-digit hexcode to 6-digit hexcode"></a>3-digit hexcode to 6-digit hexcode</h3><p>Use <code>Array.map()</code>, <code>split()</code> and <code>Array.join()</code> to join the mapped array for converting a three-digit RGB notated hexadecimal color-code to the six-digit form.<br><code>Array.slice()</code> is used to remove <code>#</code> from string start since it’s added once.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> convertHex = <span class="function"><span class="params">shortHex</span> =&gt;</span></div><div class="line">  <span class="string">'#'</span> + shortHex.slice(shortHex.startsWith(<span class="string">'#'</span>) ? <span class="number">1</span> : <span class="number">0</span>).split().map(<span class="function"><span class="params">x</span> =&gt;</span> x+x).join()</div><div class="line"><span class="comment">// convertHex('#03f') -&gt; '#0033ff'</span></div><div class="line"><span class="comment">// convertHex('05a') -&gt; '#0055aa'</span></div></pre></td></tr></table></figure></p>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Escape-regular-expression"><a href="#Escape-regular-expression" class="headerlink" title="Escape regular expression"></a>Escape regular expression</h3><p>Use <code>replace()</code> to escape special characters.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> escapeRegExp = <span class="function"><span class="params">str</span> =&gt;</span> str.replace(<span class="regexp">/[.*+?^$&#123;&#125;()|[\]\\]/g</span>, <span class="string">'\\$&amp;'</span>);</div><div class="line"><span class="comment">// escapeRegExp('(test)') -&gt; \\(test\\)</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Get-native-type-of-value"><a href="#Get-native-type-of-value" class="headerlink" title="Get native type of value"></a>Get native type of value</h3><p>Returns lower-cased constructor name of value, “undefined” or “null” if value is undefined or null</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getType = <span class="function"><span class="params">v</span> =&gt;</span></div><div class="line">  v === <span class="literal">undefined</span> ? <span class="string">'undefined'</span> : v === <span class="literal">null</span> ? <span class="string">'null'</span> : v.constructor.name.toLowerCase();</div><div class="line"><span class="comment">// getType(new Set([1,2,3])) -&gt; "set"</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Hexcode-to-RGB"><a href="#Hexcode-to-RGB" class="headerlink" title="Hexcode to RGB"></a>Hexcode to RGB</h3><p>Use bitwise right-shift operator and mask bits with <code>&amp;</code> (and) operator to convert a hexadecimal color code (prefixed with <code>#</code>) to a string with the RGB values.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hexToRgb = <span class="function"><span class="params">hex</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> h = <span class="built_in">parseInt</span>(hex.slice(<span class="number">1</span>), <span class="number">16</span>);</div><div class="line">  <span class="keyword">return</span> <span class="string">`rgb(<span class="subst">$&#123;h &gt;&gt; <span class="number">16</span>&#125;</span>, <span class="subst">$&#123;(h &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>&#125;</span>, <span class="subst">$&#123;h &amp; <span class="number">0x0000ff</span>&#125;</span>)`</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// hexToRgb('#27ae60') -&gt; 'rgb(39, 174, 96)'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Is-array"><a href="#Is-array" class="headerlink" title="Is array"></a>Is array</h3><p>Use <code>Array.isArray()</code> to check if a value is classified as an array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isArray = <span class="function"><span class="params">val</span> =&gt;</span> !!val &amp;&amp; <span class="built_in">Array</span>.isArray(val);</div><div class="line"><span class="comment">// isArray(null) -&gt; false</span></div><div class="line"><span class="comment">// isArray([1]) -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Is-boolean"><a href="#Is-boolean" class="headerlink" title="Is boolean"></a>Is boolean</h3><p>Use <code>typeof</code> to check if a value is classified as a boolean primitive.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isBoolean = <span class="function"><span class="params">val</span> =&gt;</span> <span class="keyword">typeof</span> val === <span class="string">'boolean'</span>;</div><div class="line"><span class="comment">// isBoolean(null) -&gt; false</span></div><div class="line"><span class="comment">// isBoolean(false) -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Is-function"><a href="#Is-function" class="headerlink" title="Is function"></a>Is function</h3><p>Use <code>typeof</code> to check if a value is classified as a function primitive.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isFunction = <span class="function"><span class="params">val</span> =&gt;</span> val &amp;&amp; <span class="keyword">typeof</span> val === <span class="string">'function'</span>;</div><div class="line"><span class="comment">// isFunction('x') -&gt; false</span></div><div class="line"><span class="comment">// isFunction(x =&gt; x) -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Is-number"><a href="#Is-number" class="headerlink" title="Is number"></a>Is number</h3><p>Use <code>typeof</code> to check if a value is classified as a number primitive.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isNumber = <span class="function"><span class="params">val</span> =&gt;</span> <span class="keyword">typeof</span> val === <span class="string">'number'</span>;</div><div class="line"><span class="comment">// isNumber('1') -&gt; false</span></div><div class="line"><span class="comment">// isNumber(1) -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Is-string"><a href="#Is-string" class="headerlink" title="Is string"></a>Is string</h3><p>Use <code>typeof</code> to check if a value is classified as a string primitive.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isString = <span class="function"><span class="params">val</span> =&gt;</span> <span class="keyword">typeof</span> val === <span class="string">'string'</span>;</div><div class="line"><span class="comment">// isString(10) -&gt; false</span></div><div class="line"><span class="comment">// isString('10') -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Is-symbol"><a href="#Is-symbol" class="headerlink" title="Is symbol"></a>Is symbol</h3><p>Use <code>typeof</code> to check if a value is classified as a symbol primitive.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> isSymbol = <span class="function"><span class="params">val</span> =&gt;</span> <span class="keyword">typeof</span> val === <span class="string">'symbol'</span>;</div><div class="line"><span class="comment">// isSymbol('x') -&gt; false</span></div><div class="line"><span class="comment">// isSymbol(Symbol('x')) -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Measure-time-taken-by-function"><a href="#Measure-time-taken-by-function" class="headerlink" title="Measure time taken by function"></a>Measure time taken by function</h3><p>Use <code>console.time()</code> and <code>console.timeEnd()</code> to measure the difference between the start and end times to determine how long the callback took to execute.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> timeTaken = <span class="function"><span class="params">callback</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.time(<span class="string">'timeTaken'</span>);</div><div class="line">  <span class="keyword">const</span> r = callback();</div><div class="line">  <span class="built_in">console</span>.timeEnd(<span class="string">'timeTaken'</span>);</div><div class="line">  <span class="keyword">return</span> r;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// timeTaken(() =&gt; Math.pow(2, 10)) -&gt; 1024</span></div><div class="line"><span class="comment">// (logged): timeTaken: 0.02099609375ms</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Number-to-array-of-digits"><a href="#Number-to-array-of-digits" class="headerlink" title="Number to array of digits"></a>Number to array of digits</h3><p>Convert the number to a string, using spread operators in ES6(<code>[...string]</code>) build an array.<br>Use <code>Array.map()</code> and <code>parseInt()</code> to transform each value to an integer. </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> digitize = <span class="function"><span class="params">n</span> =&gt;</span> [...<span class="string">''</span>+n].map(<span class="function"><span class="params">i</span> =&gt;</span> <span class="built_in">parseInt</span>(i));</div><div class="line"><span class="comment">// digitize(2334) -&gt; [2, 3, 3, 4]</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Ordinal-suffix-of-number"><a href="#Ordinal-suffix-of-number" class="headerlink" title="Ordinal suffix of number"></a>Ordinal suffix of number</h3><p>Use the modulo operator (<code>%</code>) to find values of single and tens digits.<br>Find which ordinal pattern digits match.<br>If digit is found in teens pattern, use teens ordinal.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toOrdinalSuffix = <span class="function"><span class="params">num</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> int = <span class="built_in">parseInt</span>(num), digits = [(int % <span class="number">10</span>), (int % <span class="number">100</span>)],</div><div class="line">    ordinals = [<span class="string">'st'</span>, <span class="string">'nd'</span>, <span class="string">'rd'</span>, <span class="string">'th'</span>], oPattern = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</div><div class="line">    tPattern = [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>];</div><div class="line">  <span class="keyword">return</span> oPattern.includes(digits[<span class="number">0</span>]) &amp;&amp; !tPattern.includes(digits[<span class="number">1</span>]) ? int + ordinals[digits[<span class="number">0</span>] - <span class="number">1</span>] : int + ordinals[<span class="number">3</span>];</div><div class="line">&#125;;</div><div class="line"><span class="comment">// toOrdinalSuffix("123") -&gt; "123rd"</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="RGB-to-hexadecimal"><a href="#RGB-to-hexadecimal" class="headerlink" title="RGB to hexadecimal"></a>RGB to hexadecimal</h3><p>Convert given RGB parameters to hexadecimal string using bitwise left-shift operator (<code>&lt;&lt;</code>) and <code>toString(16)</code>, then <code>padStart(6,&#39;0&#39;)</code> to get a 6-digit hexadecimal value.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rgbToHex = <span class="function">(<span class="params">r, g, b</span>) =&gt;</span> ((r &lt;&lt; <span class="number">16</span>) + (g &lt;&lt; <span class="number">8</span>) + b).toString(<span class="number">16</span>).padStart(<span class="number">6</span>, <span class="string">'0'</span>);</div><div class="line"><span class="comment">// rgbToHex(255, 165, 1) -&gt; 'ffa501'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="URL-parameters"><a href="#URL-parameters" class="headerlink" title="URL parameters"></a>URL parameters</h3><p>Use <code>match()</code> with an appropriate regular expression to get all key-value pairs, <code>Array.reduce()</code> to map and combine them into a single object.<br>Pass <code>location.search</code> as the argument to apply to the current <code>url</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getUrlParameters = <span class="function"><span class="params">url</span> =&gt;</span></div><div class="line">  url.match(<span class="regexp">/([^?=&amp;]+)(=([^&amp;]*))/g</span>).reduce(</div><div class="line">    <span class="function">(<span class="params">a, v</span>) =&gt;</span> (a[v.slice(<span class="number">0</span>, v.indexOf(<span class="string">'='</span>))] = v.slice(v.indexOf(<span class="string">'='</span>) + <span class="number">1</span>), a), &#123;&#125;</div><div class="line">  );</div><div class="line"><span class="comment">// getUrlParameters('http://url.com/page?name=Adam&amp;surname=Smith') -&gt; &#123;name: 'Adam', surname: 'Smith'&#125;</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="UUID-generator"><a href="#UUID-generator" class="headerlink" title="UUID generator"></a>UUID generator</h3><p>Use <code>crypto</code> API to generate a UUID, compliant with <a href="https://www.ietf.org/rfc/rfc4122.txt" target="_blank" rel="external">RFC4122</a> version 4.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> uuid = <span class="function"><span class="params">()</span> =&gt;</span></div><div class="line">  ([<span class="number">1e7</span>] + <span class="number">-1e3</span> + <span class="number">-4e3</span> + <span class="number">-8e3</span> + <span class="number">-1e11</span>).replace(<span class="regexp">/[018]/g</span>, c =&gt;</div><div class="line">    (c ^ crypto.getRandomValues(<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="number">1</span>))[<span class="number">0</span>] &amp; <span class="number">15</span> &gt;&gt; c / <span class="number">4</span>).toString(<span class="number">16</span>)</div><div class="line">  );</div><div class="line"><span class="comment">// uuid() -&gt; '7982fcfe-5721-4632-bede-6000885be57d'</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Validate-email"><a href="#Validate-email" class="headerlink" title="Validate email"></a>Validate email</h3><p>Use a regular expression to check if the email is valid.<br>Returns <code>true</code> if email is valid, <code>false</code> if not.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> validateEmail = <span class="function"><span class="params">str</span> =&gt;</span></div><div class="line">  /^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/.test(str);</div><div class="line">// validateEmail(mymail@gmail.com) -&gt; true</div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h3 id="Validate-number"><a href="#Validate-number" class="headerlink" title="Validate number"></a>Validate number</h3><p>Use <code>!isNaN</code> in combination with <code>parseFloat()</code> to check if the argument is a number.<br>Use <code>isFinite()</code> to check if the number is finite.<br>Use <code>Number()</code> to check if the coercion holds.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> validateNumber = <span class="function"><span class="params">n</span> =&gt;</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) &amp;&amp; <span class="built_in">isFinite</span>(n) &amp;&amp; <span class="built_in">Number</span>(n) == n;</div><div class="line"><span class="comment">// validateNumber('10') -&gt; true</span></div></pre></td></tr></table></figure>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits"></a>Credits</h2><p><em>Icons made by <a href="https://www.flaticon.com/authors/smashicons" target="_blank" rel="external">Smashicons</a> from <a href="https://www.flaticon.com/" target="_blank" rel="external">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" rel="external">CC 3.0 BY</a>.</em></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js代码片段/" rel="tag"># js代码片段</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/29/ES6之Iterator/" rel="next" title="ES6之Iterator">
+                <i class="fa fa-chevron-left"></i> ES6之Iterator
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/29/ES6之Generator/" rel="prev" title="ES6之Generator">
+                ES6之Generator <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-2.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#30-seconds-of-code"><span class="nav-number">1.</span> <span class="nav-text">30 seconds of code </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.1.</span> <span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">1.1.1.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Browser"><span class="nav-number">1.1.2.</span> <span class="nav-text">Browser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date"><span class="nav-number">1.1.3.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function"><span class="nav-number">1.1.4.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math"><span class="nav-number">1.1.5.</span> <span class="nav-text">Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Media"><span class="nav-number">1.1.6.</span> <span class="nav-text">Media</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node"><span class="nav-number">1.1.7.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object"><span class="nav-number">1.1.8.</span> <span class="nav-text">Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">1.1.9.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Utility"><span class="nav-number">1.1.10.</span> <span class="nav-text">Utility</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-1"><span class="nav-number">1.2.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-difference"><span class="nav-number">1.2.1.</span> <span class="nav-text">Array difference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-intersection"><span class="nav-number">1.2.2.</span> <span class="nav-text">Array intersection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-pull-mutates-array"><span class="nav-number">1.2.3.</span> <span class="nav-text">Array pull (mutates array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-remove"><span class="nav-number">1.2.4.</span> <span class="nav-text">Array remove</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-sample"><span class="nav-number">1.2.5.</span> <span class="nav-text">Array sample</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-symmetric-difference"><span class="nav-number">1.2.6.</span> <span class="nav-text">Array symmetric difference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-union"><span class="nav-number">1.2.7.</span> <span class="nav-text">Array union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-without"><span class="nav-number">1.2.8.</span> <span class="nav-text">Array without</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-zip"><span class="nav-number">1.2.9.</span> <span class="nav-text">Array zip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Average-of-array-of-numbers"><span class="nav-number">1.2.10.</span> <span class="nav-text">Average of array of numbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chunk-array"><span class="nav-number">1.2.11.</span> <span class="nav-text">Chunk array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compact"><span class="nav-number">1.2.12.</span> <span class="nav-text">Compact</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Count-occurrences-of-a-value-in-array"><span class="nav-number">1.2.13.</span> <span class="nav-text">Count occurrences of a value in array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-flatten-array"><span class="nav-number">1.2.14.</span> <span class="nav-text">Deep flatten array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Drop-elements-in-array"><span class="nav-number">1.2.15.</span> <span class="nav-text">Drop elements in array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter-out-non-unique-values-in-an-array"><span class="nav-number">1.2.16.</span> <span class="nav-text">Filter out non-unique values in an array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flatten-array-up-to-depth"><span class="nav-number">1.2.17.</span> <span class="nav-text">Flatten array up to depth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flatten-array"><span class="nav-number">1.2.18.</span> <span class="nav-text">Flatten array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-max-value-from-array"><span class="nav-number">1.2.19.</span> <span class="nav-text">Get max value from array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-min-value-from-array"><span class="nav-number">1.2.20.</span> <span class="nav-text">Get min value from array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-by"><span class="nav-number">1.2.21.</span> <span class="nav-text">Group by</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Head-of-list"><span class="nav-number">1.2.22.</span> <span class="nav-text">Head of list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-of-list"><span class="nav-number">1.2.23.</span> <span class="nav-text">Initial of list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initialize-array-with-range"><span class="nav-number">1.2.24.</span> <span class="nav-text">Initialize array with range</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initialize-array-with-values"><span class="nav-number">1.2.25.</span> <span class="nav-text">Initialize array with values</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Last-of-list"><span class="nav-number">1.2.26.</span> <span class="nav-text">Last of list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Median-of-array-of-numbers"><span class="nav-number">1.2.27.</span> <span class="nav-text">Median of array of numbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nth-element-of-array"><span class="nav-number">1.2.28.</span> <span class="nav-text">Nth element of array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pick"><span class="nav-number">1.2.29.</span> <span class="nav-text">Pick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shuffle-array"><span class="nav-number">1.2.30.</span> <span class="nav-text">Shuffle array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Similarity-between-arrays"><span class="nav-number">1.2.31.</span> <span class="nav-text">Similarity between arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sum-of-array-of-numbers"><span class="nav-number">1.2.32.</span> <span class="nav-text">Sum of array of numbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tail-of-list"><span class="nav-number">1.2.33.</span> <span class="nav-text">Tail of list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take-every-nth-element"><span class="nav-number">1.2.34.</span> <span class="nav-text">Take every nth element</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take-right"><span class="nav-number">1.2.35.</span> <span class="nav-text">Take right</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take"><span class="nav-number">1.2.36.</span> <span class="nav-text">Take</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unique-values-of-array"><span class="nav-number">1.2.37.</span> <span class="nav-text">Unique values of array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Browser-1"><span class="nav-number">1.3.</span> <span class="nav-text">Browser</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-visible"><span class="nav-number">1.3.1.</span> <span class="nav-text">Bottom visible</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Current-URL"><span class="nav-number">1.3.2.</span> <span class="nav-text">Current URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-is-visible-in-viewport"><span class="nav-number">1.3.3.</span> <span class="nav-text">Element is visible in viewport</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-scroll-position"><span class="nav-number">1.3.4.</span> <span class="nav-text">Get scroll position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redirect-to-URL"><span class="nav-number">1.3.5.</span> <span class="nav-text">Redirect to URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scroll-to-top"><span class="nav-number">1.3.6.</span> <span class="nav-text">Scroll to top</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date-1"><span class="nav-number">1.4.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-to-English-date"><span class="nav-number">1.4.1.</span> <span class="nav-text">Convert to English date</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-days-difference-between-dates"><span class="nav-number">1.4.2.</span> <span class="nav-text">Get days difference between dates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-to-date"><span class="nav-number">1.4.3.</span> <span class="nav-text">JSON to date</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-1"><span class="nav-number">1.5.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chain-asynchronous-functions"><span class="nav-number">1.5.1.</span> <span class="nav-text">Chain asynchronous functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compose-functions"><span class="nav-number">1.5.2.</span> <span class="nav-text">Compose functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Curry"><span class="nav-number">1.5.3.</span> <span class="nav-text">Curry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log-function-name"><span class="nav-number">1.5.4.</span> <span class="nav-text">Log function name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pipe-functions"><span class="nav-number">1.5.5.</span> <span class="nav-text">Pipe functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promisify"><span class="nav-number">1.5.6.</span> <span class="nav-text">Promisify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-promises-in-series"><span class="nav-number">1.5.7.</span> <span class="nav-text">Run promises in series</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sleep"><span class="nav-number">1.5.8.</span> <span class="nav-text">Sleep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-1"><span class="nav-number">1.6.</span> <span class="nav-text">Math</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collatz-algorithm"><span class="nav-number">1.6.1.</span> <span class="nav-text">Collatz algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distance-between-two-points"><span class="nav-number">1.6.2.</span> <span class="nav-text">Distance between two points</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Divisible-by-number"><span class="nav-number">1.6.3.</span> <span class="nav-text">Divisible by number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Even-or-odd-number"><span class="nav-number">1.6.4.</span> <span class="nav-text">Even or odd number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorial"><span class="nav-number">1.6.5.</span> <span class="nav-text">Factorial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fibonacci-array-generator"><span class="nav-number">1.6.6.</span> <span class="nav-text">Fibonacci array generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Greatest-common-divisor-GCD"><span class="nav-number">1.6.7.</span> <span class="nav-text">Greatest common divisor (GCD)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hamming-distance"><span class="nav-number">1.6.8.</span> <span class="nav-text">Hamming distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-common-multiple-LCM"><span class="nav-number">1.6.9.</span> <span class="nav-text">Least common multiple (LCM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Percentile"><span class="nav-number">1.6.10.</span> <span class="nav-text">Percentile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powerset"><span class="nav-number">1.6.11.</span> <span class="nav-text">Powerset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-integer-in-range"><span class="nav-number">1.6.12.</span> <span class="nav-text">Random integer in range</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-number-in-range"><span class="nav-number">1.6.13.</span> <span class="nav-text">Random number in range</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Round-number-to-n-digits"><span class="nav-number">1.6.14.</span> <span class="nav-text">Round number to n digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Standard-deviation"><span class="nav-number">1.6.15.</span> <span class="nav-text">Standard deviation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Media-1"><span class="nav-number">1.7.</span> <span class="nav-text">Media</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Speech-synthesis-experimental"><span class="nav-number">1.7.1.</span> <span class="nav-text">Speech synthesis (experimental)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-1"><span class="nav-number">1.8.</span> <span class="nav-text">Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-file-as-array-of-lines"><span class="nav-number">1.8.1.</span> <span class="nav-text">Read file as array of lines</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write-JSON-to-file"><span class="nav-number">1.8.2.</span> <span class="nav-text">Write JSON to file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-1"><span class="nav-number">1.9.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Clean-JSON-object"><span class="nav-number">1.9.1.</span> <span class="nav-text">Clean JSON object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-from-key-value-pairs"><span class="nav-number">1.9.2.</span> <span class="nav-text">Object from key-value pairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-to-key-value-pairs"><span class="nav-number">1.9.3.</span> <span class="nav-text">Object to key-value pairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shallow-clone-object"><span class="nav-number">1.9.4.</span> <span class="nav-text">Shallow clone object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-1"><span class="nav-number">1.10.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anagrams-of-string-with-duplicates"><span class="nav-number">1.10.1.</span> <span class="nav-text">Anagrams of string (with duplicates)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Capitalize-first-letter-of-every-word"><span class="nav-number">1.10.2.</span> <span class="nav-text">Capitalize first letter of every word</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Capitalize-first-letter"><span class="nav-number">1.10.3.</span> <span class="nav-text">Capitalize first letter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-for-palindrome"><span class="nav-number">1.10.4.</span> <span class="nav-text">Check for palindrome</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-string-from-camelcase"><span class="nav-number">1.10.5.</span> <span class="nav-text">Convert string from camelcase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-string-to-camelcase"><span class="nav-number">1.10.6.</span> <span class="nav-text">Convert string to camelcase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reverse-a-string"><span class="nav-number">1.10.7.</span> <span class="nav-text">Reverse a string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sort-characters-in-string-alphabetical"><span class="nav-number">1.10.8.</span> <span class="nav-text">Sort characters in string (alphabetical)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Truncate-a-String"><span class="nav-number">1.10.9.</span> <span class="nav-text">Truncate a String</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Utility-1"><span class="nav-number">1.11.</span> <span class="nav-text">Utility</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-digit-hexcode-to-6-digit-hexcode"><span class="nav-number">1.11.1.</span> <span class="nav-text">3-digit hexcode to 6-digit hexcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Escape-regular-expression"><span class="nav-number">1.11.2.</span> <span class="nav-text">Escape regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-native-type-of-value"><span class="nav-number">1.11.3.</span> <span class="nav-text">Get native type of value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexcode-to-RGB"><span class="nav-number">1.11.4.</span> <span class="nav-text">Hexcode to RGB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Is-array"><span class="nav-number">1.11.5.</span> <span class="nav-text">Is array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Is-boolean"><span class="nav-number">1.11.6.</span> <span class="nav-text">Is boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Is-function"><span class="nav-number">1.11.7.</span> <span class="nav-text">Is function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Is-number"><span class="nav-number">1.11.8.</span> <span class="nav-text">Is number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Is-string"><span class="nav-number">1.11.9.</span> <span class="nav-text">Is string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Is-symbol"><span class="nav-number">1.11.10.</span> <span class="nav-text">Is symbol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Measure-time-taken-by-function"><span class="nav-number">1.11.11.</span> <span class="nav-text">Measure time taken by function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-to-array-of-digits"><span class="nav-number">1.11.12.</span> <span class="nav-text">Number to array of digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordinal-suffix-of-number"><span class="nav-number">1.11.13.</span> <span class="nav-text">Ordinal suffix of number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RGB-to-hexadecimal"><span class="nav-number">1.11.14.</span> <span class="nav-text">RGB to hexadecimal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL-parameters"><span class="nav-number">1.11.15.</span> <span class="nav-text">URL parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UUID-generator"><span class="nav-number">1.11.16.</span> <span class="nav-text">UUID generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validate-email"><span class="nav-number">1.11.17.</span> <span class="nav-text">Validate email</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validate-number"><span class="nav-number">1.11.18.</span> <span class="nav-text">Validate number</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Credits"><span class="nav-number">1.12.</span> <span class="nav-text">Credits</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Generator,es6," />
+  <meta name="keywords" content="es6,Generator," />
 
 
 
@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="123456789101112function* test(p)&amp;#123;    console.log(p); // 1    var a = yield p + 1;    console.log(a); // 3&amp;#125;var g = test(1);var ret;ret = g.next();console.log(ret); // &amp;#123; value: 2, done: f">
-<meta name="keywords" content="Generator,es6">
+<meta name="description" content="接触过Ajax请求的会遇到过异步调用的问题，为了保证调用顺序的正确性，一般我们会在回调函数中调用，也有用到一些新的解决方案如Promise相关的技术。 在异步编程中，还有一种常用的解决方案，它就是Generator生成器函数。顾名思义，它是一个生成器，它也是一个状态机，内部拥有值及相关的状态，生成器返回一个迭代器Iterator对象，我们可以通过这个迭代器，手动地遍历相关的值、状态，保证正确的执行">
+<meta name="keywords" content="es6,Generator">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6之Generator">
 <meta property="og:url" content="http://yoursite.com/2017/11/29/ES6之Generator/index.html">
 <meta property="og:site_name" content="鱼人孑">
-<meta property="og:description" content="123456789101112function* test(p)&amp;#123;    console.log(p); // 1    var a = yield p + 1;    console.log(a); // 3&amp;#125;var g = test(1);var ret;ret = g.next();console.log(ret); // &amp;#123; value: 2, done: f">
+<meta property="og:description" content="接触过Ajax请求的会遇到过异步调用的问题，为了保证调用顺序的正确性，一般我们会在回调函数中调用，也有用到一些新的解决方案如Promise相关的技术。 在异步编程中，还有一种常用的解决方案，它就是Generator生成器函数。顾名思义，它是一个生成器，它也是一个状态机，内部拥有值及相关的状态，生成器返回一个迭代器Iterator对象，我们可以通过这个迭代器，手动地遍历相关的值、状态，保证正确的执行">
 <meta property="og:image" content="http://cnode.qiniudn.com/Fkk9pjJa6gvQQm-RHolq-zWKMKz4">
-<meta property="og:updated_time" content="2017-11-29T12:23:53.300Z">
+<meta property="og:updated_time" content="2017-11-29T13:04:40.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之Generator">
-<meta name="twitter:description" content="123456789101112function* test(p)&amp;#123;    console.log(p); // 1    var a = yield p + 1;    console.log(a); // 3&amp;#125;var g = test(1);var ret;ret = g.next();console.log(ret); // &amp;#123; value: 2, done: f">
+<meta name="twitter:description" content="接触过Ajax请求的会遇到过异步调用的问题，为了保证调用顺序的正确性，一般我们会在回调函数中调用，也有用到一些新的解决方案如Promise相关的技术。 在异步编程中，还有一种常用的解决方案，它就是Generator生成器函数。顾名思义，它是一个生成器，它也是一个状态机，内部拥有值及相关的状态，生成器返回一个迭代器Iterator对象，我们可以通过这个迭代器，手动地遍历相关的值、状态，保证正确的执行">
 <meta name="twitter:image" content="http://cnode.qiniudn.com/Fkk9pjJa6gvQQm-RHolq-zWKMKz4">
 
 
@@ -384,7 +384,14 @@
       
 
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">test</span>(<span class="params">p</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(p); <span class="comment">// 1</span></div><div class="line">    <span class="keyword">var</span> a = <span class="keyword">yield</span> p + <span class="number">1</span>;</div><div class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// 3</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> g = test(<span class="number">1</span>);</div><div class="line"><span class="keyword">var</span> ret;</div><div class="line">ret = g.next();</div><div class="line"><span class="built_in">console</span>.log(ret); <span class="comment">// &#123; value: 2, done: false &#125;</span></div><div class="line">ret = g.next(ret.value + <span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(ret); <span class="comment">// &#123; value: undefined, done: true &#125;</span></div></pre></td></tr></table></figure>
+        <p>接触过Ajax请求的会遇到过异步调用的问题，为了保证调用顺序的正确性，一般我们会在回调函数中调用，也有用到一些新的解决方案如Promise相关的技术。</p>
+<p>在异步编程中，还有一种常用的解决方案，它就是Generator生成器函数。顾名思义，它是一个生成器，它也是一个状态机，内部拥有值及相关的状态，生成器返回一个迭代器Iterator对象，我们可以通过这个迭代器，手动地遍历相关的值、状态，保证正确的执行顺序。</p>
+<h2 id="一、简单使用"><a href="#一、简单使用" class="headerlink" title="一、简单使用"></a>一、简单使用</h2><h3 id="1-声明"><a href="#1-声明" class="headerlink" title="1.声明"></a>1.声明</h3><p>Generator的声明方式类似一般的函数声明，只是多了个*号，并且一般可以在函数内看到yield关键字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">showWords</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">yield</span> <span class="string">'one'</span>;</div><div class="line">    <span class="keyword">yield</span> <span class="string">'two'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="string">'three'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> show = showWords();</div><div class="line"></div><div class="line">show.next() <span class="comment">// &#123;done: false, value: "one"&#125;</span></div><div class="line">show.next() <span class="comment">// &#123;done: false, value: "two"&#125;</span></div><div class="line">show.next() <span class="comment">// &#123;done: true, value: "three"&#125;</span></div><div class="line">show.next() <span class="comment">// &#123;done: true, value: undefined&#125;</span></div></pre></td></tr></table></figure>
+<p>如上代码，定义了一个showWords的生成器函数，调用之后返回了一个迭代器对象（即show）</p>
+<p>调用next方法后，函数内执行第一条yield语句，输出当前的状态done（迭代器是否遍历完成）以及相应值（一般为yield关键字后面的运算结果）</p>
+<p>每调用一次next，则执行一次yield语句，并在该处暂停，return完成之后，就退出了生成器函数，后续如果还有yield操作就不再执行了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">test</span>(<span class="params">p</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(p); <span class="comment">// 1</span></div><div class="line">    <span class="keyword">var</span> a = <span class="keyword">yield</span> p + <span class="number">1</span>;</div><div class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// 3</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> g = test(<span class="number">1</span>);</div><div class="line"><span class="keyword">var</span> ret;</div><div class="line">ret = g.next();</div><div class="line"><span class="built_in">console</span>.log(ret); <span class="comment">// &#123; value: 2, done: false &#125;</span></div><div class="line">ret = g.next(ret.value + <span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(ret); <span class="comment">// &#123; value: undefined, done: true &#125;</span></div></pre></td></tr></table></figure>
 <ol>
 <li>yield关键字可以让当前函数暂停执行并保存现场，并跳出到调用此函数的代码处继续执行。</li>
 <li>可以利用函数执行时的返回句柄的next方法回到之前暂停处继续执行</li>
@@ -422,9 +429,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Generator/" rel="tag"># Generator</a>
-          
             <a href="/tags/es6/" rel="tag"># es6</a>
+          
+            <a href="/tags/Generator/" rel="tag"># Generator</a>
           
         </div>
       
@@ -446,6 +453,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/29/常用URL参数操作方法/" rel="prev" title="常用URL参数操作方法">
+                常用URL参数操作方法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -492,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/photo-1-2.jpeg"
@@ -508,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -519,7 +539,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -530,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -589,6 +609,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、简单使用"><span class="nav-number">1.</span> <span class="nav-text">一、简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-声明"><span class="nav-number">1.1.</span> <span class="nav-text">1.声明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

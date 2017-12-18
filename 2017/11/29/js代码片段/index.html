@@ -820,7 +820,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> uuid = <span class="function"><span class="params">()</span> =&gt;</span></div><div class="line">  ([<span class="number">1e7</span>] + <span class="number">-1e3</span> + <span class="number">-4e3</span> + <span class="number">-8e3</span> + <span class="number">-1e11</span>).replace(<span class="regexp">/[018]/g</span>, c =&gt;</div><div class="line">    (c ^ crypto.getRandomValues(<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="number">1</span>))[<span class="number">0</span>] &amp; <span class="number">15</span> &gt;&gt; c / <span class="number">4</span>).toString(<span class="number">16</span>)</div><div class="line">  );</div><div class="line"><span class="comment">// uuid() -&gt; '7982fcfe-5721-4632-bede-6000885be57d'</span></div></pre></td></tr></table></figure>
 <p><a href="#table-of-contents">⬆ back to top</a></p>
 <h3 id="Validate-email"><a href="#Validate-email" class="headerlink" title="Validate email"></a>Validate email</h3><p>Use a regular expression to check if the email is valid.<br>Returns <code>true</code> if email is valid, <code>false</code> if not.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> validateEmail = <span class="function"><span class="params">str</span> =&gt;</span></div><div class="line">  /^(([^<span class="xml"><span class="tag">&lt;&gt;</span>()\[\]\\.,;:\s@"]+(\.[^<span class="tag">&lt;&gt;</span>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/.test(str);</span></div><div class="line">// validateEmail(mymail@gmail.com) -&gt; true</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> validateEmail = <span class="function"><span class="params">str</span> =&gt;</span></div><div class="line">  /^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/.test(str);</div><div class="line">// validateEmail(mymail@gmail.com) -&gt; true</div></pre></td></tr></table></figure>
 <p><a href="#table-of-contents">⬆ back to top</a></p>
 <h3 id="Validate-number"><a href="#Validate-number" class="headerlink" title="Validate number"></a>Validate number</h3><p>Use <code>!isNaN</code> in combination with <code>parseFloat()</code> to check if the argument is a number.<br>Use <code>isFinite()</code> to check if the number is finite.<br>Use <code>Number()</code> to check if the coercion holds.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> validateNumber = <span class="function"><span class="params">n</span> =&gt;</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) &amp;&amp; <span class="built_in">isFinite</span>(n) &amp;&amp; <span class="built_in">Number</span>(n) == n;</div><div class="line"><span class="comment">// validateNumber('10') -&gt; true</span></div></pre></td></tr></table></figure>
@@ -870,8 +870,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/29/ES6之Iterator/" rel="next" title="ES6之Iterator">
-                <i class="fa fa-chevron-left"></i> ES6之Iterator
+              <a href="/2017/11/29/48个js代码片段/" rel="next" title="48个js代码片段">
+                <i class="fa fa-chevron-left"></i> 48个js代码片段
               </a>
             
           </div>
@@ -880,8 +880,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/29/常用URL参数操作方法/" rel="prev" title="常用URL参数操作方法">
-                常用URL参数操作方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/11/reduce/" rel="prev" title="reduce方法">
+                reduce方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

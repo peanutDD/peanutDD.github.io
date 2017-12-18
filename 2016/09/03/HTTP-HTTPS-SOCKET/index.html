@@ -486,7 +486,7 @@
 <p><strong><font color="#FF7256">GET /index.html</font></strong></p>
 </blockquote>
 <p>上面命令表示，TCP 连接（connection）建立后，客户端向服务器请求（request）网页index.html。</p>
-<p>协议规定，服务器只能回应HTML格式的字符串，不能回应别的格式。<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;body&gt;Hello World&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>协议规定，服务器只能回应HTML格式的字符串，不能回应别的格式。<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>服务器发送完毕，就关闭TCP连接。</p>
 <h5 id="HTTP-1-0："><a href="#HTTP-1-0：" class="headerlink" title="HTTP/1.0："></a><strong><font color="#FF7256">HTTP/1.0：</font></strong></h5><p>首先，任何格式的内容都可以发送。这使得互联网不仅可以传输文字，还能传输图像、视频、二进制文件。这为互联网的大发展奠定了基础。</p>
 <p>其次，除了GET命令，还引入了POST命令和HEAD命令，丰富了浏览器与服务器的互动手段。</p>
@@ -1041,7 +1041,7 @@
 <p>以上用例中，指定首部字段 Trailer 的值为 Expires，在报文主体之后（分块长度 0 之后）出现了首部字段 Expires。</p>
 <p><strong><font color="#FF7256">F. Transfer-Encoding</font></strong></p>
 <p>首部字段 Transfer-Encoding 规定了传输报文主体时采用的编码方式。</p>
-<p>HTTP/1.1 的传输编码方式仅对分块传输编码有效。<br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 <span class="number">200</span> OK</div><div class="line"><span class="attribute">Date</span>: Tue, 03 Jul 2016 04:40:56 GMT</div><div class="line"><span class="attribute">Cache-Control</span>: public, max-age=604800</div><div class="line"><span class="attribute">Content-Type</span>: text/javascript; charset=utf-8</div><div class="line"><span class="attribute">Expires</span>: Tue, 10 Jul 2012 04:40:56 GMT</div><div class="line"><span class="attribute">X-Frame-Options</span>: DENY</div><div class="line"><span class="attribute">X-XSS-Protection</span>: 1; mode=block</div><div class="line"><span class="attribute">Content-Encoding</span>: gzip</div><div class="line"><span class="attribute">Transfer-Encoding</span>: chunked</div><div class="line"><span class="attribute">Connection</span>: keep-alive</div><div class="line"></div><div class="line"><span class="undefined">cf0    ←16进制(10进制为3312)</span></div><div class="line"></div><div class="line">...3312字节分块数据...</div><div class="line"></div><div class="line">392    ←16进制(10进制为914)</div><div class="line"></div><div class="line">...914字节分块数据...</div><div class="line"></div><div class="line">0</div></pre></td></tr></table></figure></p>
+<p>HTTP/1.1 的传输编码方式仅对分块传输编码有效。<br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 <span class="number">200</span> OK</div><div class="line"><span class="attribute">Date</span>: Tue, 03 Jul 2016 04:40:56 GMT</div><div class="line"><span class="attribute">Cache-Control</span>: public, max-age=604800</div><div class="line"><span class="attribute">Content-Type</span>: text/javascript; charset=utf-8</div><div class="line"><span class="attribute">Expires</span>: Tue, 10 Jul 2012 04:40:56 GMT</div><div class="line"><span class="attribute">X-Frame-Options</span>: DENY</div><div class="line"><span class="attribute">X-XSS-Protection</span>: 1; mode=block</div><div class="line"><span class="attribute">Content-Encoding</span>: gzip</div><div class="line"><span class="attribute">Transfer-Encoding</span>: chunked</div><div class="line"><span class="attribute">Connection</span>: keep-alive</div><div class="line"></div><div class="line"><span class="css"><span class="selector-tag">cf0</span>    ←16进制(10进制为3312)</span></div><div class="line"></div><div class="line">..<span class="selector-class">.3312</span>字节分块数据...</div><div class="line"></div><div class="line">392    ←16进制(10进制为914)</div><div class="line"></div><div class="line">..<span class="selector-class">.914</span>字节分块数据...</div><div class="line"></div><div class="line">0</div></pre></td></tr></table></figure></p>
 <p>以上用例中，正如在首部字段 Transfer-Encoding 中指定的那样，有效使用分块传输编码，且分别被分成 3312 字节和 914 字节大小的分块数据。</p>
 <p><strong><font color="#FF7256">G. Upgrade</font></strong></p>
 <p>首部字段 Upgrade 用于检测 HTTP 协议及其他协议是否可使用更高的版本进行通信，其参数值可以用来指定一个完全不同的通信协议。</p>
@@ -2061,7 +2061,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2072,7 +2072,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2083,7 +2083,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

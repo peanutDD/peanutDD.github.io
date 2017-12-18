@@ -1,0 +1,1171 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="es6,polyfill,redux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="https://juejin.im/post/58c12e5dda2f60715873fdb3  面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名之前的一篇文章：从一道面试题，到“我可能看了假源码”讨论了bind方法的各种进阶Pollyfill，今天再分享一个有意思的题目。 从解这道题目出发，我会谈到数组的Reduce方法，ES6特性和Redux数据流框架中Reducer的">
+<meta name="keywords" content="es6,polyfill,redux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优雅es6＋智慧polyfill＋redux迷之命名">
+<meta property="og:url" content="http://yoursite.com/2017/12/17/es6+pollyfill+redux/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="https://juejin.im/post/58c12e5dda2f60715873fdb3  面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名之前的一篇文章：从一道面试题，到“我可能看了假源码”讨论了bind方法的各种进阶Pollyfill，今天再分享一个有意思的题目。 从解这道题目出发，我会谈到数组的Reduce方法，ES6特性和Redux数据流框架中Reducer的">
+<meta property="og:updated_time" content="2017-12-18T15:58:48.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="优雅es6＋智慧polyfill＋redux迷之命名">
+<meta name="twitter:description" content="https://juejin.im/post/58c12e5dda2f60715873fdb3  面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名之前的一篇文章：从一道面试题，到“我可能看了假源码”讨论了bind方法的各种进阶Pollyfill，今天再分享一个有意思的题目。 从解这道题目出发，我会谈到数组的Reduce方法，ES6特性和Redux数据流框架中Reducer的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/17/es6+pollyfill+redux/"/>
+
+
+
+
+
+  <title>优雅es6＋智慧polyfill＋redux迷之命名 | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/17/es6+pollyfill+redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">优雅es6＋智慧polyfill＋redux迷之命名</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T20:18:46+08:00">
+                2017-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js代码片段/" itemprop="url" rel="index">
+                    <span itemprop="name">js代码片段</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://juejin.im/post/58c12e5dda2f60715873fdb3" target="_blank" rel="external">https://juejin.im/post/58c12e5dda2f60715873fdb3</a></p>
+</blockquote>
+<h1 id="面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名"><a href="#面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名" class="headerlink" title="面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名"></a>面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名</h1><p>之前的一篇文章：<a href="http://www.jianshu.com/p/6958f99db769" target="_blank" rel="external">从一道面试题，到“我可能看了假源码”</a>讨论了bind方法的各种进阶Pollyfill，今天再分享一个有意思的题目。</p>
+<p>从解这道题目出发，我会谈到数组的Reduce方法，ES6特性和Redux数据流框架中Reducer的命名等等。一道典型的题目，却如唐代诗人章碣《对月》诗中所云：“别有洞天三十六，水晶台殿冷层层。”</p>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>完成一个’flatten’的函数，实现“拍平”一个多维数组为一维。示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> testArr1 = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]];</div><div class="line"><span class="keyword">var</span> testArr2 = [<span class="number">0</span>, [<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, [<span class="number">5</span>]]]]]];</div><div class="line">flatten(testArr1) <span class="comment">// [0, 1, 2, 3, 4, 5]</span></div><div class="line">flatten(testArr2) <span class="comment">// [0, 1, 2, 3, 4, 5]</span></div></pre></td></tr></table></figure>
+<h2 id="解法先睹为快"><a href="#解法先睹为快" class="headerlink" title="解法先睹为快"></a>解法先睹为快</h2><p>先看一眼比较优雅的ES6解法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> flatten = <span class="function"><span class="params">arr</span> =&gt;</span> arr.reduce(<span class="function">(<span class="params">pre, val</span>) =&gt;</span> pre.concat(<span class="built_in">Array</span>.isArray(val) ? flatten(val) : val), []);</div></pre></td></tr></table></figure>
+<p>如果你看不明白，不要放弃。我会用ES5的思路“翻译”一下，相信你很快就能看懂。</p>
+<p>如果你一眼能看明白，也建议继续往下读。因为会有“不一样”的知识点。</p>
+<h2 id="深入解读"><a href="#深入解读" class="headerlink" title="深入解读"></a>深入解读</h2><p>第一个想到的念头肯定是递归，递归自然就想到递归的“尽头”，那就要判断数组某项元素是否还是数组类型。</p>
+<p>好吧，我们开始动手实现一个方案，其实是上面解法的ES5版本：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> flatten = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">previous, val</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(val) !== <span class="string">'[object Array]'</span>) &#123;</div><div class="line">            <span class="keyword">return</span> (previous.push(val), previous);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (<span class="built_in">Array</span>.prototype.push.apply(previous, flatten(val)), previous);</div><div class="line">    &#125;, []);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>可能这样写，对于很多人来说，并不能完全理解。因为我们使用了较多JS高级用法。关键核心还用到了类似“函数式”思想的reduce方法。<br>千万不要灰心，继续往下看。</p>
+<p>return的到底是什么？</p>
+<p>我们注意到上面的写法return使用了（）表达式。括号内容前半句是为了执行。这样写也许稍微晦涩难懂一些。请看下面的代码示例，你就会明白：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> (a++, a);</div><div class="line">&#125;</div><div class="line">t(); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Object.prototype.toString.call是什么？</p>
+</blockquote>
+<p>Object.prototype.toString.call可以暂且认为是“功能最强大”的类型判断语句。在对数组类型进行判断时，需要格外小心，比如这样几个“陷阱”：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">typeof</span> a; <span class="comment">// "object"</span></div><div class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// true;</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(a); <span class="comment">// "[object Array]"</span></div></pre></td></tr></table></figure>
+<p>reduce方法到底做了什么？</p>
+<p>现在到了最关键的地方。reduce方法是ES5引入，很多人使用它的场景并不多。但是了解他的特性却是必须的。遗憾的是，社区上对于它的内容似乎都不是“太重视”。“函数式“思想也让一些初学者望而却步。这里我简要进行“科普”，因为下面我要围绕它进行延伸：</p>
+<p>reduce在英文中译为“减少; 缩小; 使还原; 使变弱”，MDN对方法直述为：“The reduce method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value.”</p>
+<p>我并不打算对他直接翻译，因为这样会变的更加晦涩难懂。</p>
+<p>我们看他的使用语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array1.reduce(callbackfn[, initialValue])</div></pre></td></tr></table></figure>
+<p>参数分析：</p>
+<p>1）array1：必需。<br>一个数组对象。即调用reduce方法的必须是一个数组类型。</p>
+<p>2）callbackfn：必需。<br>一个接受最多四个参数的函数。对于数组中的每个元素，reduce方法都会调用 callbackfn 函数一次。<br>这个callback的4个参数为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">accumulator <span class="comment">// 上一次调用回调返回的值，或者是提供的初始值（initialValue）</span></div><div class="line">currentValue <span class="comment">// 数组中正在处理的元素</span></div><div class="line">currentIndex <span class="comment">// 数据中正在处理的元素索引，如果提供了initialValue ，从0开始；否则从1开始</span></div><div class="line">array <span class="comment">// 调用reduce的数组</span></div></pre></td></tr></table></figure>
+<p>3)initialValue可选项。<br>其值用于第一次调用callback的第一个参数。如果此参数为空，则拿数组第一项来作为第一次调用callback的第一个参数。</p>
+<p>比如，我们分析一个常用用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>].reduce(<span class="function"><span class="keyword">function</span>(<span class="params">previous, item, currentIndex, array</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> previous + item;</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>这里并未提供reduce的第二个参数initialValue，所以从数组第一项开始进行回调函数的执行。并且每次回调函数执行完之后的结果，作为下一次的previous执行回调。</p>
+<p>所以，上述代码便是一个累加器的实现。</p>
+<h2 id="ES6写法"><a href="#ES6写法" class="headerlink" title="ES6写法"></a>ES6写法</h2><p>现在理解了Reduce函数，再结合ES6特性，使解法更加优雅：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> flatten = <span class="function"><span class="params">arr</span> =&gt;</span> arr.reduce(<span class="function">(<span class="params">pre, val</span>) =&gt;</span> pre.concat(<span class="built_in">Array</span>.isArray(val) ? flatten(val) : val), []);</div></pre></td></tr></table></figure>
+<p>这样写是不是太“函数式”了，但是思路跟之前解法完全一样。我只不过充分使用了箭头函数带来的便利。并且使用了更便捷的isArray对数组类型进行判断。这是开篇提到的解法，也是MDN最新版的实现。</p>
+<blockquote>
+<p>如何实现一个reduce的pollyfill？</p>
+</blockquote>
+<p>现在明白了reduce的秘密，接下来我们需要充分发挥对JS的理解，来手动实现一个reduce函数。毕竟，reduce是ES5带来的数组新特性，在不使用ES5-shim的情况下，需要手动兼容。另外，其实reduce方法可以实现的逻辑，大多都能够使用循环来实现。但是了解这样一个优雅的方法，不管是在程序的可读性上，还是在设计理解层面上，还是很有必要的。</p>
+<p>同样，在MDN上也有实现，但是我觉得下面的代码实现更加优雅和清晰：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reduce = <span class="function"><span class="keyword">function</span>(<span class="params">arr, func, initialValue</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> base = <span class="keyword">typeof</span> initialValue === <span class="string">'undefined'</span> ? arr[<span class="number">0</span>] : initialValue;</div><div class="line">    <span class="keyword">var</span> startPoint = <span class="keyword">typeof</span> initialValue === <span class="string">'undefined'</span> ? <span class="number">1</span> : <span class="number">0</span>;</div><div class="line">    arr.slice(startPoint)</div><div class="line">        .forEach(<span class="function"><span class="keyword">function</span>(<span class="params">val, index</span>) </span>&#123;</div><div class="line">            base = func(base, val, index + startPoint, arr);</div><div class="line">        &#125;);</div><div class="line">    <span class="keyword">return</span> base;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>如果读者有不同实现思路，也欢迎与我讨论。</p>
+<h2 id="ES5-shim的pollyfill"><a href="#ES5-shim的pollyfill" class="headerlink" title="ES5-shim的pollyfill"></a>ES5-shim的pollyfill</h2><p>我也同样看了下ES5-shim里的pollyfill，跟我的思路基本完全一致。唯一有一点区别的地方在于我用了forEach迭代而ES5-shim使用的是简单for循环。</p>
+<p>当然，数组的forEach方法也是ES5新增的。但我这里是为了用简单明了的思路，实现reduce方法，根本目的还是希望对reduce有一个全面透彻的了解。</p>
+<p>如果您还不明白，我认为还是对于reduce方法没有掌握透彻。建议再梳理一遍。</p>
+<h2 id="Redux中的reducer"><a href="#Redux中的reducer" class="headerlink" title="Redux中的reducer"></a>Redux中的reducer</h2><p>明白了reduce函数，我们再来看一下Redux中的reducer和这个reduce有什么命名上的关联。</p>
+<p>熟悉Redux数据流架构的同学理解reducer做了什么，关于这个纯函数的命名，在redux源码github仓库上也有一个官方解释：“It’s called a reducer because it’s the type of function you would pass to Array.prototype.reduce(reducer, ?initialValue)”，虽然是一笔带过，但是总结的恰到好处。</p>
+<p>我详细说一下：Redux数据流里，reducers其实是根据之前的状态（previous state）和现有的action（current action）更新state（这个state可以理解为上文累加器的结果（accumulation））。每次redux reducer被执行时，state和action被传入，这个state根据action进行累加或者是“自身消减”（reduce，英文原意），进而返回最新的state。这符合一个典型reduce函数的用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">state -&gt; action -&gt; state.</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章对于如何优雅地“扁平化”一个多维数组进行了解法分析。并且对于秉承函数式编程思想的reduce方法进行了深入讨论，我们还实现了reduce的pollyfill。在充分理解的基础上，又简要延伸到redux数据架构里面reducer的命名。熟悉Redux的同学一定会有所感触。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/es6/" rel="tag"># es6</a>
+          
+            <a href="/tags/polyfill/" rel="tag"># polyfill</a>
+          
+            <a href="/tags/redux/" rel="tag"># redux</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/17/sticky-footer/" rel="next" title="sticky-footer">
+                <i class="fa fa-chevron-left"></i> sticky-footer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-2.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名"><span class="nav-number">1.</span> <span class="nav-text">面试题目别有洞天：优雅es6＋智慧polyfill＋redux迷之命名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目背景"><span class="nav-number">1.1.</span> <span class="nav-text">题目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法先睹为快"><span class="nav-number">1.2.</span> <span class="nav-text">解法先睹为快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入解读"><span class="nav-number">1.3.</span> <span class="nav-text">深入解读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6写法"><span class="nav-number">1.4.</span> <span class="nav-text">ES6写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5-shim的pollyfill"><span class="nav-number">1.5.</span> <span class="nav-text">ES5-shim的pollyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux中的reducer"><span class="nav-number">1.6.</span> <span class="nav-text">Redux中的reducer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

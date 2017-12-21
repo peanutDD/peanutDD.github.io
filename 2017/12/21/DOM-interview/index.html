@@ -1,0 +1,1167 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,DOM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="https://juejin.im/post/58f558efac502e006c3e5c97  破解前端面试（80% 应聘者不及格系列）：从 DOM 说起 共 7384 字，读完需 10 分钟。本文为《破解前端面试（80% 应聘者不及格系列）》文章的第二篇，包含 DOM、Event、浏览器端优化、数据结构和算法功底的考察。可能有同学会问 DOM 有什么好聊的，不就是节点的各种操作么？DOM 是">
+<meta name="keywords" content="js,DOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM Interview">
+<meta property="og:url" content="http://yoursite.com/2017/12/21/DOM-interview/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="https://juejin.im/post/58f558efac502e006c3e5c97  破解前端面试（80% 应聘者不及格系列）：从 DOM 说起 共 7384 字，读完需 10 分钟。本文为《破解前端面试（80% 应聘者不及格系列）》文章的第二篇，包含 DOM、Event、浏览器端优化、数据结构和算法功底的考察。可能有同学会问 DOM 有什么好聊的，不就是节点的各种操作么？DOM 是">
+<meta property="og:updated_time" content="2017-12-21T15:30:05.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM Interview">
+<meta name="twitter:description" content="https://juejin.im/post/58f558efac502e006c3e5c97  破解前端面试（80% 应聘者不及格系列）：从 DOM 说起 共 7384 字，读完需 10 分钟。本文为《破解前端面试（80% 应聘者不及格系列）》文章的第二篇，包含 DOM、Event、浏览器端优化、数据结构和算法功底的考察。可能有同学会问 DOM 有什么好聊的，不就是节点的各种操作么？DOM 是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/21/DOM-interview/"/>
+
+
+
+
+
+  <title>DOM Interview | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/DOM-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DOM Interview</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T19:18:46+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://juejin.im/post/58f558efac502e006c3e5c97" target="_blank" rel="external">https://juejin.im/post/58f558efac502e006c3e5c97</a></p>
+</blockquote>
+<h1 id="破解前端面试（80-应聘者不及格系列）：从-DOM-说起"><a href="#破解前端面试（80-应聘者不及格系列）：从-DOM-说起" class="headerlink" title="破解前端面试（80% 应聘者不及格系列）：从 DOM 说起"></a>破解前端面试（80% 应聘者不及格系列）：从 DOM 说起</h1><blockquote>
+<p>共 7384 字，读完需 10 分钟。本文为《破解前端面试（80% 应聘者不及格系列）》文章的第二篇，包含 DOM、Event、浏览器端优化、数据结构和算法功底的考察。可能有同学会问 DOM 有什么好聊的，不就是节点的各种操作么？DOM 是网页构建的基石，熟练掌握各种操作、知晓可能的问题、熟悉优化手段，才能做到在工程实践中从容不迫。系列文章链接：闭包篇。下面开始聊 DOM 的话题。</p>
+</blockquote>
+<h2 id="如何修改页面内容？"><a href="#如何修改页面内容？" class="headerlink" title="如何修改页面内容？"></a>如何修改页面内容？</h2><p>考察候选人对 DOM 基础知识的掌握程度时，笔者常抛出这样的问题：页面上有个空的无序列表节点，用 <code>&lt;ul&gt;&lt;/ul&gt;</code> 表示，要往列表中插入 3 个 <code>&lt;li&gt;</code>，每个列表项的文本内容是列表项的插入顺序，取值 1, 2, 3，怎么用原生的 JS 实现这个需求？同时约定，为方便获取节点引用，可以根据需要为 <code>&lt;ul&gt;</code>节点加上 id 或者 class 属性。</p>
+<p>超过 80% 的候选人能完成需求，先为 ul 加上选择符：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后给出节点创建代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'list'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">    <span class="keyword">var</span> item = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">    item.innerText = i + <span class="number">1</span>;</div><div class="line">    container.appendChild(item);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也有候选人给出下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'list'</span>);</div><div class="line"><span class="keyword">var</span> html = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">    html.push(<span class="string">'&lt;li&gt;'</span> + (i + <span class="number">1</span>) + <span class="string">'&lt;/li&gt;'</span>);</div><div class="line">&#125;</div><div class="line">container.innerHTML = html.join(<span class="string">''</span>);</div></pre></td></tr></table></figure>
+<p>这个都写不出来的同学要去面壁了（可能你能用各种库、框架能写出来，但是等你需要调试 bug，分析问题，就会捉襟见肘）。你也可能在心里嘀咕，上来就写代码，还是面试么？可以说代码是工程师最主要的产出，看着候选人编码能让你熟悉他的思考方式、编码风格、代码习惯，很容能看出来是不是“对味儿”的候选人。</p>
+<p>坦率的说，上面的两份代码只能说满足了需求，但是如果做到了以下几点，会有加分：</p>
+<ul>
+<li>变量命名：节点类的变量，加上 nd 前缀，会更加容易辨识，当然，也有同学习惯借用 jquery 中的 $，关于变量命名的更多内容可以去阅读《可读代码的艺术》；</li>
+<li>选择符命名：给 CSS 用和 JS 用的选择符分开，给 JS 用的选择符建议加上 js- 或 J- 前缀，提高可读性，还有没有其他好处，请思考；</li>
+<li>容错能力：应该对节点的存在性做检查，这样代码才能更健壮，实际工作中，很可能你的这段代码会把其他功能搞砸，因为单个地方 JS 报错是可能导致后续代码不执行的，为啥要这样做？不理解的同学可以去看看<a href="https://en.wikipedia.org/wiki/Defensive_programming" target="_blank" rel="external">防御性编程</a>；</li>
+<li>最小作用域原则：应该把代码段包在声明<a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children" target="_blank" rel="external">即执行的函数表达式（IIFE）</a>里，不产生全局变量，也避免变量名冲突的风险，这是维护遗留代码必须谨记的。</li>
+</ul>
+<p>下面是综合上面四点的改良版（只针对第1份代码）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> ndContainer = <span class="built_in">document</span>.getElementById(<span class="string">'js-list'</span>);</div><div class="line">    <span class="keyword">if</span> (!ndContainer) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">        <span class="keyword">var</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">        ndItem.innerText = i + <span class="number">1</span>;</div><div class="line">        ndContainer.appendChild(ndItem);</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>在候选人给出代码之后，笔者常顺便追问：选取节点是否有其他方法？还有哪些？这个问题留给你自己。</p>
+<h2 id="追问1：如何绑定事件？"><a href="#追问1：如何绑定事件？" class="headerlink" title="追问1：如何绑定事件？"></a>追问1：如何绑定事件？</h2><p>现在页面上有了内容，接下来添加交互。问题：要当每个 <code>&lt;li&gt;</code> 被单击的时候 alert 里面的内容，该怎么做？部分候选人不假思索地给出如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">    <span class="keyword">var</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">    ndItem.innerText = i + <span class="number">1</span>;</div><div class="line">    ndItem.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        alert(i);</div><div class="line">    &#125;);</div><div class="line">    ndContainer.appendChild(ndItem);</div><div class="line">&#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure>
+<p>或下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">    <span class="keyword">var</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">    ndItem.innerText = i + <span class="number">1</span>;</div><div class="line">    ndItem.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        alert(ndItem.innerText);</div><div class="line">    &#125;);</div><div class="line">    ndContainer.appendChild(ndItem);</div><div class="line">&#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure>
+<p>如果你对闭包和作用域理解没问题，就很容易发现问题：alert 出来的内容其实都是 3，而不是每个 <code>&lt;li&gt;</code> 的文本内容。上面两段代码都不能满足需求，因为 i 和 ndItem 的作用域范围是相同的。使用 ES6 的<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="external">块级作用域</a>能把问题解决：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">    <span class="keyword">const</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">    ndItem.innerText = i + <span class="number">1</span>;</div><div class="line">    ndItem.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        alert(i);</div><div class="line">    &#125;);</div><div class="line">    ndContainer.appendChild(ndItem);</div><div class="line">&#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure>
+<p>而熟悉 addEventListener 文档的候选人会给出下面的方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">    <span class="keyword">var</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">    ndItem.innerText = i + <span class="number">1</span>;</div><div class="line">    ndItem.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.innerText);</div><div class="line">    &#125;);</div><div class="line">    ndContainer.appendChild(ndItem);</div><div class="line">&#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure>
+<p>因为 EventListener 里面默认的 this 指向当前节点，比较喜欢使用箭头函数的同学则需要格外注意，因为箭头函数会强制改变函数的执行上下文。笔者的判断标准是到这里算及格，你及格了么？</p>
+<p>聊到这里，笔者有时候还会追问：绑定事件除了 addEventListener 还有其他方式么？如果使用 onclick 会存在什么问题？</p>
+<h2 id="追问2：数据量变大之后？"><a href="#追问2：数据量变大之后？" class="headerlink" title="追问2：数据量变大之后？"></a>追问2：数据量变大之后？</h2><p>貌似上面的问题都没啥挑战，别着急，难度继续增加。如果要插入的 <code>&lt;li&gt;</code> 是 300 个，该怎么解决？</p>
+<p>部分同学会粗暴的把循环终止条件修改为 i &lt; 300，这样没有明显的问题，但细想你会发现，在 DOM 中注册的事件监听函数增加了 100 倍，有更好的办法么？读到这里你肯定已经想到了，对，就是<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="external">事件委托</a>（英文 Event Delegation，亦称事件代理）。</p>
+<p>使用事件委托能有效的减少事件注册的数量，并且在子节点动态增减是无需修改代码，使用事件委托的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> ndContainer = <span class="built_in">document</span>.getElementById(<span class="string">'js-list'</span>);</div><div class="line">    <span class="keyword">if</span> (!ndContainer) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">300</span>; i++) &#123;</div><div class="line">        <span class="keyword">const</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">        ndItem.innerText = i + <span class="number">1</span>;</div><div class="line">        ndContainer.appendChild(ndItem);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ndContainer.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="keyword">const</span> target = e.target;</div><div class="line">        <span class="keyword">if</span> (target.tagName === <span class="string">'LI'</span>) &#123;</div><div class="line">            alert(target.innerHTML);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>如果你不知道事件委托是什么、实现原理是什么、使用它有什么好处，请花点时间去研究下，能让你写出更好的代码，遇到没听过事件委托的候选人我会追问“标准 DOM 事件的发生流程”，如果熟悉，再引导他理解事件委托，直到写出代码，这个过程能看出来候选人思维是否灵活。</p>
+<p>回到正题，相当部分的代码在数据量变大之后容易出各种问题。如果要在 <code>&lt;ul&gt;</code> 中插入 30000 个<code>&lt;li&gt;</code>，会有什么问题？代码需要怎么改进？几乎可以肯定，页面体验不再流畅，甚至会出现明显的卡顿感，该怎么解决？</p>
+<p>出现卡顿感的主要原因是每次循环都会修改 DOM 结构，外加大循环执行时间过长，浏览器的渲染帧率（FPS）过低。而实际上，包含 30000 个 <code>&lt;li&gt;</code> 的长列表，用户不会立即看到全部，大部分甚至根本都不会看，那部分都没有渲染的必要，好在现代浏览器提供了 <a href="https://css-tricks.com/using-requestanimationframe/" target="_blank" rel="external">requestAnimationFrame</a> API 来解决非常耗时的代码段对渲染的阻塞问题，不知道 requestAnimationFrame 用法和原理的请研究下这篇文章，该技术在 React 和 Angular 里面都有使用，如果你理解了 requestAnimationFrame 的原理，就很容易理解最新的 React Fiber 算法。</p>
+<p>综合上面的分析，可以从减少 DOM 操作次数、缩短循环时间两个方面减少主线程阻塞的时间。减少 DOM 操作次数的良方是 <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment" target="_blank" rel="external">DocumentFragment</a>；而缩短循环时间则需要考虑使用分治的思想把 30000 个 <code>&lt;li&gt;</code> 分批次插入到页面中，每次插入的时机是在页面重新渲染之前。由于 requestAnimationFrame 并不是所有的浏览器都支持，Paul Irish 给出了对应的 polyfill，这个 Gist 也非常值得你学习。</p>
+<p>下面是完整的代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> ndContainer = <span class="built_in">document</span>.getElementById(<span class="string">'js-list'</span>);</div><div class="line">    <span class="keyword">if</span> (!ndContainer) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> total = <span class="number">30000</span>;</div><div class="line">    <span class="keyword">const</span> batchSize = <span class="number">4</span>; <span class="comment">// 每批插入的节点次数，越大越卡</span></div><div class="line">    <span class="keyword">const</span> batchCount = total / batchSize; <span class="comment">// 需要批量处理多少次</span></div><div class="line">    <span class="keyword">let</span> batchDone = <span class="number">0</span>;  <span class="comment">// 已经完成的批处理个数</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">appendItems</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">const</span> fragment = <span class="built_in">document</span>.createDocumentFragment();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; batchSize; i++) &#123;</div><div class="line">            <span class="keyword">const</span> ndItem = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">            ndItem.innerText = (batchDone * batchSize) + i + <span class="number">1</span>;</div><div class="line">            fragment.appendChild(ndItem);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 每次批处理只修改 1 次 DOM</span></div><div class="line">        ndContainer.appendChild(fragment);</div><div class="line"></div><div class="line">        batchDone += <span class="number">1</span>;</div><div class="line">        doBatchAppend();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doBatchAppend</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (batchDone &lt; batchCount) &#123;</div><div class="line">            <span class="built_in">window</span>.requestAnimationFrame(appendItems);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// kickoff</span></div><div class="line">    doBatchAppend();</div><div class="line"></div><div class="line">    ndContainer.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="keyword">const</span> target = e.target;</div><div class="line">        <span class="keyword">if</span> (target.tagName === <span class="string">'LI'</span>) &#123;</div><div class="line">            alert(target.innerHTML);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>读到这里的同学，应该已经理解这一节讨论的要点：大批量 DOM 操作对页面渲染的影响以及优化的手段，性能对用户来说是功能不可分割的部分。</p>
+<h2 id="追问3：DOM-树的遍历？"><a href="#追问3：DOM-树的遍历？" class="headerlink" title="追问3：DOM 树的遍历？"></a>追问3：DOM 树的遍历？</h2><p>数据结构和算法在很多人前端同学看来是没啥用的东西，实际上他们掌握的也不好，但不论前端还是后端，扎实的 CS 基础是工程师必备的知识储备，有了这种储备在面临复杂的问题，才能彰显出工程师的价值。JS 中的 DOM 可以天然的跟树这种数据结构联系起来，相信大家都不陌生，比如给定下面的 HTML 片段：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"root"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"sidebar"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"menu"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"post"</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"copyright"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>对这颗 DOM 树，期望给出<a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank" rel="external">广度优先遍历（BFS）</a>的代码实现，遍历到每个节点时，打印出当前节点的类型及类名，例如上面的树广度优先遍历结果为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">DIV .root</div><div class="line">DIV .container</div><div class="line">SECTION .sidebar</div><div class="line">SECTION .main</div><div class="line">UL .menu</div><div class="line">ARTICLE .post</div><div class="line">P .copyright</div></pre></td></tr></table></figure>
+<p>这要求候选人对 DOM 树中节点关系的表示方式比较清楚，关键属性是 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ChildNode" target="_blank" rel="external">childNodes</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children" target="_blank" rel="external">children</a>，两者有细微的差别。如果是<a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank" rel="external">深度优先的遍历（DFS）</a>，使用<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science" target="_blank" rel="external">递归</a>)非常容易写出来，但是广度优先则需要使用<a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type" target="_blank" rel="external">队列</a>)这种数据结构来管理待遍历的节点，读到这里，请你找出纸笔，思考 1 分钟，看能不能自己写出来。</p>
+<p>下面给出一种参考的实现，代码比较简单，就不多做解释：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> traverse = <span class="function">(<span class="params">ndRoot</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> queue = [ndRoot];</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (queue.length) &#123;</div><div class="line">        <span class="keyword">const</span> node = queue.shift();</div><div class="line"></div><div class="line">        printInfo(node);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!node.children.length) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="built_in">Array</span>.from(node.children).forEach(<span class="function"><span class="params">x</span> =&gt;</span> queue.push(x));</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> printInfo = <span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(node.tagName, <span class="string">`.<span class="subst">$&#123;node.className&#125;</span>`</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// kickoff</span></div><div class="line">traverse(<span class="built_in">document</span>.querySelector(<span class="string">'.root'</span>));</div></pre></td></tr></table></figure>
+<p>如果你对树和树的遍历理解不清，请仔细看上文的外链。最后，再追问一个问题，如果要在打印节点的时候输出节点在树中的层次，该怎么解决？</p>
+<h2 id="总结和思考题"><a href="#总结和思考题" class="headerlink" title="总结和思考题"></a>总结和思考题</h2><p>本文以基本的 DOM 操作为出发点，接下来聊到事件绑定，和渲染性能优化，最后聊到工程师避不开的数据结构和算法。如果你是面试官，你会怎么跟候选人聊？如果你想学好 DOM，只看这篇文章远远不够，文中给大家留了 3 道思考题，也外链超过 10 个学习资料，希望对大家有用。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/DOM/" rel="tag"># DOM</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/21/表单全操作/" rel="next" title="Javascript中的Form表单知识点总结">
+                <i class="fa fa-chevron-left"></i> Javascript中的Form表单知识点总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-2.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#破解前端面试（80-应聘者不及格系列）：从-DOM-说起"><span class="nav-number">1.</span> <span class="nav-text">破解前端面试（80% 应聘者不及格系列）：从 DOM 说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何修改页面内容？"><span class="nav-number">1.1.</span> <span class="nav-text">如何修改页面内容？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追问1：如何绑定事件？"><span class="nav-number">1.2.</span> <span class="nav-text">追问1：如何绑定事件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追问2：数据量变大之后？"><span class="nav-number">1.3.</span> <span class="nav-text">追问2：数据量变大之后？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追问3：DOM-树的遍历？"><span class="nav-number">1.4.</span> <span class="nav-text">追问3：DOM 树的遍历？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结和思考题"><span class="nav-number">1.5.</span> <span class="nav-text">总结和思考题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

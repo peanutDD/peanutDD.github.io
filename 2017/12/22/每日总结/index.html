@@ -97,12 +97,10 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/22/每日总结/index.html">
 <meta property="og:site_name" content="鱼人孑">
 <meta property="og:description" content="今天遇到一个CSS 中margin-top的bug，就是在一个父级 和 子级上分别设置margin-top时，内层div的margin-top或者margin-bottom的值会“转移”给外层div，原因大致是内层div没有获得布局。 如何解决：  把margin-top改成padding-top,不过,前提是内层的Div没有设置边框; 给外层的Div加padding-top; 给外层DIV加,让">
-<meta property="og:image" content="http://yoursite.com/2017/12/22/每日总结/vue-transition.png">
-<meta property="og:updated_time" content="2017-12-22T16:28:26.403Z">
+<meta property="og:updated_time" content="2017-12-22T16:29:14.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结">
 <meta name="twitter:description" content="今天遇到一个CSS 中margin-top的bug，就是在一个父级 和 子级上分别设置margin-top时，内层div的margin-top或者margin-bottom的值会“转移”给外层div，原因大致是内层div没有获得布局。 如何解决：  把margin-top改成padding-top,不过,前提是内层的Div没有设置边框; 给外层的Div加padding-top; 给外层DIV加,让">
-<meta name="twitter:image" content="http://yoursite.com/2017/12/22/每日总结/vue-transition.png">
 
 
 
@@ -395,318 +393,6 @@
 <li><p>父元素产生边距重叠的边有不为0的padding 或 宽度不为0且style不为none的border。父层div加： padding-top: 1px;</p>
 </li>
 </ol>
-<hr>
-<p>title:  前端总结<br>tags:  JavaScript</p>
-<h2 id="notebook-前端"><a href="#notebook-前端" class="headerlink" title="notebook: 前端"></a>notebook: 前端</h2><h1 id="2017-07-19"><a href="#2017-07-19" class="headerlink" title="2017.07.19"></a>2017.07.19</h1><p>给自己今天的小任务是完成：</p>
-<ol>
-<li>思考 会员中心邀请新朋友是页面设计；</li>
-<li>继续学习JavaScript高级程序设计中的函数表达式；</li>
-<li>原型链图解</li>
-</ol>
-<h1 id="2017-07-27"><a href="#2017-07-27" class="headerlink" title="2017.07.27"></a>2017.07.27</h1><p>今天遇到一个CSS 中margin-top的bug，就是在一个父级 和 子级上分别设置margin-top时，内层div的margin-top或者margin-bottom的值会“转移”给外层div，原因大致是内层div没有获得布局。</p>
-<p>如何解决：</p>
-<ol>
-<li>把margin-top改成padding-top,不过,前提是内层的Div没有设置边框;</li>
-<li>给外层的Div加padding-top;</li>
-<li><p>给外层DIV加,让父元素生成一个 block formating context：</p>
-<p>A、float: left或right<br>B、position: absolute<br>C、display: inline-block或table-cell或其他 table 类型<br>D、overflow: hidden或auto</p>
-</li>
-<li><p>父元素产生边距重叠的边有不为0的padding 或 宽度不为0且style不为none的border。父层div加： padding-top: 1px;</p>
-</li>
-</ol>
-<h1 id="2017-08-01"><a href="#2017-08-01" class="headerlink" title="2017.08.01"></a>2017.08.01</h1><p>CSS样式优先级：</p>
-<pre><code>1. 优先级：内联式 &gt; 嵌入式 &gt; 外部式，但是嵌入式&gt;外部式有一个前提：嵌入式css样式的位置一定在外部式的后面。
-2. 其实总结来说，就是--就近原则（离被设置元素越近优先级别越高）
-3. 但注意上面所总结的优先级是有一个前提：内联式、嵌入式、外部式样式表中css样式是在的相同权值的情况下。
-</code></pre><p>权重值定义：<br>    // 第一等：代表内联样式，如: style=””，权值为1000。<br>    // 第二等：代表ID选择器，如：#content，权值为100。<br>    // 第三等：代表类，伪类和属性选择器，如.content，权值为10。<br>    // 第四等：代表类型选择器和伪元素选择器，如div p，权值为1。</p>
-<h1 id="2017-08-02"><a href="#2017-08-02" class="headerlink" title="2017.08.02"></a>2017.08.02</h1><p>  用 <code>width:100%; height:auto;</code> 产生的一个问题：父元素height值会比预期值要稍大一些:</p>
-<p>  产生这个现象的原因在于vertical-algin与line-height的作用，本身img属于inline水平元素，可以想象，图片后面跟了一个空白节点（空格）或者说是文字节点，而内联元素默认基线对齐，后面的空白节点属于字符，而基线在字母X的下边缘，所以产生多余的空白，所以，想去掉多余的空白，就需要破坏掉vertical-algin或line-height。</p>
-<p>  如果把vertical-algin：baseline破坏掉，则可以对齐，由于该属性起作用的前提是在内联元素中，所以如果设置为block水平元素，则自然空白消失或者不适用baseline而是用middle或者top或者bottom都可以, 把line-height改变，设置为0，这样那个空白的字符足够小，所以可以去掉空白，同样，设置font-size:0也是这个道理</p>
-<h1 id="2017-08-05"><a href="#2017-08-05" class="headerlink" title="2017.08.05"></a>2017.08.05</h1><p>  /<em>隐藏滚轮,设置滚动条宽度为零</em>/</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;<span class="attribute">width</span>: <span class="number">0px</span>;<span class="attribute">display</span>: none;&#125;</div></pre></td></tr></table></figure>
-<h1 id="2017-08-07"><a href="#2017-08-07" class="headerlink" title="2017.08.07"></a>2017.08.07</h1><p>  <strong><em>dataset字符集 兼容性的窥探</em></strong><br>  data自定义属性的了解加深<br>  <a href="https://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0#list/path=%2F&amp;vmode=list" target="_blank" rel="external">equality in javascript</a></p>
-<h1 id="2017-08-16"><a href="#2017-08-16" class="headerlink" title="2017.08.16"></a>2017.08.16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> target = ev.target || ev.srcElement;</div></pre></td></tr></table></figure>
-<blockquote>
-<font color="#986fe2">出于兼容性问题，标准浏览器用ev.target，IE浏览器用event.srcElement;</font>
-
-</blockquote>
-<p>event 在有些浏览器（如 IE ）里是 window 对象的属性，即是全局变量，在有些浏览器里是运行时的临时变量，需要有参数引导才可使用。var theEvent = window.event || e; 一般用于处理浏览器兼容的问题，比如说:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> theEvent = <span class="built_in">window</span>.event || e;</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在上面的代码里，如果是在 IE 浏览器，则 <code>window.event</code>为真，<code>window.event||e</code>返回 <code>window.event</code>，所以 <code>theEvent = window.event</code>，在 firefox 中，<code>window.event</code>为假，返回 <code>e</code>，则 <code>theEvent = e</code>.</p>
-<p>为了兼容FF等MOZ浏览器，在FireFox浏览器中，事件绑定的函数要获取到事件本身，需要从函数中传入，而IE等浏览器则可以直接使用event或者window.event得到事件本身。</p>
-<blockquote>
-<font color="#986fe2"> 需要获取和事件相关的信息时使用。监听html对象上发生的 onclick、onmouseover 等事件。如下:</font>
-
-</blockquote>
-<ol>
-<li>获取键盘按下或弹起的按键</li>
-<li>获取鼠标的位置坐标</li>
-<li>获取触发事件的元素</li>
-<li>获取事件名称</li>
-<li>获取事件当前的传播阶段</li>
-<li>获取事件生成的日期时间</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　<span class="keyword">var</span> oUl = <span class="built_in">document</span>.getElementById(<span class="string">"ul1"</span>);</div><div class="line">　　oUl.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> ev = ev || <span class="built_in">window</span>.event;</div><div class="line">　　　　<span class="keyword">var</span> target = ev.target || ev.srcElement;</div><div class="line">　　　　<span class="keyword">if</span>(target.nodeName.toLowerCase() == <span class="string">'li'</span>)&#123;</div><div class="line">　 　　    alert(<span class="number">123</span>);</div><div class="line">　　　　　　alert(target.innerHTML);</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="javascript中一些常见的兼容性问题"><a href="#javascript中一些常见的兼容性问题" class="headerlink" title="javascript中一些常见的兼容性问题:"></a>javascript中一些常见的兼容性问题:</h2><p>下面是一些Javascript的IE和Firefox(火狐)兼容性的常用例子</p>
-<h3 id="1-document-formName-item-“itemName”-问题"><a href="#1-document-formName-item-“itemName”-问题" class="headerlink" title="1. document.formName.item(“itemName”) 问题"></a>1. document.formName.item(“itemName”) 问题</h3><p>说明:IE下,可以使用document.formName.item(“itemName”)或document.formName.elements[“elementName”];<br>Firefox下,只能使用document.formName.elements[“elementName”].</p>
-<p>解决方法:统一使用document.formName.elements[“elementName”].</p>
-<h3 id="2-集合类对象问题"><a href="#2-集合类对象问题" class="headerlink" title="2.集合类对象问题"></a>2.集合类对象问题</h3><p>说明:IE下,可以使用()或[]获取集合类对象;Firefox下,只能使用[]获取集合类对象.</p>
-<p>解决方法:统一使用[]获取集合类对象.</p>
-<h3 id="3-自定义属性问题"><a href="#3-自定义属性问题" class="headerlink" title="3.自定义属性问题"></a>3.自定义属性问题</h3><p>说明:IE下,可以使用获取常规属性的方法来获取自定义属性,也可以使用getAttribute()获取自定义属性;Firefox下,只能使用getAttribute()获取自定义属性.</p>
-<p>解决方法:统一通过getAttribute()获取自定义属性.</p>
-<h3 id="4-eval-“idName”-问题"><a href="#4-eval-“idName”-问题" class="headerlink" title="4.eval(“idName”)问题"></a>4.eval(“idName”)问题</h3><p>说明:IE下,,可以使用eval(“idName”)或getElementById(“idName”)来取得id为idName的HTML对 象;Firefox下只能使用getElementById(“idName”)来取得id为idName的HTML对象.</p>
-<p>解决方法:统一用getElementById(“idName”)来取得id为idName的HTML对象.</p>
-<h3 id="5-变量名与某HTML对象ID相同的问题"><a href="#5-变量名与某HTML对象ID相同的问题" class="headerlink" title="5.变量名与某HTML对象ID相同的问题"></a>5.变量名与某HTML对象ID相同的问题</h3><p>说明:IE下,HTML对象的ID可以作为document的下属对象变量名直接使用;Firefox下则不能.Firefox下,可以使用与HTML对象ID相同的变量名;IE下则不能。</p>
-<p>解决方法:使用document.getElementById(“idName”)代替document.idName.最好不要取HTML对象ID相同的变量名,以减少错误;在声明变量时,一律加上var,以避免歧义.</p>
-<h3 id="6-const问题"><a href="#6-const问题" class="headerlink" title="6.const问题"></a>6.const问题</h3><p>说明:Firefox下,可以使用const关键字或var关键字来定义常量;IE下,只能使用var关键字来定义常量.</p>
-<p>解决方法:统一使用var关键字来定义常量.</p>
-<h3 id="7-input-type属性问题"><a href="#7-input-type属性问题" class="headerlink" title="7.input.type属性问题"></a>7.input.type属性问题</h3><p>说明:IE下input.type属性为只读;但是Firefox下input.type属性为读写.</p>
-<h3 id="8-window-event问题"><a href="#8-window-event问题" class="headerlink" title="8.window.event问题"></a>8.window.event问题</h3><p>说明:window.event只能在IE下运行,而不能在Firefox下运行,这是因为Firefox的event只能在事件发生的现场使用. Firefox必须从源处加入event作参数传递。Ie忽略该参数，用window.event来读取该event。</p>
-<p>IE&amp;Firefox解决方法:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div onclcik=<span class="string">"Submitted(event)"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&lt;script language=<span class="string">"javascript"</span>&gt;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Submitted</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">      evt=evt?evt:(<span class="built_in">window</span>.event?<span class="built_in">window</span>.event:<span class="literal">null</span>);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="9-event-x与event-y问题"><a href="#9-event-x与event-y问题" class="headerlink" title="9.event.x与event.y问题"></a>9.event.x与event.y问题</h3><p>说明:IE下,even对象有x,y属性,但是没有pageX,pageY属性;Firefox下,even对象有pageX,pageY属性,但是没有x,y属性.</p>
-<p>解决方法:使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mX(mX = event.x ? event.x : event.pageX;)</div></pre></td></tr></table></figure>
-<p>来代替IE下的event.x或者Firefox下的event.pageX.</p>
-<h3 id="10-event-srcElement问题"><a href="#10-event-srcElement问题" class="headerlink" title="10.event.srcElement问题"></a>10.event.srcElement问题</h3><p>说明:IE下,event对象有srcElement属性,但是没有target属性;Firefox下,even对象有target属性,但是没有srcElement属性.</p>
-<p>解决方法:使用obj(obj = event.srcElement ? event.srcElement : event.target;)来代替IE下的event.srcElement或者Firefox下的event.target. 请同时注意event的兼容性问题。</p>
-<h3 id="11-window-location-href问题"><a href="#11-window-location-href问题" class="headerlink" title="11.window.location.href问题"></a>11.window.location.href问题</h3><p>说明:IE或者<code>Firefox2.0.x</code>下,可以使用<code>window.location</code>或<code>window.location.href</code>;<code>Firefox1.5.x</code>下,只能使用<code>window.location</code>.</p>
-<p>解决方法:使用window.location来代替window.location.href.</p>
-<h3 id="12-模态和非模态窗口问题"><a href="#12-模态和非模态窗口问题" class="headerlink" title="12.模态和非模态窗口问题"></a>12.模态和非模态窗口问题</h3><p>说明:IE下,可以通过<code>showModalDialog</code>和<code>showModelessDialog</code>打开模态和非模态窗口;Firefox下则不能.</p>
-<p>解决方法:直接使用window.open(pageURL,name,parameters)方式打开新窗口。</p>
-<p>如果需要将子窗口中的参数传递回父窗口,可以在子窗口中使用window.opener来访问父窗口. 例如：var parWin = window.opener; parWin.document.getElementById(“Aqing”).value = “Aqing”;</p>
-<h3 id="13-frame问题"><a href="#13-frame问题" class="headerlink" title="13.frame问题"></a>13.frame问题</h3><p>以下面的frame为例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;frame src=<span class="string">"xxx.html"</span> id=<span class="string">"frameId"</span> name=<span class="string">"frameName"</span> /&gt;</div></pre></td></tr></table></figure>
-<h4 id="1-访问frame对象"><a href="#1-访问frame对象" class="headerlink" title="(1)访问frame对象:"></a>(1)访问frame对象:</h4><p>IE:使用window.frameId或者window.frameName来访问这个frame对象. frameId和frameName可以同名。<br>Firefox:只能使用window.frameName来访问这个frame对象.</p>
-<p>另外，在IE和Firefox中都可以使用window.document.getElementById(“frameId”)来访问这个frame对象.</p>
-<h4 id="2-切换frame内容"><a href="#2-切换frame内容" class="headerlink" title="(2)切换frame内容:"></a>(2)切换frame内容:</h4><p>在IE和Firefox中都可以使用window.document.getElementById(“testFrame”).src = “xxx.html”或window.frameName.location = “xxx.html”来切换frame的内容.</p>
-<p>如果需要将frame中的参数传回父窗口(注意不是opener,而是parent frame)，可以在frme中使用parent来访问父窗口。例如：parent.document.form1.filename.value=”Aqing”;</p>
-<h3 id="14-body问题"><a href="#14-body问题" class="headerlink" title="14.body问题"></a>14.body问题</h3><p>Firefox的body在body标签没有被浏览器完全读入之前就存在；而IE的body则必须在body标签被浏览器完全读入之后才存在.</p>
-<h3 id="15-事件委托方法"><a href="#15-事件委托方法" class="headerlink" title="15. 事件委托方法"></a>15. 事件委托方法</h3><p>IE：document.body.onload = inject; //Function inject()在这之前已被实现<br>Firefox：document.body.onload = inject();</p>
-<h3 id="16-firefox与IE的父元素-parentElement-的区别"><a href="#16-firefox与IE的父元素-parentElement-的区别" class="headerlink" title="16. firefox与IE的父元素(parentElement)的区别"></a>16. firefox与IE的父元素(parentElement)的区别</h3><p>IE：obj.parentElement<br>firefox：obj.parentNode</p>
-<p>解决方法: 因为firefox与IE都支持DOM,因此使用obj.parentNode是不错选择.</p>
-<h3 id="17-cursor-hand-VS-cursor-pointer"><a href="#17-cursor-hand-VS-cursor-pointer" class="headerlink" title="17.cursor:hand VS cursor:pointer"></a>17.cursor:hand VS cursor:pointer</h3><p>firefox不支持hand，但ie支持pointer</p>
-<p>解决方法: 统一使用pointer</p>
-<h3 id="18-innerText在IE中能正常工作，但是innerText在FireFox中却不行-需用textContent。"><a href="#18-innerText在IE中能正常工作，但是innerText在FireFox中却不行-需用textContent。" class="headerlink" title="18.innerText在IE中能正常工作，但是innerText在FireFox中却不行. 需用textContent。"></a>18.innerText在IE中能正常工作，但是innerText在FireFox中却不行. 需用textContent。</h3><p>解决方法:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(navigator.appName.indexOf(<span class="string">"Explorer"</span>) &gt; <span class="number">-1</span>)&#123;</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>).innerText = <span class="string">"my text"</span>;</div><div class="line">&#125; <span class="keyword">else</span>&#123;</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>).textContent = <span class="string">"my text"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="19-FireFox中设置HTML标签的style时，所有位置性和字体尺寸的值必须后跟px。这个ie也是支持的。"><a href="#19-FireFox中设置HTML标签的style时，所有位置性和字体尺寸的值必须后跟px。这个ie也是支持的。" class="headerlink" title="19. FireFox中设置HTML标签的style时，所有位置性和字体尺寸的值必须后跟px。这个ie也是支持的。"></a>19. FireFox中设置HTML标签的style时，所有位置性和字体尺寸的值必须后跟px。这个ie也是支持的。</h3><h3 id="20-ie-firefox以及其它浏览器对于-table-标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。"><a href="#20-ie-firefox以及其它浏览器对于-table-标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。" class="headerlink" title="20. ie,firefox以及其它浏览器对于 table 标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。"></a>20. ie,firefox以及其它浏览器对于 table 标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。</h3><p>解决方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//向table追加一个空行：</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> row = otable.insertRow(<span class="number">-1</span>);</div><div class="line"><span class="keyword">var</span> cell = <span class="built_in">document</span>.createElement(<span class="string">"td"</span>);</div><div class="line"></div><div class="line">cell.innerHTML = <span class="string">" "</span>;</div><div class="line">cell.className = <span class="string">"XXXX"</span>;</div><div class="line">row.appendChild(cell);</div></pre></td></tr></table></figure></p>
-<h3 id="21-padding-问题"><a href="#21-padding-问题" class="headerlink" title="21. padding 问题"></a>21. padding 问题</h3><p>padding 5px 4px 3px 1px FireFox无法解释简写,<br>必须改成 padding-top:5px; padding-right:4px; padding-bottom:3px; padding-left:1px;</p>
-<h3 id="22-消除ul、ol等列表的缩进时"><a href="#22-消除ul、ol等列表的缩进时" class="headerlink" title="22. 消除ul、ol等列表的缩进时"></a>22. 消除ul、ol等列表的缩进时</h3><p>样式应写成:list-style:none;margin:0px;padding:0px;<br>其中margin属性对IE有效，padding属性对FireFox有效</p>
-<h3 id="23-CSS透明"><a href="#23-CSS透明" class="headerlink" title="23. CSS透明"></a>23. CSS透明</h3><p>IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。<br>FF：opacity:0.6。</p>
-<h3 id="24-CSS圆角"><a href="#24-CSS圆角" class="headerlink" title="24. CSS圆角"></a>24. CSS圆角</h3><p>IE：不支持圆角。<br>FF： -moz-border-radius:4px，或者-moz-border-radius-topleft:4px;-moz-border- radius-topright:4px;-moz-border-radius-bottomleft:4px;-moz-border- radius- bottomright:4px;。</p>
-<h3 id="25-CSS双线凹凸边框"><a href="#25-CSS双线凹凸边框" class="headerlink" title="25. CSS双线凹凸边框"></a>25. CSS双线凹凸边框</h3><p>IE：border:2px outset;。<br>FF： -moz-border-top-colors: #d4d0c8 white;-moz-border-left-colors: #d4d0c8 white;-moz-border-right-colors:#404040 #808080;-moz-border-bottom-colors:#404040 #808080;</p>
-<h3 id="26-对-select-的-options-集合操作"><a href="#26-对-select-的-options-集合操作" class="headerlink" title="26. 对 select 的 options 集合操作"></a>26. 对 select 的 options 集合操作</h3><p>枚举元素除了[]外，SelectName.options.item()也是可以的, 另外SelectName.options.length, SelectName.options.add/remove都可以在两种浏览器上使用。注意在add后赋值元素，否则会失败（本人试验如此）。</p>
-<h3 id="27-XMLHTTP的区别"><a href="#27-XMLHTTP的区别" class="headerlink" title="27. XMLHTTP的区别"></a>27. XMLHTTP的区别</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//mf</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)&#123; <span class="comment">//mf</span></div><div class="line">    xmlHttp = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    xmlHttp.onreadystatechange = xmlHttpChange;</div><div class="line">    xmlHttp.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>);</div><div class="line">    xmlHttp.send(<span class="literal">null</span>)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject) &#123;<span class="comment">// code for IE</span></div><div class="line">    xmlHttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>)</div><div class="line">    <span class="keyword">if</span> (xmlHttp)&#123;</div><div class="line">        xmlHttp.onreadystatechange=xmlHttpChange;</div><div class="line">        xmlHttp.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>);</div><div class="line">        xmlHttp.send();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="28-innerHTML的区别"><a href="#28-innerHTML的区别" class="headerlink" title="28. innerHTML的区别"></a>28. innerHTML的区别</h3><p>Firefox 不支持 innerHTML, 解决办法可以如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rng = <span class="built_in">document</span>.createRange();</div><div class="line">el  = <span class="built_in">document</span>.getElementById(elementid);</div><div class="line">rng.setStartBefore(el);</div><div class="line">htmlFrag = rng.createContextualFragment(content);</div><div class="line"></div><div class="line"><span class="keyword">while</span> (el.hasChildNodes()) <span class="comment">//清除原有内容，加入新内容</span></div><div class="line">el.removeChild(el.lastChild);</div><div class="line">el.appendChild(htmlFrag);</div></pre></td></tr></table></figure>
-<h3 id="29-窗口的大小"><a href="#29-窗口的大小" class="headerlink" title="29. 窗口的大小"></a>29. 窗口的大小</h3><p>firefox、chrome、IE9和safari:</p>
-<p>window.innerWidth 和 window.innerHeight</p>
-<p>IE系列:</p>
-<p>document.body.clientWidth 和 document.body.clientHeight</p>
-<p>不是IE6：</p>
-<p>document.documentElement.clientWidth 和document.documentElement.clientHeight</p>
-<p>兼容代码可以这样子写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> width = <span class="built_in">window</span>.innerWidth;</div><div class="line"><span class="keyword">var</span> height = <span class="built_in">window</span>.innerHeight;</div><div class="line"></div><div class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> width != <span class="string">'number'</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.compatMode == <span class="string">'CSS1Compat'</span>)&#123;</div><div class="line">        width = <span class="built_in">document</span>.documentElement.clientWidth;</div><div class="line">        height = <span class="built_in">document</span>.docuementElement.clientHeight;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        width = <span class="built_in">document</span>.body.clientWidth;</div><div class="line">        height = <span class="built_in">document</span>.body.clientHeight;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="2017-08-26"><a href="#2017-08-26" class="headerlink" title="2017.08.26"></a>2017.08.26</h1><h2 id="jQuery中size-、length-区别"><a href="#jQuery中size-、length-区别" class="headerlink" title="jQuery中size()、length()区别"></a>jQuery中size()、length()区别</h2><ol>
-<li><p>针对标签对象元素，比如数html页面有多少个段落元素<code>&lt;li&gt;&lt;/li&gt;</code>,那么此时的$(“p”).size() == $(“p”).length</p>
-</li>
-<li><p>计算一个字符串的长度或者计算一个数组元素的个数,那么此时只能用length而不能用size()</p>
-</li>
-</ol>
-<h1 id="2017-08-27"><a href="#2017-08-27" class="headerlink" title="2017.08.27"></a>2017.08.27</h1><h2 id="jQuery-extend-函数详解"><a href="#jQuery-extend-函数详解" class="headerlink" title="jQuery.extend 函数详解"></a>jQuery.extend 函数详解</h2><p>JQuery的extend扩展方法：Jquery的扩展方法extend是我们在写插件的过程中常用的方法，该方法有一些重载原型。</p>
-<h3 id="一、Jquery的扩展方法原型是"><a href="#一、Jquery的扩展方法原型是" class="headerlink" title="一、Jquery的扩展方法原型是:"></a>一、Jquery的扩展方法原型是:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend(dest,src1,src2,src3...);</div></pre></td></tr></table></figure>
-<p>它的含义是将src1,src2,src3…合并到dest中,返回值为合并后的dest,由此可以看出该方法合并后，是修改了dest的结构的。</p>
-<p>如果想要得到合并的结果却又不想修改dest的结构，可以如下使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newSrc=$.extend(&#123;&#125;,src1,src2,src3...)<span class="comment">//也就是将"&#123;&#125;"作为dest参数。</span></div></pre></td></tr></table></figure>
-<p>这样就可以将src1,src2,src3…进行合并，然后将合并结果返回给newSrc了。如下例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result=$.extend(&#123;&#125;,&#123;<span class="attr">name</span>:<span class="string">"Tom"</span>,<span class="attr">age</span>:<span class="number">21</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"Jerry"</span>,<span class="attr">sex</span>:<span class="string">"Boy"</span>&#125;)</div></pre></td></tr></table></figure>
-<p>那么合并后的结果:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result=&#123;<span class="attr">name</span>:<span class="string">"Jerry"</span>,<span class="attr">age</span>:<span class="number">21</span>,<span class="attr">sex</span>:<span class="string">"Boy"</span>&#125;</div></pre></td></tr></table></figure>
-<p>也就是说后面的参数如果和前面的参数存在相同的名称，那么后面的会覆盖前面的参数值。</p>
-<h3 id="二、省略dest参数"><a href="#二、省略dest参数" class="headerlink" title="二、省略dest参数"></a>二、省略dest参数</h3><p>上述的extend方法原型中的dest参数是可以省略的，如果省略了，则该方法就<font color="red">只能有一个src参数</font>，而且是将该src合并到调用extend方法的对象中去，如：</p>
-<ol>
-<li>$.extend(src)该方法就是将src合并到jquery的全局对象中去，如：</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123; <span class="attr">hello</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'hello'</span>);&#125; &#125;);</div></pre></td></tr></table></figure>
-<p>就是将hello方法合并到jquery的全局对象中。</p>
-<ol>
-<li>$.fn.extend(src)该方法将src合并到jquery的实例对象中去，如:</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123; <span class="attr">hello</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'hello'</span>);&#125; &#125;);</div></pre></td></tr></table></figure>
-<p>就是将hello方法合并到jquery的实例对象中。</p>
-<p><code>$.extend</code>扩展实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;<span class="attr">net</span>:&#123;&#125;&#125;);</div></pre></td></tr></table></figure>
-<p>这是在jquery全局对象中扩展一个net命名空间。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.extend($.net,&#123; <span class="attr">hello</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'hello'</span>);&#125; &#125;)</div></pre></td></tr></table></figure>
-<p>这是将hello方法扩展到之前扩展的Jquery的net命名空间中去(全局对象中)。</p>
-<p><code>$.fn.extend</code>扩展实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;label&gt;<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"foo"</span>&gt;</span> Foo<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></div><div class="line">&lt;label&gt;<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"bar"</span>&gt;</span> Bar<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    jQuery.fn.extend(&#123;</div><div class="line">        <span class="attr">check</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">this</span>.checked = <span class="literal">true</span>;</div><div class="line">            &#125;);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">uncheck</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">this</span>.checked = <span class="literal">false</span>;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">// Use the newly created .check() method</span></div><div class="line"></div><div class="line">    $( <span class="string">"input[type='checkbox']"</span> ).check();</div><div class="line"></div><div class="line">    <span class="comment">// 看下面一个jQuery对象的扩展方法：</span></div><div class="line"></div><div class="line">    $.fn.extend(&#123;</div><div class="line">        <span class="attr">sayHello</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="string">'hello'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 就是将sayHello方法合并到jquery的实例对象中</span></div><div class="line"></div><div class="line"> &#125;);</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<h3 id="三、Jquery的extend方法还有一个重载原型"><a href="#三、Jquery的extend方法还有一个重载原型" class="headerlink" title="三、Jquery的extend方法还有一个重载原型:"></a>三、Jquery的extend方法还有一个重载原型:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend(boolean,dest,src1,src2,src3...)</div></pre></td></tr></table></figure>
-<p>第一个参数boolean代表是否进行深度拷贝，其余参数和前面介绍的一致，什么叫深层拷贝，我们看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result=$.extend( <span class="literal">true</span>, &#123;&#125;, &#123; <span class="attr">name</span>: <span class="string">"John"</span>, <span class="attr">location</span>: &#123;<span class="attr">city</span>: <span class="string">"Boston"</span>,<span class="attr">county</span>:<span class="string">"USA"</span>&#125; &#125;, &#123; <span class="attr">last</span>: <span class="string">"Resig"</span>, <span class="attr">location</span>: &#123;<span class="attr">state</span>: <span class="string">"MA"</span>,<span class="attr">county</span>:<span class="string">"China"</span>&#125; &#125; );</div></pre></td></tr></table></figure>
-<p>我们可以看出src1中嵌套子对象<code>location:{city:&quot;Boston&quot;}</code>,src2中也嵌套子对象<code>location:{state:&quot;MA&quot;}</code>,第一个深度拷贝参数为true，那么合并后的结果就是： </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result=&#123;<span class="attr">name</span>:<span class="string">"John"</span>,<span class="attr">last</span>:<span class="string">"Resig"</span>, <span class="attr">location</span>:&#123;<span class="attr">city</span>:<span class="string">"Boston"</span>,<span class="attr">state</span>:<span class="string">"MA"</span>,<span class="attr">county</span>:<span class="string">"China"</span>&#125;&#125;</div></pre></td></tr></table></figure>
-<p>也就是说它会将src中的嵌套子对象也进行合并，而如果第一个参数boolean为false，我们看看合并的结果是什么，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result=$.extend( <span class="literal">false</span>, &#123;&#125;, &#123; <span class="attr">name</span>: <span class="string">"John"</span>, <span class="attr">location</span>:&#123;<span class="attr">city</span>: <span class="string">"Boston"</span>,<span class="attr">county</span>:<span class="string">"USA"</span>&#125; &#125;, &#123; <span class="attr">last</span>: <span class="string">"Resig"</span>, <span class="attr">location</span>: &#123;<span class="attr">state</span>: <span class="string">"MA"</span>,<span class="attr">county</span>:<span class="string">"China"</span>&#125; &#125; );</div></pre></td></tr></table></figure>
-<p>那么合并后的结果就是:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result=&#123;<span class="attr">name</span>:<span class="string">"John"</span>,<span class="attr">last</span>:<span class="string">"Resig"</span>,<span class="attr">location</span>:&#123;<span class="attr">state</span>:<span class="string">"MA"</span>,<span class="attr">county</span>:<span class="string">"China"</span>&#125;&#125;</div></pre></td></tr></table></figure>
-<p>以上就是$.extend()在项目中经常会使用到的一些细节。</p>
-<h1 id="2017-09-02"><a href="#2017-09-02" class="headerlink" title="2017.09.02"></a>2017.09.02</h1><h2 id="如何让-height-100-生效"><a href="#如何让-height-100-生效" class="headerlink" title="如何让 height: 100%; 生效"></a>如何让 <strong>height: 100%;</strong> 生效</h2><p>必须让父级的每一层都有 height: 100% 包括 html、body。</p>
-<ol>
-<li><p>需要理解浏览器是如何计算高度和宽度的。Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。</p>
-</li>
-<li><p>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。</p>
-</li>
-<li><p>因为页面并没有缺省的高度值，所以，当你让一个元素的高度设定为百分比高度时，无法根据获取父元素的高度，也就无法计算自己的高度。换句话说，父元素的高度只是一个缺省值：height: auto;。当你要求浏览器根据这样一个缺省值来计算百分比高度时，只能得到undefined的结果。也就是一个null值，浏览器不会对这个值有任何的反应。</p>
-</li>
-</ol>
-<blockquote>
-<p>使用height: 100%;时需要注意的一些事项:</p>
-</blockquote>
-<ol>
-<li><p>Margins 和 padding 会让你的页面出现滚动条，也许这是你不希望的。</p>
-</li>
-<li><p>如果你的元素实际高度大于你设定的百分比高度，那元素的高度会自动扩展。</p>
-</li>
-</ol>
-<h2 id="line-height-100"><a href="#line-height-100" class="headerlink" title="line-height: 100%;"></a><strong>line-height: 100%;</strong></h2><p>% 基于当前字体尺寸的百分比行间距</p>
-<blockquote>
-<p>尽量用 1 ，而不是 100%，因为设定 line-height 会影响到设定元素的子元素， 100%是根据父元素字体计算出尺寸子元素继承，而 1 是根据子元素字体计算出尺寸子元素继承，所以根据百分比设定的时候很有可能得不到自己真正想要的尺寸</p>
-</blockquote>
-<h1 id="2017-09-05"><a href="#2017-09-05" class="headerlink" title="2017.09.05"></a>2017.09.05</h1><h2 id="使用vscode，新建vue模板"><a href="#使用vscode，新建vue模板" class="headerlink" title="使用vscode，新建vue模板"></a>使用vscode，新建vue模板</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">		// Place your snippets for Vue here. Each snippet is defined under a snippet name and has a prefix, body and </div><div class="line">		// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:</div><div class="line">		// $1, $2 for tab stops, $0 for the final cursor position, and $&#123;1:label&#125;, $&#123;2:another&#125; for placeholders. Placeholders with the </div><div class="line">		// same ids are connected.</div><div class="line">		// Example:</div><div class="line">		"Print to console": &#123;</div><div class="line">			"prefix": "log",</div><div class="line">			"body": [</div><div class="line">				"console.log('$1');",</div><div class="line">				"$2"</div><div class="line">			],</div><div class="line">			"description": "Log output to console"</div><div class="line">		&#125;</div><div class="line">	*/</div><div class="line"></div><div class="line"></div><div class="line">	<span class="string">"Print to console"</span>: &#123;</div><div class="line"></div><div class="line">		<span class="string">"prefix"</span>: <span class="string">"vue"</span>,</div><div class="line"></div><div class="line">		<span class="string">"body"</span>: [</div><div class="line"></div><div class="line">			<span class="string">"&lt;template&gt;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"  &lt;div class=\"page\"&gt;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">"  &lt;/div&gt;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"&lt;/template&gt;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">"&lt;script type=\"text/ecmascript-6\"&gt;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"export default &#123;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"  data() &#123;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"    return &#123;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">"    &#125;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">"  &#125;,"</span>,</div><div class="line"></div><div class="line">			<span class="string">"  components: &#123;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">"  &#125;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"&#125;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"&lt;/script&gt;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">"&lt;style scoped rel=\"\" lang=\"stylus\"&gt;\n"</span>,</div><div class="line"></div><div class="line">			<span class="string">" "</span>,</div><div class="line"></div><div class="line">			<span class="string">"&lt;/style&gt;"</span>,</div><div class="line"></div><div class="line">			<span class="string">"$2"</span></div><div class="line"></div><div class="line">		],</div><div class="line"></div><div class="line">		<span class="string">"description"</span>: <span class="string">"Log output to console"</span></div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="2017-09-07"><a href="#2017-09-07" class="headerlink" title="2017.09.07"></a>2017.09.07</h1><h2 id="vue-transition"><a href="#vue-transition" class="headerlink" title="vue-transition"></a><a href="http://www.jianshu.com/p/c66cb4ea6e4f" target="_blank" rel="external">vue-transition</a></h2><p><img src="vue-transition.png" alt="@vue-transition | center | 300x0"></p>
-<h1 id="2017-09-27"><a href="#2017-09-27" class="headerlink" title="2017.09.27"></a>2017.09.27</h1><h2 id="替换元素和不可替换元素，块级元素和行内元素"><a href="#替换元素和不可替换元素，块级元素和行内元素" class="headerlink" title="替换元素和不可替换元素，块级元素和行内元素"></a>替换元素和不可替换元素，块级元素和行内元素</h2><p>根据元素本身特点来分类：</p>
-<ol>
-<li>替换元素(置换元素)</li>
-</ol>
-<p>替换元素根据其标签和属性来决定元素的具体显示内容.有</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span>&gt;</span> <span class="tag">&lt;<span class="name">textarea</span>&gt;</span> <span class="tag">&lt;<span class="name">select</span>&gt;</span> <span class="tag">&lt;<span class="name">object</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>替换一般有内在尺寸即img默认的是其图片的宽高，input也有默认的尺寸，img和input的宽高可以设定。</p>
-<ol>
-<li>不可替换元素(非置换元素)</li>
-</ol>
-<p>即将内容直接表现给用户端</p>
-<ol>
-<li>块级元素</li>
-</ol>
-<p>独占一行，可设置宽高。</p>
-<p>特点：独占一行、设置宽高、可以设置竖直、水平方向的margin,padding</p>
-<ol>
-<li>行内元素</li>
-</ol>
-<p>左右可以有其他元素在同一行。</p>
-<p>特点：不能独占一行、不能设置宽高、不可以设置竖直方向的margin,padding、可以设置水平方向的margin,padding</p>
-<blockquote>
-<p>注:几乎所有替换元素都是行内元素。行内元素的宽高大多是auto*auto。但其中包含的替换元素都可以直接设置宽高。如img、input、textarea等等。要设置其宽高可以display:inline-block;再设置宽高。</p>
-</blockquote>
-<ol>
-<li>常用的块状元素有(display:block)：</li>
-</ol>
-<p>当不设置宽度的时候，他的宽度继承自父元素，高度由子元素决定</p>
-<p>子元素高度超过父元素的原因：多半是子元素的高度没有计算到父元素中，脱离文档流，子元素浮动或者绝对定位，解决：触发BFC，请浮动，父级设置position</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">h1</span>&gt;</span>...<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">dl</span>&gt;</span>、<span class="tag">&lt;<span class="name">table</span>&gt;</span>、<span class="tag">&lt;<span class="name">address</span>&gt;</span>、<span class="tag">&lt;<span class="name">blockquote</span>&gt;</span> 、<span class="tag">&lt;<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>常用的内联元素有(display:inline)：</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>、<span class="tag">&lt;<span class="name">br</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">label</span>&gt;</span>、<span class="tag">&lt;<span class="name">q</span>&gt;</span>、<span class="tag">&lt;<span class="name">var</span>&gt;</span>、<span class="tag">&lt;<span class="name">cite</span>&gt;</span>、<span class="tag">&lt;<span class="name">code</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>常用的内联块状元素有(display:inline-block)：</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span>、<span class="tag">&lt;<span class="name">input</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>有一个有趣的现象就是当为元素（不论之前是什么类型元素，display:none 除外）设置以下2个句之一：</p>
-</blockquote>
-<ol>
-<li>position : absolute</li>
-<li>float : left 或 float:right</li>
-</ol>
-<p>元素会自动变为以 display:inline-block 的方式显示，当然就可以设置元素的 width 和 height 了且默认宽度不占满父元素。</p>
-<h2 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h2><p>真正意义上的inline-block水平呈现的元素间，换行显示或空格分隔的情况下会有间距</p>
-<p>我们使用CSS更改非inline-block水平元素为inline-block水平，也会有该问题</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.space a &#123;</div><div class="line">    display: inline-block;</div><div class="line">    padding: .5em 1em;</div><div class="line">    background-color: #cad5eb;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>惆怅<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>淡定<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>热血<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>解决方案：</p>
-<ol>
-<li>元素间留白间距出现的原因就是标签段之间的空格，因此，去掉HTML中的空格，自然间距就木有了。考虑到代码可读性，显然连成一行的写法是不可取的，我们可以：</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span></div><div class="line">    惆怅<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span></div><div class="line">    淡定<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span></div><div class="line">    热血<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>惆怅<span class="tag">&lt;/<span class="name">a</span></span></div><div class="line">    &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>淡定<span class="tag">&lt;/<span class="name">a</span></span></div><div class="line">    &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>热血<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>或者是借助HTML注释</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>惆怅<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="comment">&lt;!--</span></div><div class="line">    --&gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>淡定<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="comment">&lt;!--</span></div><div class="line">    --&gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>热血<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>使用margin负值</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.space a &#123;</div><div class="line">    display: inline-block;</div><div class="line">    margin-right: -3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>margin负值的大小与上下文的字体和文字大小相关，其中，间距对应大小值</p>
-<p>例如，对于12像素大小的上下文，Arial字体的margin负值为-3像素，Tahoma和Verdana就是-4像素，而Geneva为-6像素。</p>
-<p>由于外部环境的不确定性，以及最后一个元素多出的父margin值等问题，这个方法不适合大规模使用。</p>
-<ol>
-<li>去掉闭合标签</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>惆怅</div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>淡定</div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>热血<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意，为了向下兼容IE6/IE7等喝蒙牛长大的浏览器，最后一个列表的标签的结束（闭合）标签不能丢。</p>
-</blockquote>
-<p>在HTML5中，我们直接：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>惆怅</div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>淡定</div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>热血</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>使用font-size:0</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.space</span> &#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个方法，基本上可以解决大部分浏览器下inline-block元素之间的间距(IE7等浏览器有时候会有1像素的间距)。不过有个浏览器，就是Chrome, 其默认有最小字体大小限制，因为，考虑到兼容性，我们还需要添加：<br>类似下面的代码：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.space</span> &#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">-webkit-text-size-adjust</span>:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>使用letter-spacing</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.space</span> &#123;</div><div class="line">    <span class="attribute">letter-spacing</span>: -<span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">letter-spacing</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>使用word-spacing</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.space</span> &#123;</div><div class="line">    <span class="attribute">word-spacing</span>: -<span class="number">6px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.space</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">word-spacing</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>chrome</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.space &#123;</div><div class="line">    display: inline-table; //或者 display: table;</div><div class="line">    word-spacing: -6px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="2017-10-13"><a href="#2017-10-13" class="headerlink" title="2017.10.13"></a>2017.10.13</h1><p>一般情况下我们用js设置元素对象的样式会使用这样的形式：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var element= document.getElementById(“id”);</div><div class="line">element.style.width=”20px”;</div><div class="line">element.style.height=”20px”;</div><div class="line">element.style.border=”solid 1px red”;</div></pre></td></tr></table></figure>
-<p>样式一多，代码就很多；而且通过JS来覆写对象的样式是比较典型的一种销毁原样式并重建的过程，这种销毁和重建，都会增加浏览器的开销。</p>
-<p>js中有一个cssText的方法：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj.style.cssText=”样式”;</div><div class="line">element.style.cssText=”width:20px;height:20px;border:solid 1px red;”;</div></pre></td></tr></table></figure>
-<p>这样就可以尽量避免页面reflow，提高页面性能。</p>
-<p>但是，这样会有一个问题，会把原有的cssText清掉，比如原来的style中有’display:none;’，那么执行完上面的JS后，display就被删掉了。<br>为了解决这个问题，可以采用cssText累加的方法：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Element.style.cssText += ‘width:100px;height:100px;top:100px;left:100px;’</div></pre></td></tr></table></figure>
-<p>但是，cssText（假如不为空）在IE中最后一个分号会被删掉，因此，上面cssText累加的方法在IE中是无效的。</p>
-<p>最后，可以在前面添加一个分号来解决这个问题：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Element.style.cssText += ‘;width:100px;height:100px;top:100px;left:100px;’</div></pre></td></tr></table></figure>
-<h1 id="2017-10-18"><a href="#2017-10-18" class="headerlink" title="2017.10.18"></a>2017.10.18</h1><p>闭包是什么？</p>
-<p>就是一种允许函数向关联的父级作用域寻址的访问特权。</p>
-<h1 id="2017-10-22"><a href="#2017-10-22" class="headerlink" title="2017.10.22"></a>2017.10.22</h1><h2 id="从浏览器地址栏输入URL到显示页面的步骤"><a href="#从浏览器地址栏输入URL到显示页面的步骤" class="headerlink" title="从浏览器地址栏输入URL到显示页面的步骤"></a>从浏览器地址栏输入URL到显示页面的步骤</h2><ol>
-<li><p>在浏览器地址栏输入URL</p>
-</li>
-<li><p>检查浏览器缓存，如果请求资源在缓存中比并且新鲜，跳转到转码步骤：</p>
-</li>
-</ol>
-<ul>
-<li><ol>
-<li>如果资源未缓存，发起新请求；</li>
-</ol>
-</li>
-<li><ol>
-<li>如果已缓存检查是否足够新鲜，足够新鲜就直接提供给客户端，否则与服务器进行验证；</li>
-</ol>
-</li>
-<li><ol>
-<li>检验新鲜通常有连个Http头进行控制Expires 和 Cache-Control:</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>HTTP1.0提供Expires，值为一个绝对时间表示缓存新鲜日期</p>
-<p>HTTP1.1增加了Cache-Control: max-age=,值为以秒为单位的最大新鲜时间</p>
-</blockquote>
-<ul>
-<li><p>浏览器解析 URL获取协议，主机，端口，path</p>
-</li>
-<li><p>浏览器组装一个HTTP（GET）请求报文</p>
-</li>
-</ul>
 
       
     </div>
@@ -763,6 +449,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/12/28/html5之data-*/" rel="prev" title="HTML5中的data-*如何处理数据详解">
+                HTML5中的data-*如何处理数据详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -808,17 +498,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/photo-1-2.jpeg"
@@ -833,7 +514,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -844,7 +525,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -855,7 +536,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -914,22 +595,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#notebook-前端"><span class="nav-number">1.</span> <span class="nav-text">notebook: 前端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-07-19"><span class="nav-number"></span> <span class="nav-text">2017.07.19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-07-27"><span class="nav-number"></span> <span class="nav-text">2017.07.27</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-01"><span class="nav-number"></span> <span class="nav-text">2017.08.01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-02"><span class="nav-number"></span> <span class="nav-text">2017.08.02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-05"><span class="nav-number"></span> <span class="nav-text">2017.08.05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-07"><span class="nav-number"></span> <span class="nav-text">2017.08.07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-16"><span class="nav-number"></span> <span class="nav-text">2017.08.16</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript中一些常见的兼容性问题"><span class="nav-number">1.</span> <span class="nav-text">javascript中一些常见的兼容性问题:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-document-formName-item-“itemName”-问题"><span class="nav-number">1.1.</span> <span class="nav-text">1. document.formName.item(“itemName”) 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-集合类对象问题"><span class="nav-number">1.2.</span> <span class="nav-text">2.集合类对象问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-自定义属性问题"><span class="nav-number">1.3.</span> <span class="nav-text">3.自定义属性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-eval-“idName”-问题"><span class="nav-number">1.4.</span> <span class="nav-text">4.eval(“idName”)问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-变量名与某HTML对象ID相同的问题"><span class="nav-number">1.5.</span> <span class="nav-text">5.变量名与某HTML对象ID相同的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-const问题"><span class="nav-number">1.6.</span> <span class="nav-text">6.const问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-input-type属性问题"><span class="nav-number">1.7.</span> <span class="nav-text">7.input.type属性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-window-event问题"><span class="nav-number">1.8.</span> <span class="nav-text">8.window.event问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-event-x与event-y问题"><span class="nav-number">1.9.</span> <span class="nav-text">9.event.x与event.y问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-event-srcElement问题"><span class="nav-number">1.10.</span> <span class="nav-text">10.event.srcElement问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-window-location-href问题"><span class="nav-number">1.11.</span> <span class="nav-text">11.window.location.href问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-模态和非模态窗口问题"><span class="nav-number">1.12.</span> <span class="nav-text">12.模态和非模态窗口问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-frame问题"><span class="nav-number">1.13.</span> <span class="nav-text">13.frame问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问frame对象"><span class="nav-number">1.13.1.</span> <span class="nav-text">(1)访问frame对象:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-切换frame内容"><span class="nav-number">1.13.2.</span> <span class="nav-text">(2)切换frame内容:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-body问题"><span class="nav-number">1.14.</span> <span class="nav-text">14.body问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-事件委托方法"><span class="nav-number">1.15.</span> <span class="nav-text">15. 事件委托方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-firefox与IE的父元素-parentElement-的区别"><span class="nav-number">1.16.</span> <span class="nav-text">16. firefox与IE的父元素(parentElement)的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-cursor-hand-VS-cursor-pointer"><span class="nav-number">1.17.</span> <span class="nav-text">17.cursor:hand VS cursor:pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-innerText在IE中能正常工作，但是innerText在FireFox中却不行-需用textContent。"><span class="nav-number">1.18.</span> <span class="nav-text">18.innerText在IE中能正常工作，但是innerText在FireFox中却不行. 需用textContent。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-FireFox中设置HTML标签的style时，所有位置性和字体尺寸的值必须后跟px。这个ie也是支持的。"><span class="nav-number">1.19.</span> <span class="nav-text">19. FireFox中设置HTML标签的style时，所有位置性和字体尺寸的值必须后跟px。这个ie也是支持的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-ie-firefox以及其它浏览器对于-table-标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。"><span class="nav-number">1.20.</span> <span class="nav-text">20. ie,firefox以及其它浏览器对于 table 标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-padding-问题"><span class="nav-number">1.21.</span> <span class="nav-text">21. padding 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-消除ul、ol等列表的缩进时"><span class="nav-number">1.22.</span> <span class="nav-text">22. 消除ul、ol等列表的缩进时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-CSS透明"><span class="nav-number">1.23.</span> <span class="nav-text">23. CSS透明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-CSS圆角"><span class="nav-number">1.24.</span> <span class="nav-text">24. CSS圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-CSS双线凹凸边框"><span class="nav-number">1.25.</span> <span class="nav-text">25. CSS双线凹凸边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-对-select-的-options-集合操作"><span class="nav-number">1.26.</span> <span class="nav-text">26. 对 select 的 options 集合操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-XMLHTTP的区别"><span class="nav-number">1.27.</span> <span class="nav-text">27. XMLHTTP的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28-innerHTML的区别"><span class="nav-number">1.28.</span> <span class="nav-text">28. innerHTML的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29-窗口的大小"><span class="nav-number">1.29.</span> <span class="nav-text">29. 窗口的大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-26"><span class="nav-number"></span> <span class="nav-text">2017.08.26</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中size-、length-区别"><span class="nav-number">1.</span> <span class="nav-text">jQuery中size()、length()区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-08-27"><span class="nav-number"></span> <span class="nav-text">2017.08.27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-extend-函数详解"><span class="nav-number">1.</span> <span class="nav-text">jQuery.extend 函数详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Jquery的扩展方法原型是"><span class="nav-number">1.1.</span> <span class="nav-text">一、Jquery的扩展方法原型是:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、省略dest参数"><span class="nav-number">1.2.</span> <span class="nav-text">二、省略dest参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Jquery的extend方法还有一个重载原型"><span class="nav-number">1.3.</span> <span class="nav-text">三、Jquery的extend方法还有一个重载原型:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-02"><span class="nav-number"></span> <span class="nav-text">2017.09.02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何让-height-100-生效"><span class="nav-number">1.</span> <span class="nav-text">如何让 height: 100%; 生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height-100"><span class="nav-number">2.</span> <span class="nav-text">line-height: 100%;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-05"><span class="nav-number"></span> <span class="nav-text">2017.09.05</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用vscode，新建vue模板"><span class="nav-number">1.</span> <span class="nav-text">使用vscode，新建vue模板</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-07"><span class="nav-number"></span> <span class="nav-text">2017.09.07</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-transition"><span class="nav-number">1.</span> <span class="nav-text">vue-transition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-09-27"><span class="nav-number"></span> <span class="nav-text">2017.09.27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#替换元素和不可替换元素，块级元素和行内元素"><span class="nav-number">1.</span> <span class="nav-text">替换元素和不可替换元素，块级元素和行内元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline-block"><span class="nav-number">2.</span> <span class="nav-text">inline-block</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-10-13"><span class="nav-number"></span> <span class="nav-text">2017.10.13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-10-18"><span class="nav-number"></span> <span class="nav-text">2017.10.18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-10-22"><span class="nav-number"></span> <span class="nav-text">2017.10.22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从浏览器地址栏输入URL到显示页面的步骤"><span class="nav-number">1.</span> <span class="nav-text">从浏览器地址栏输入URL到显示页面的步骤</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -1,0 +1,1208 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html5,data-*," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="https://github.com/lvzhenbang/article/blob/master/js/data-attribute.md Attribute和property:傻傻的分也分不清楚的property和attribute  在移动端的开发中，我们经常会使用这种情况，如媒体资源（图片，视频）的优化处理上 还有就是我们前端开发都接触过的bootstrap框架，在插件的引用上就是使用的">
+<meta name="keywords" content="html5,data-*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5中的data-*如何处理数据详解">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/html5之data-*/index.html">
+<meta property="og:site_name" content="鱼人孑">
+<meta property="og:description" content="https://github.com/lvzhenbang/article/blob/master/js/data-attribute.md Attribute和property:傻傻的分也分不清楚的property和attribute  在移动端的开发中，我们经常会使用这种情况，如媒体资源（图片，视频）的优化处理上 还有就是我们前端开发都接触过的bootstrap框架，在插件的引用上就是使用的">
+<meta property="og:updated_time" content="2017-12-28T19:36:59.758Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5中的data-*如何处理数据详解">
+<meta name="twitter:description" content="https://github.com/lvzhenbang/article/blob/master/js/data-attribute.md Attribute和property:傻傻的分也分不清楚的property和attribute  在移动端的开发中，我们经常会使用这种情况，如媒体资源（图片，视频）的优化处理上 还有就是我们前端开发都接触过的bootstrap框架，在插件的引用上就是使用的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/29/html5之data-*/"/>
+
+
+
+
+
+  <title>HTML5中的data-*如何处理数据详解 | 鱼人孑</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼人孑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/html5之data-*/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="peanut">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo-1-2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼人孑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML5中的data-*如何处理数据详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T03:36:58+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://github.com/lvzhenbang/article/blob/master/js/data-attribute.md" target="_blank" rel="external">https://github.com/lvzhenbang/article/blob/master/js/data-attribute.md</a></p>
+<p>Attribute和property:<a href="https://github.com/lvzhenbang/article/blob/master/js/porp-attr.md" target="_blank" rel="external">傻傻的分也分不清楚的property和attribute</a></p>
+</blockquote>
+<p>在移动端的开发中，我们经常会使用这种情况，如媒体资源（图片，视频）的优化处理上</p>
+<p>还有就是我们前端开发都接触过的bootstrap框架，在插件的引用上就是使用的 data-*，那么它的魅力何在呢？</p>
+<h2 id="HTML5-data-由来"><a href="#HTML5-data-由来" class="headerlink" title="HTML5 data-* 由来"></a>HTML5 data-* 由来</h2><p>在HTML5出现之前我们处理一些被引入的数据是通过用的 class Attribute 或者元素自带的 attribute，或者开发人员自定义一些数据属性。</p>
+<p>这样操作数据很不方便，如何在页面内处理数据更方便，成了开发人员苦恼的问题，在HTML5出现后你就不用在担心了。</p>
+<blockquote>
+<p><a href="http://w3c.github.io/html/dom.html#custom-data-attribute" target="_blank" rel="external">w3c data-attribute 规范</a></p>
+</blockquote>
+<h2 id="HTML5-data-如何工作"><a href="#HTML5-data-如何工作" class="headerlink" title="HTML5 data-* 如何工作"></a>HTML5 data-* 如何工作</h2><p>我们可以在一个列表项中存储一个用户的信息，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">data-id</span>=<span class="string">"111111"</span> <span class="attr">data-name</span>=<span class="string">"lvzhenbang"</span> <span class="attr">data-email</span>=<span class="string">"lvzhenbang@outlook.com"</span> <span class="attr">data-github</span>=<span class="string">"https://github.com/lvzhenbang"</span>&gt;</span>lvzhenbang<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这些数据对于页面的访问者来说用处不大，因为用户看不到，但是它对于web应用的开发者很有用。这时你可以想象一下增加一个删除按钮，这个按钮可以删除列表中的某个用户，通过用户的数据信息 data-id ，你不需要其他的相关东西或者属性，就可以直接向后端发送请求删除该用户。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"delete-btn"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">data-cmd</span>=<span class="string">"delete"</span> <span class="attr">data-id</span>=<span class="string">"111111"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这个简单的使用场景就描述了 data-* 如何工作。</p>
+<h2 id="用-HTML5-data-能存储些什么"><a href="#用-HTML5-data-能存储些什么" class="headerlink" title="用 HTML5 data-* 能存储些什么"></a>用 HTML5 data-* 能存储些什么</h2><p>data-* 虽然是个好东西，但它不是万能的，它本身还是 <a href="https://github.com/lvzhenbang/article/blob/master/js/porp-attr.md" target="_blank" rel="external">Attribute</a> ，而 Attribute 就是只能存储字符串类型数据。如果你将一个对象直接存储在其中是不行的，但对对象进行序列化处理后，还是可以的。</p>
+<ul>
+<li>用JavaScript来reading/writing data-*</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 用户信息的操作按钮</span></div><div class="line"><span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementById(<span class="string">'opt-btn'</span>);</div><div class="line"><span class="comment">// 删除按钮</span></div><div class="line"><span class="keyword">var</span> delBtn = <span class="built_in">document</span>.getElementById(<span class="string">'delte-btn'</span>);</div><div class="line"><span class="comment">// 获得信息</span></div><div class="line"><span class="keyword">var</span> id = oBtn.getAttribute(<span class="string">'data-id'</span>);</div><div class="line"><span class="comment">// 改变数据信息</span></div><div class="line">delBtn.setAttribute(<span class="string">'data-id'</span>, id);</div></pre></td></tr></table></figure>
+<p>是不是很简单，然后你就可以通过AJAX向后端请求，做你想要做的事情了。</p>
+<ul>
+<li>用jQuery来reading/writing data-*</li>
+</ul>
+<p>在jQuery中有一个 .attr() 方法就可以解决读写data数据的功能了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获得用户信息的操作按钮</span></div><div class="line"><span class="keyword">var</span> oBtn = $(<span class="string">'#opt-btn'</span>);</div><div class="line"><span class="comment">// 获得删除按钮</span></div><div class="line"><span class="keyword">var</span> delBtn = $(<span class="string">'#delte-btn'</span>);</div><div class="line"><span class="comment">// 获得操作的信息</span></div><div class="line"><span class="keyword">var</span> id = oBtn.attr(<span class="string">'data-id'</span>);</div><div class="line"><span class="comment">// 改变删除按钮的数据信息</span></div><div class="line">delBtn.attr(<span class="string">'data-id'</span>, id);</div></pre></td></tr></table></figure>
+<p>熟悉jQuery的你可能会想到不是还有一个 .data() 方法吗? 虽然 .attr() 和 .data() 在操作 data-* 上有一些重叠，但他们完全是两回事。没有深入理解的同学，只需要知道 .attr() 就好了。</p>
+<p>其实.data(name, value) 的实现原理很简单。如果有第二个参数，它会直接先创建一个property，然后对其进行赋值；如果没有没有第二个参数时，他会先判断data attribute在不在，如果不在，它会先判断dom对象中是否有 data-<em>，如果有他将获取该data-</em>的值data1，然后创建一个property， 然后给它赋值为data1，如果没有，就赋值为undefined。这里的对象增加删除属性和一般的对象操作没有区别。</p>
+<ul>
+<li>HTML5 有原生的API dataset 来reading/writing data-*</li>
+</ul>
+<p>HTML5 就是开发就是这样方便，但它存在一些兼容性问题，IE系列的浏览器不支持。但是时代在进步，这些奇葩的浏览器最终会成为历史，所以还是有必要说两句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获得用户信息的操作按钮</span></div><div class="line"><span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementById(<span class="string">'opt-btn'</span>);</div><div class="line"><span class="comment">// 获得删除按钮</span></div><div class="line"><span class="keyword">var</span> delBtn = <span class="built_in">document</span>.getElementById(<span class="string">'delte-btn'</span>);</div><div class="line"><span class="comment">// 获得操作的信息</span></div><div class="line"><span class="keyword">var</span> id = oBtn.dataset.id;</div><div class="line"><span class="comment">// 改变删除按钮的数据信息</span></div><div class="line">delBtn.setAttribute.id = id;</div></pre></td></tr></table></figure>
+<p>值得注意的是这里没有数据前缀和 -，类似于我们在JavaScript中操作css属性的方式，我们在使用dataset API时，你在HTML中用 data-some-attribute-name，但在JavaScript中你需要用 dataset.someAttributeName 这样的驼峰形式。</p>
+<h2 id="用-HTML5-data-能做些什么事情呢"><a href="#用-HTML5-data-能做些什么事情呢" class="headerlink" title="用 HTML5 data-* 能做些什么事情呢"></a>用 HTML5 data-* 能做些什么事情呢</h2><p>这里有几个简单的例子，仅供参考学习。</p>
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><p>这其实是一个简化版的模糊查询，我曾经再一次面使用遇到过这样的问题，就是让回答如何做一个简单的模糊查询。</p>
+<p>假如你有一个如下面所示的demo，你想要通过滤每个用户的关键字来筛选用户。只要你将它们的关键字放入 data attribute 中，然后编写一个简短的脚本循环并显示/隐藏它们即可。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"filter"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"person"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-models</span>=<span class="string">"'王明', 25, '网络工程', '篮球'"</span>&gt;</span>王明<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-models</span>=<span class="string">"'张华', 23, '软件工程', '足球'"</span>&gt;</span>张华<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-models</span>=<span class="string">"'张华', 24, '计算机科学技术', '篮球'"</span>&gt;</span>王丽<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-models</span>=<span class="string">"'王大牛', 25, '网络工程', '篮球'"</span>&gt;</span>王大牛<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-models</span>=<span class="string">"'王小二', 25, '机电自动化', '篮球'"</span>&gt;</span>王小二<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-models</span>=<span class="string">"'张丽', 24, '机电自动化', '篮球'"</span>&gt;</span>张丽<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#filter'</span>).on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> keyword = $(<span class="keyword">this</span>).val().toLowerCase();</div><div class="line">    $(<span class="string">'.person &gt; li'</span>).each( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $(<span class="keyword">this</span>).toggle( keyword.length &lt; <span class="number">1</span> || $(<span class="keyword">this</span>).attr(<span class="string">'data-models'</span>).indexOf(keyword) &gt; <span class="number">-1</span> );</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>demo演示</li>
+</ol>
+<ul>
+<li>style 样式<br>毫无疑问你可以使用 class 来定义样式，但是你也可以用 data-* 来应用样式（不用管data数据的值）：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"label"</span> <span class="attr">data-warning</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-attr">[data-warning]</span> &#123;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">但是如果你想依据数据属性的值呢？你可以这样使用：</div><div class="line"></div><div class="line"><span class="selector-attr">[data-warning*=error]</span> &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-attr">[data-warning*=update]</span> &#123;</div><div class="line">    <span class="attribute">color</span>: green;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-attr">[data-warning*=modify]</span> &#123;</div><div class="line">    <span class="attribute">color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的使用是不是很熟悉，相信研究过bootstrap的同学对此应该不会陌生。</p>
+<p>可参考bootstrap中将link转化为按钮</p>
+<ol>
+<li>demo演示</li>
+</ol>
+<h3 id="响应式开发"><a href="#响应式开发" class="headerlink" title="响应式开发"></a>响应式开发</h3><p>在做响应式开发的过程中我们不仅可以使用媒体查询，我们还可以用 data-*</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-role</span>=<span class="string">"mobile"</span>&gt;</span></div><div class="line">    移动端内容</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-attr">[data-role="mobile"]</span> &#123;</div><div class="line">  <span class="attribute">display</span>:block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="configure-js插件的配置项"><a href="#configure-js插件的配置项" class="headerlink" title="configure js插件的配置项"></a>configure js插件的配置项</h3><p>BootStrap用自定义数据属性作为可选择的配置项来配置插件。一个 popover 例子如下:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-danger"</span> <span class="attr">data-toggle</span>=<span class="string">"popover"</span> <span class="attr">title</span>=<span class="string">"Popover title"</span> <span class="attr">data-content</span>=<span class="string">"And here's some amazing content. It's very engaging. Right?"</span>&gt;</span>点我弹出/隐藏弹出框<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="和伪元素的结合实现tool-Tip"><a href="#和伪元素的结合实现tool-Tip" class="headerlink" title="和伪元素的结合实现tool Tip"></a>和伪元素的结合实现tool Tip</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"tooltip"</span> <span class="attr">data-tooltip</span>=<span class="string">"我是一个数据属性值"</span>&gt;</span>数据属性<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.tooltip</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">8px</span>;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">background-color</span>: green;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">2px</span>;</div><div class="line">  <span class="attribute">cursor</span>: pointer;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.tooltip</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">110%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(data-tooltip);</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">12px</span>;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 0, 0.75);</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">6px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.tooltip</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>demo演示:</li>
+</ol>
+<ul>
+<li>什么时候应该用</li>
+</ul>
+<p>1.js动画计算中可能需要的元素初始宽高，透明度等样式</p>
+<p>2.Flash加载Flash电影的的存储参数，也包括(img/video/audio)</p>
+<p>3.在游戏开发中存储一些人物属性的数据</p>
+<p>4.web统计标签数据的证明(也就是我们常用的给元素取一个为一名字，方便统计)</p>
+<ul>
+<li>什么时候不应该用</li>
+</ul>
+<ol>
+<li>不要用它来替换一个现有的属性或元素。如下：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">data-time</span>=<span class="string">"20:00"</span>&gt;</span>8pm<span class="tag">&lt;<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我们应该像下面这样定义：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"20:00"</span>&gt;</span>8pm<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>数据属性不应该用作meta data 和 micro format的替代品。</li>
+</ol>
+<p>micro format 被设计给人类用的，是被引入给我们的标记上下文的。例如：如果你有一张Vcard用来记录个人或组织的联系信息，那么你将会给这张Vcard一个类，让机器理解这是一个联系信息。代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"vcard"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"fn"</span> &gt;</span>Aaron Lumsden<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>而不是像下面的代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"vcard"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">data-name</span>=<span class="string">"Aaron Lumsden "</span> &gt;</span>Aaron Lumsden<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>想要了解更多的micro format您可以访问 microformats.org</p>
+<ol>
+<li>他仅限于网站或app的内部使用，而不能用在外部，外部的用一个XML/RSS</li>
+</ol>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>data-<em>在web上已经被广泛的应用。令人兴奋的是，他们在旧浏览器上依然运行良好，并遵循web的标准，这意味着你不用担心兼容性的问题。但是如果你试图用 data-</em> 以便于样式获取data-*的值话，那么只有支持css3选择器的浏览器支持这一功能。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html5/" rel="tag"># html5</a>
+          
+            <a href="/tags/data/" rel="tag"># data-*</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/22/每日总结/" rel="next" title="每日总结">
+                <i class="fa fa-chevron-left"></i> 每日总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/30/原生JS中DOM节点相关API合集/" rel="prev" title="原生JS中DOM节点相关API合集">
+                原生JS中DOM节点相关API合集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photo-1-2.jpeg"
+               alt="peanut" />
+          <p class="site-author-name" itemprop="name">peanut</p>
+           
+              <p class="site-description motion-element" itemprop="description">天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/peanutDD" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-data-由来"><span class="nav-number">1.</span> <span class="nav-text">HTML5 data-* 由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-data-如何工作"><span class="nav-number">2.</span> <span class="nav-text">HTML5 data-* 如何工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-HTML5-data-能存储些什么"><span class="nav-number">3.</span> <span class="nav-text">用 HTML5 data-* 能存储些什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-HTML5-data-能做些什么事情呢"><span class="nav-number">4.</span> <span class="nav-text">用 HTML5 data-* 能做些什么事情呢</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤"><span class="nav-number">4.1.</span> <span class="nav-text">过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式开发"><span class="nav-number">4.2.</span> <span class="nav-text">响应式开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configure-js插件的配置项"><span class="nav-number">4.3.</span> <span class="nav-text">configure js插件的配置项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和伪元素的结合实现tool-Tip"><span class="nav-number">4.4.</span> <span class="nav-text">和伪元素的结合实现tool Tip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束语"><span class="nav-number">5.</span> <span class="nav-text">结束语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">peanut</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
